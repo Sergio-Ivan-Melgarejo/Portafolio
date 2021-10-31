@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Sergio Ivan Melgarejo</title>
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/757be4cedc.js" crossorigin="anonymous"></script>
     <!-- normalize -->
     <link rel="stylesheet" href="CSS/normalize.css">
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style-page-inicio.css">
+    <link rel="stylesheet" href="CSS/nav-superior.css">
 </head>
 <body class="body" id="body">
     <!-- pantalla de entrada || desbloque de pantalla -->
@@ -18,25 +21,54 @@
         <h1 class="header__h1">Bienvenido a mi Portafolio</h1>
         <button>Desbloquear</button>
     </header>        
-    <!-- nav de configuraciones || barra supeior -->
-    <nav class="nav-superior">
-        <ul class="nav-superior__ul-1">
-            <li class="nav-superior__li-1">logo-de-guia</li>
-            <li class="nav-superior__li-1">logo-configuraciones</li>
+    
+    <!-- nav de configuraciones || barra inferior -->
+    <!-- <nav class="nav-inferior">
+        <ul class="nav-inferior__ul-1">
+            <li class="nav-inferior__li-1">logo-de-guia</li>
+            <li class="nav-inferior__li-1">logo-configuraciones</li>
         </ul>
         <ul class="nav-superior__ul-2">
-            <li class="nav-superior__li-2">temas</li>
-            <li class="nav-superior__li-2">fuente</li>
-            <li class="nav-superior__li-2">modo lectura</li>
-            <li class="nav-superior__li-2">modo dia/noche</li>
-            <li class="nav-superior__li-2">fuente</li>
-            <li class="nav-superior__li-2">botones de abajo</li>
-            <li class="nav-superior__li-2">brillo</li>
+            <li class="nav-inferior__li-2">temas</li>
+            <li class="nav-inferior__li-2">fuente</li>
+            <li class="nav-inferior__li-2">modo lectura</li>
+            <li class="nav-inferior__li-2">modo dia/noche</li>
+            <li class="nav-inferior__li-2">fuente</li>
+            <li class="nav-inferior__li-2">botones de abajo</li>
+            <li class="nav-inferior__li-2">brillo</li>
         </ul>
+    </nav> -->
+    <!-- nav de configuraciones || barra supeior -->
+    <nav class="nav-superior">
+        <h2 class="nav-superior__titulo">Configuraciones</h2>
+        <ul class="nav-superior__ul">
+            <ul class="nav-superior__ul-2">
+                <li class="nav-superior__li"><i class="fas fa-sun" title="modo dia"></i></li>
+                <li class="nav-superior__li"><i class="fas fa-book-open" title="modo lectura"></i></li>
+            </ul>
+            <li class="nav-superior__li">Temas 
+                <div class="li__temas">
+                    <button class="temas__boton temas__rojo"></button>
+                    <button class="temas__boton temas__verde"></button>
+                    <button class="temas__boton temas__celeste"></button>
+                    <button class="temas__boton temas__amarillo"></button>
+                    <button class="temas__boton temas__violeta"></button>
+                </div>
+            </li>
+            <li class="nav-superior__li">Fuente
+                <div class="li__fuente">
+                    <button class="fuente__fuente fuente__pequeño">Pequeño</button>
+                    <button class="fuente__fuente fuente__mediano">Mediano</button>
+                    <button class="fuente__fuente fuente__grande">Grande</button>
+            </li>
+        </ul>
+        <div class="nav-superior__flecla-arriba">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="nav-superior__flecla-abajo">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </nav>
-    <main>
-        <section></section>
-    </main>
     
     <!-- javascript -->
     <script src="JavaScript/code-inicio.js"></script>

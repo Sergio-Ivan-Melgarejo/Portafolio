@@ -1,0 +1,141 @@
+:root{
+    --color-rojo: rgb(179, 11, 11);
+    --color-verde: rgb(82, 202, 27);
+    --color-violeta: rgb(76, 36, 221);
+    --color-celeste: rgb(73, 182, 233);
+}
+
+/* barra superior / barra configuraciones ______*/
+
+.nav-superior{
+    background-color: var(--color-1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    color: var(--color-4);
+    border-bottom: 10px solid var(--color-2);
+    padding-bottom: 50px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.nav-superior__ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    list-style: none;
+    flex-direction: column;
+    width: clamp(375px, 60vw, 50%);
+    margin: 20px auto 10px;
+    border-radius: 5px;
+    background-color: var(--color-2);
+    padding: 20px;
+}
+
+.nav-superior__titulo{
+    color: var(--color-1);
+    background-color: var(--color-4);
+    width: clamp(375px, 60vw, 50%);
+    margin: auto;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 20px;
+}
+
+.nav-superior__flecla-abajo, .nav-superior__flecla-arriba{
+    width: 100px;
+    height: 50px;
+    background-color: var(--color-2);
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translate(-50%);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.fa-chevron-down, .fa-chevron-up{
+    font-size: 2em;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.nav-superior__flecla-arriba{
+    bottom: -10px;
+    transform: translate(-50%) rotateX(180deg);
+}
+.fa-chevron-up{
+    transform: rotateX(180deg);
+}
+
+/* sub menu opciones ----------*/
+
+.nav-superior__ul-2{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.nav-superior__li .fas{
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color-2);
+}
+
+/* sub menu temas ----------*/
+
+.li__temas, .li__fuente{
+    background-color: var(--color-1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.temas__boton{
+    padding: 15px;
+    border: none;
+}
+
+.temas__rojo{
+    background-color: var(--color-rojo);
+}
+
+.temas__verde{
+    background-color: var(--color-verde);
+}
+
+.temas__violeta{
+    background-color: var(--color-violeta);
+}
+
+.temas__amarillo{
+    background-color: var(--color-3);
+}
+
+.temas__celeste{
+    background-color: var(--color-celeste);
+}
+
+
+/* sub menu fuetes ----------*/
+
+.fuente__fuente{
+    border: none;
+    padding: 5px;
+    color: var(--color-1);
+    background-color: var(--color-4);
+    font-weight: bold;
+}
+
+/* General ---------------- */
+
+.fas, .temas__boton, .fuente__fuente{
+    cursor: pointer;
+}
+
+/* JavaScript */
+
