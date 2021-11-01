@@ -9,9 +9,10 @@ body{
     overflow: hidden;
     background-size: cover;
     background-position: center;
+    font-family: sans-serif;
 }
 
 /* pagina de inicio ____________________________*/
 .header{
-    height: 100vh;
+    min-height: 50vh;
 }

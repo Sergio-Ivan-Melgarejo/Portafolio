@@ -1,0 +1,80 @@
+
+/* Abrir menu superior ______________________________________*/
+
+.nav-superior__boton-abrir{
+    background-color: var(--color-2);
+    color: var(--color-3);
+    padding: 20px 30px;
+    font-size: 25px;
+    border-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.abrir-menu-sup{
+    opacity: .5;
+    transition: opacity 350ms;
+    animation: configuracionGirar 20s infinite;
+}
+
+.abrir-menu-sup:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+@keyframes abrirNavSup {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 500px;
+    }
+}
+
+/* __________________________________________________________*/
+
+.nav-inferior{
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    background-color: var(--color-1);
+}
+
+.nav-inferior__ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding:10px 20px;
+    gap: 10px;
+}
+
+.nav-inferior__linea{
+    flex: 1 1;
+    background-color: var(--color-3);
+    height: 1px;
+}
+
+/* avatar ---------------------- */
+
+.nav-inferior-imagen{
+    width: 50px;
+    border: 2px solid var(--color-3);
+    border-radius: 50%;
+}
+
+/* opciones -------------------- */
+
+.nav-inferior__li{
+    color: var(--color-3);
+    transition: color 350ms;
+    cursor: pointer;
+}
+
+.nav-inferior__li:hover{
+    color: var(--color-2);
+}

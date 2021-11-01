@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style-page-inicio.css">
     <link rel="stylesheet" href="CSS/nav-superior.css">
+    <link rel="stylesheet" href="CSS/nav-inferior.css">
 </head>
 <body class="body" id="body">
     <!-- pantalla de entrada || desbloque de pantalla -->
@@ -20,57 +21,68 @@
         <!-- añadir efecto al bienvenido (cambiar a mi nombre) y otro si pasa mas de 5s de como desbloquear como guia muy disimulada -->
         <h1 class="header__h1">Bienvenido a mi Portafolio</h1>
         <button>Desbloquear</button>
+
     </header>        
     
     <!-- nav de configuraciones || barra inferior -->
-    <!-- <nav class="nav-inferior">
-        <ul class="nav-inferior__ul-1">
-            <li class="nav-inferior__li-1">logo-de-guia</li>
-            <li class="nav-inferior__li-1">logo-configuraciones</li>
-        </ul>
-        <ul class="nav-superior__ul-2">
-            <li class="nav-inferior__li-2">temas</li>
-            <li class="nav-inferior__li-2">fuente</li>
-            <li class="nav-inferior__li-2">modo lectura</li>
-            <li class="nav-inferior__li-2">modo dia/noche</li>
-            <li class="nav-inferior__li-2">fuente</li>
-            <li class="nav-inferior__li-2">botones de abajo</li>
-            <li class="nav-inferior__li-2">brillo</li>
-        </ul>
-    </nav> -->
-    <!-- nav de configuraciones || barra supeior -->
-    <nav class="nav-superior">
-        <h2 class="nav-superior__titulo">Configuraciones</h2>
-        <ul class="nav-superior__ul">
-            <ul class="nav-superior__ul-2">
-                <li class="nav-superior__li"><i class="fas fa-sun" title="modo dia"></i></li>
-                <li class="nav-superior__li"><i class="fas fa-book-open" title="modo lectura"></i></li>
-            </ul>
-            <li class="nav-superior__li">Temas 
-                <div class="li__temas">
-                    <button class="temas__boton temas__rojo"></button>
-                    <button class="temas__boton temas__verde"></button>
-                    <button class="temas__boton temas__celeste"></button>
-                    <button class="temas__boton temas__amarillo"></button>
-                    <button class="temas__boton temas__violeta"></button>
-                </div>
+    <nav class="nav-inferior">
+        <ul class="nav-inferior__ul">
+            <li class="nav-inferior__avatar">
+                <img class="nav-inferior-imagen" src="images/avatares/avatar-mujer__blanco.svg" alt="avatar">
             </li>
-            <li class="nav-superior__li">Fuente
-                <div class="li__fuente">
-                    <button class="fuente__fuente fuente__pequeño">Pequeño</button>
-                    <button class="fuente__fuente fuente__mediano">Mediano</button>
-                    <button class="fuente__fuente fuente__grande">Grande</button>
-            </li>
+            <li class="nav-inferior__linea"></li>
+            <li class="nav-inferior__li">Trabajos</li>
+            <li class="nav-inferior__li">Sobre mi</li>
+            <li class="nav-inferior__li">Contacto</li>
         </ul>
-        <div class="nav-superior__flecla-arriba">
-            <i class="fas fa-chevron-up"></i>
+        <div class="nav-superior__boton-abrir">
+            <i class="abrir-menu-sup fas fa-cog" id="abrir-cof"></i>
         </div>
-        <div class="nav-superior__flecla-abajo">
-            <i class="fas fa-chevron-down"></i>
+    </nav>
+    <!-- nav de configuraciones || barra supeior -->
+    <nav class="nav-superior" id="nav-superior">
+        <h2 class="nav-superior__titulo">
+            <i class="fas fa-cogs"></i>
+            Configuraciones
+        </h2>
+        <div class="nav-superior__contenedor">
+            <div class="nav-superior__avatar-contenedor">
+                <img class="nav-superior__avatar-imagen" src="./images/avatares/avatar-mujer__blanco.svg" alt="avatar">
+                <h3 class="nav-superior__avatar-nombre"><span class="avatar-nombre__span">@</span>Avatar001</h3>
+            </div>
+            <ul class="nav-superior__opciones">
+                <h3 class="opciones__titulo">Opciones</h3>
+                <li class="opciones__li ">
+                    <i class="fas-configuracion fas fa-moon " title="Modo Noche"></i>
+                    <i class="fas-configuracion fas fa-book-open" title="Modo Lectura"></i>
+                    <i class="fas-configuracion fas fa-text-height" title="Tamaño de Fuente"></i>
+                    <i class="fas-configuracion fas fa-palette" title="Temas"></i>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="li__temas">
+                        <button class="temas__boton temas__rojo"></button>
+                        <button class="temas__boton temas__verde"></button>
+                        <button class="temas__boton temas__celeste"></button>
+                        <button class="temas__boton temas__amarillo"></button>
+                        <button class="temas__boton temas__violeta"></button>
+                    </div>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="li__fuente">
+                        <button class="fuente__fuentes fuente__pequeño">Pequeño</button>
+                        <button class="fuente__fuentes fuente__mediano">Mediano</button>
+                        <button class="fuente__fuentes fuente__grande">Grande</button>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-superior__boton-cerrar">
+            <i class="cerrar-menu-sup fas fa-times" id="cerrar-menu-sup"></i>
         </div>
     </nav>
     
+    
     <!-- javascript -->
     <script src="JavaScript/code-inicio.js"></script>
+    <script src="JavaScript/nav-superior.js"></script>
 </body>
 </html>

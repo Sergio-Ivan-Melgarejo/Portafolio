@@ -5,7 +5,7 @@
     --color-celeste: rgb(73, 182, 233);
 }
 
-/* barra superior / barra configuraciones ______*/
+/* barra superior / barra configuraciones ________________________________ */
 
 .nav-superior{
     background-color: var(--color-1);
@@ -15,89 +15,136 @@
     width: 100%;
     color: var(--color-4);
     border-bottom: 10px solid var(--color-2);
-    padding-bottom: 50px;
     text-align: center;
     box-sizing: border-box;
-}
+    overflow: hidden;
+    height: 0;
+    /* animation: abrirNavSup 3s forwards; */
 
-.nav-superior__ul{
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    list-style: none;
-    flex-direction: column;
-    width: clamp(375px, 60vw, 50%);
-    margin: 20px auto 10px;
-    border-radius: 5px;
-    background-color: var(--color-2);
-    padding: 20px;
 }
 
 .nav-superior__titulo{
     color: var(--color-1);
-    background-color: var(--color-4);
-    width: clamp(375px, 60vw, 50%);
+    background-color: var(--color-3);
+    width: clamp(350px, 80vw, 1000px);
     margin: auto;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     padding: 20px;
+    font-weight: bold;
 }
 
-.nav-superior__flecla-abajo, .nav-superior__flecla-arriba{
-    width: 100px;
-    height: 50px;
+/* avatar -------------------------- */
+
+.nav-superior__contenedor{
+    display: flex;
+    gap: clamp(20px,10vw,50px);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.nav-superior__avatar-contenedor{
+    max-width: 300px;
+    width: 40vw;
+    min-width: 200px;
+    text-align: left;
+    text-align: center;
     background-color: var(--color-2);
+    position: relative;
+    margin-top: 150px;
+    padding: clamp(50px, 15vw, 100px) 20px 20px;
+    border-radius: 10px;
+}
+
+.nav-superior__avatar-imagen{
+    width: clamp(150px, 35vw, 200px);
+    background: var(--color-3);
+    border-radius: 50%;
+    border: 3px solid var(--color-3);
     position: absolute;
-    bottom: -50px;
+    top: -120px;
     left: 50%;
     transform: translate(-50%);
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
-.fa-chevron-down, .fa-chevron-up{
-    font-size: 2em;
-    margin: auto;
-    margin-top: 5px;
+.nav-superior__avatar-nombre{
+    margin: 0;
+    color: var(--color-3);
+    opacity: .7;
 }
 
-.nav-superior__flecla-arriba{
-    bottom: -10px;
-    transform: translate(-50%) rotateX(180deg);
-}
-.fa-chevron-up{
-    transform: rotateX(180deg);
+.avatar-nombre__span{
+    color: var(--color-1);
 }
 
-/* sub menu opciones ----------*/
+/* sub menu opciones ---------------------- */
 
-.nav-superior__ul-2{
+.nav-superior__opciones{
+    width: clamp(375px, 50%, 600px);
     list-style: none;
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    background-color: var(--color-1);
-    border-radius: 5px;
-    padding: 10px;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--color-2);
+    margin: 60px 0 0;
+    align-self: flex-end;
+    position: relative;
 }
 
-.nav-superior__li .fas{
+.opciones__li{
+    background-color: var(--color-1);
+    border-radius: 5px;
+    color: var(--color-3);
+}
+
+.opciones__titulo{
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    background-color: var(--color-2);
+    color: var(--color-3);    
+    padding: 10px 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: translate(-50%);
+}
+
+.logo-cog{
+    animation: configuracionGirar 20s infinite;
+}
+
+.fas-configuracion{
     font-size: 2em;
     padding: 10px;
     border-radius: 5px;
     background-color: var(--color-2);
+    opacity: .5;
+    transition: opacity 350ms;
 }
 
-/* sub menu temas ----------*/
+/* sub menu temas ------------------------ */
+
+.nav-superior__li{
+    color: var(--color-3);
+}
 
 .li__temas, .li__fuente{
     background-color: var(--color-1);
-    padding: 10px;
     border-radius: 5px;
+    overflow: hidden;
+    height: 0;
 }
 
 .temas__boton{
-    padding: 15px;
+    padding: 20px;
     border: none;
+    opacity: .5;
+    transition: opacity 350ms;
 }
 
 .temas__rojo{
@@ -120,22 +167,87 @@
     background-color: var(--color-celeste);
 }
 
+/* sub menu fuetes --------------------- */
 
-/* sub menu fuetes ----------*/
-
-.fuente__fuente{
+.fuente__fuentes{
     border: none;
-    padding: 5px;
     color: var(--color-1);
     background-color: var(--color-4);
     font-weight: bold;
+    color: var(--color-3);
+    background-color: var(--color-2);
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity 350ms;
+    padding: 10px;
 }
 
-/* General ---------------- */
+/* General ---------------------------- */
 
-.fas, .temas__boton, .fuente__fuente{
+.cerrar-menu-sup:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover{
+    opacity: 1;
     cursor: pointer;
 }
 
-/* JavaScript */
+.fas-configuracion, .temas__boton, .fuente__fuentes{
+    margin: 10px 0;
+}
 
+.opciones__titulo, .nav-superior__avatar-contenedor, .li__temas, .li__fuente, .opciones__li, .nav-superior__opciones{
+    border-top: 2px solid var(--color-3);
+}
+
+/* JavaScript ------------------------- */
+
+.active-configuraciones{
+    opacity: 1;
+    color: var(--color-3);
+}
+
+/* Animaciones ------------------------ */
+
+@keyframes configuracionGirar {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* botone cerrar menu ---------------- */
+
+.nav-superior__boton-cerrar{
+    background-color: var(--color-2);
+    color: var(--color-3);
+    position: absolute;
+    bottom: -48px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px 30px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.nav-superior__boton-cerrar{
+    bottom: -10px;
+    font-size: 33px;
+}
+
+.cerrar-menu-sup{
+    opacity: .5;
+    transition: opacity 350ms;
+}
+
+@keyframes cerrarNavSup {
+    0%{
+        height: 500px;
+    }
+    100%{
+        height: 0;
+    }
+}
