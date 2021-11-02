@@ -2,10 +2,9 @@
 //Importaciones
 
 //LocalStorage
-import { avatarMenu, avatarCogiguracion, avatarNombre } from "./nav-superior.js"
+import { body, avatarMenu, avatarCogiguracion, avatarNombre } from "./nav-superior.js"
 
 //Declaraciones
-const body = document.getElementById("body")
 
 
 //funciones
@@ -16,9 +15,14 @@ const generaNumeroAlAzar = (numero) => {
 
 //Elige al azar un fondo de imagen al entrar si no hay guardados
 const cargarDeFondo = () =>{
-    let imagen = localStorage.getItem("imagenDeFondo");
-    let numeroAzar = generaNumeroAlAzar(8);
-    body.style.backgroundImage = `url(./images/imagenes-de-fondo/${( imagen || numeroAzar)}.jpg)`
+    let src = localStorage.getItem("imagenDeFondo");
+    if ( !src ) {   
+        let numeroAzar = generaNumeroAlAzar(8);
+        body.style.backgroundImage = `url(./images/imagenes-de-fondo/${(numeroAzar)}.jpg)`
+    }
+    else {
+        body.style.backgroundImage = `url(${src})`
+    }
 }
 
 //Elige al azar un avatar si no hay guardados
