@@ -1,0 +1,15 @@
+:root{
+    /* temas predeterminado ------------------- */
+    --color-1: #222831;
+    --color-2: #393E46;
+    --color-3: #FFD369;
+    --color-4: #EEEEEE;
+}
+
+:root{
+    --color-rojo: rgb(179, 11, 11);
+    --color-verde: rgb(82, 202, 27);
+    --color-violeta: rgb(76, 36, 221);
+    --color-celeste: rgb(73, 182, 233);
+}
+

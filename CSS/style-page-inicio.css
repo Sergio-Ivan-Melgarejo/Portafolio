@@ -1,10 +1,3 @@
-:root{
-    --color-1: #222831;
-    --color-2: #393E46;
-    --color-3: #FFD369;
-    --color-4: #EEEEEE;
-}
-
 body{
     overflow: hidden;
     background-size: cover;
@@ -13,6 +6,28 @@ body{
 }
 
 /* pagina de inicio ____________________________*/
+
 .header{
-    min-height: 50vh;
+    min-height: 80%;
+    clip-path: polygon(100% 0, 100% 80%, 50% 100%, 0 80%, 0 0);
+    background-color: var(--color-2);
+    position: absolute;
+    top: 120px;
+    width: clamp(320px, 30vw, 420px);
+    left: 100px;
+    border: 5px solid var(--color-3);
+    border-bottom: transparent;
+    text-align: center;
+}
+
+.titulo{
+    color: var(--color-3);
+    font-size: 1.4em;
+    margin: 100px 0;
+}
+
+/* main ________________________________________ */
+
+.main{ 
+    min-height: 100vh;
 }

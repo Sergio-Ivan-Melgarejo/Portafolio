@@ -1,10 +1,3 @@
-:root{
-    --color-rojo: rgb(179, 11, 11);
-    --color-verde: rgb(82, 202, 27);
-    --color-violeta: rgb(76, 36, 221);
-    --color-celeste: rgb(73, 182, 233);
-}
-
 /* barra superior / barra configuraciones ________________________________ */
 
 .nav-superior{
@@ -18,9 +11,6 @@
     text-align: center;
     box-sizing: border-box;
     overflow: hidden;
-    height: 0;
-    /* animation: abrirNavSup 3s forwards; */
-
 }
 
 .nav-superior__titulo{
@@ -72,12 +62,20 @@
 
 .nav-superior__avatar-nombre{
     margin: 0;
-    color: var(--color-3);
-    opacity: .7;
+    border-radius: 5px;
+    user-select: none;
+    color: var(--color-1);
+    padding: 5px;
 }
 
 .avatar-nombre__span{
-    color: var(--color-1);
+    color: var(--color-3);
+    border-bottom: var(--color-3) solid 0px;
+    outline: none;
+    opacity: .7;
+    max-width: 50%;
+    word-break: break-all;
+    overflow: hidden;
 }
 
 /* sub menu opciones ---------------------- */
@@ -100,6 +98,7 @@
     background-color: var(--color-1);
     border-radius: 5px;
     color: var(--color-3);
+    padding: 0 5px;
 }
 
 .opciones__titulo{
@@ -118,13 +117,36 @@
     animation: configuracionGirar 20s infinite;
 }
 
-.fas-configuracion{
-    font-size: 2em;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: var(--color-2);
-    opacity: .5;
-    transition: opacity 350ms;
+/* sub menu usuario ---------------------- */
+
+
+/* sub menu imagen de fondo -------------- */
+
+.li__imagen-de-fondo{
+    position: relative;
+}
+
+.nav-superior__imagen-de-fondo{
+    width: 50px;
+    height: 50px;
+    padding: 0 5px;
+}
+
+.imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    opacity: 0.5;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+    width: 30px;
+    padding: 5px;
+}
+
+.imagenes-de-fondo__flecha-der{
+    left: 0;
 }
 
 /* sub menu temas ------------------------ */
@@ -133,18 +155,9 @@
     color: var(--color-3);
 }
 
-.li__temas, .li__fuente{
-    background-color: var(--color-1);
-    border-radius: 5px;
-    overflow: hidden;
-    height: 0;
-}
-
 .temas__boton{
     padding: 20px;
     border: none;
-    opacity: .5;
-    transition: opacity 350ms;
 }
 
 .temas__rojo{
@@ -177,32 +190,55 @@
     color: var(--color-3);
     background-color: var(--color-2);
     border-radius: 5px;
-    cursor: pointer;
-    opacity: .5;
-    transition: opacity 350ms;
     padding: 10px;
 }
 
 /* General ---------------------------- */
 
-.cerrar-menu-sup:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover{
-    opacity: 1;
-    cursor: pointer;
+.nav-superior__div{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
 }
 
-.fas-configuracion, .temas__boton, .fuente__fuentes{
+.imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .fa-check-circle, .fuente__fuentes, .temas__boton, .nav-superior__imagen-de-fondo, .fas-configuracion, .fas-configuracion-user{
+    opacity: .2;
+    transition: opacity 350ms, transform 350ms;
+}
+
+.imagenes-de-fondo__flecha-der:hover, .imagenes-de-fondo__flecha-izq:hover, .fa-check-circle:hover, .cerrar-menu-sup:hover, .fas-configuracion-user:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover, .nav-superior__imagen-de-fondo:hover{
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.fas-configuracion, .temas__boton, .fuente__fuentes, .fas-configuracion-user, .nav-superior__imagen-de-fondo{
     margin: 10px 0;
 }
 
-.opciones__titulo, .nav-superior__avatar-contenedor, .li__temas, .li__fuente, .opciones__li, .nav-superior__opciones{
+.opciones__titulo, .nav-superior__avatar-contenedor, .nav-superior__div, .opciones__li, .nav-superior__opciones{
     border-top: 2px solid var(--color-3);
 }
 
-/* JavaScript ------------------------- */
+.nav-superior__div{
+    background-color: var(--color-1);
+    border-radius: 5px;
+}
 
-.active-configuraciones{
-    opacity: 1;
-    color: var(--color-3);
+.fas-configuracion, .fas-configuracion-user{
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color-2);
+    width: 50px;
+}
+
+/* abrir / cerrar */
+
+.nav-superior__div, .nav-superior{
+    overflow: hidden;
+    transition: height 2s;
 }
 
 /* Animaciones ------------------------ */
@@ -238,16 +274,34 @@
     font-size: 33px;
 }
 
-.cerrar-menu-sup{
-    opacity: .5;
-    transition: opacity 350ms;
-}
 
 @keyframes cerrarNavSup {
     0%{
-        height: 500px;
+        height: 100%;
     }
     100%{
-        height: 0;
+        height: 0%;
     }
+}
+
+/* JavaScript ------------------------- */
+
+.active-configuraciones{
+    opacity: 1;
+    color: var(--color-3);
+}
+
+.cerrados{
+    height: 0;
+}
+
+/* nombre de avatar / confirmar cambio nav-superior.js */
+
+.fa-check-circle{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: var(--color-3);
+    font-size: 1.5em;
+    display: none;
 }
