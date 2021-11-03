@@ -124,18 +124,21 @@
 
 .li__imagen-de-fondo{
     position: relative;
+    align-items: center;
 }
 
 .nav-superior__imagen-de-fondo{
-    width: 50px;
-    height: 50px;
+    height: 60px;
+    width: 100px;
     padding: 0 5px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
     position: absolute;
     right: 0;
-    top: 20px;
+    top: 25px;
     opacity: 0.5;
     font-size: 1.5em;
     cursor: pointer;
@@ -147,6 +150,12 @@
 
 .imagenes-de-fondo__flecha-der{
     left: 0;
+}
+
+#IDF2{
+    height: 70px;
+    width: 110px;
+    opacity: 1;
 }
 
 /* sub menu temas ------------------------ */
@@ -202,18 +211,18 @@
     overflow: hidden;
 }
 
-.imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .fa-check-circle, .fuente__fuentes, .temas__boton, .nav-superior__imagen-de-fondo, .fas-configuracion, .fas-configuracion-user{
+.nav-superior__imagen-de-fondo, .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .fa-check-circle, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
     opacity: .2;
     transition: opacity 350ms, transform 350ms;
 }
 
-.imagenes-de-fondo__flecha-der:hover, .imagenes-de-fondo__flecha-izq:hover, .fa-check-circle:hover, .cerrar-menu-sup:hover, .fas-configuracion-user:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover, .nav-superior__imagen-de-fondo:hover{
+.nav-superior__imagen-de-fondo:hover, .imagenes-de-fondo__flecha-der:hover, .imagenes-de-fondo__flecha-izq:hover, .fa-check-circle:hover, .cerrar-menu-sup:hover, .fas-configuracion-user:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover{
     opacity: 1;
     cursor: pointer;
     transform: scale(1.2);
 }
 
-.fas-configuracion, .temas__boton, .fuente__fuentes, .fas-configuracion-user, .nav-superior__imagen-de-fondo{
+.nav-superior__imagen-de-fondo, .fas-configuracion, .temas__boton, .fuente__fuentes, .fas-configuracion-user{
     margin: 10px 0;
 }
 
@@ -284,12 +293,12 @@
     }
 }
 
-/* JavaScript ------------------------- */
+/* JavaScript general ------------------------- */
 
-.active-configuraciones{
+/* .active-configuraciones{
     opacity: 1;
     color: var(--color-3);
-}
+} */
 
 .cerrados{
     height: 0;

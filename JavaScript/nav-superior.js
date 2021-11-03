@@ -1,23 +1,30 @@
 "use stric"
 
+//General
 export const body = document.getElementById("body");
+//Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
 const navSuperior = document.getElementById("nav-superior");
 const cerrarCof = document.getElementById("cerrar-menu-sup");
-
-//opciones
+//Opciones
 const opciones = document.getElementById("nav-superior__opciones");
 const opcionesUsuario = document.querySelector(".li__usuario");
 const opcionesImagenDeFondo = document.querySelector(".li__imagen-de-fondo");
 const opcionesTemas = document.querySelector(".li__temas");
 const opcionesFuente = document.querySelector(".li__fuente");
-//avatares
+//Avatares
 export const avatarMenu = document.querySelector(".nav-inferior-imagen");
 export const avatarCogiguracion = document.querySelector(".nav-superior__avatar-imagen");
 export const avatarNombre = document.querySelector(".avatar-nombre__span");
 const avatarConfirmar = document.querySelector(".fa-check-circle");
+//Imagen de fondo
+export const preImagen1 = document.getElementById("IDF1");
+export const preImagen2 = document.getElementById("IDF2");
+export const preImagen3 = document.getElementById("IDF3");
 // -- Data/Imagenes-de-fondo.json --
-let dataIDF = false;
+let dataJsonIDF = false;
+//serc = numero del data que mostrara en los predondos del menu configuracion
+let src1 , src2, src3;
 
 //Funciones
 
@@ -45,30 +52,55 @@ const comfirmarNombreAvatar = () => {
     avatarConfirmar.removeAttribute("style");
 }
 
-const cambiarImagenDeFondo = (evento) => {
-    let src = "./" + evento.getAttribute("src");
+const cambiarImagenDeFondo = (src) => {
     body.style.backgroundImage = `url(${src})`
+}
+
+const guardarImagenDeFondo = (src) => {
     localStorage.setItem("imagenDeFondo", src)
 }
 
-/* obeter ./Data/Imagenes-de-fondo */
-const obtenerIDF = () => {
+/* obeter src de ./Data/Imagenes-de-fondo */
+export const obtenerJsonIDF = async () => {
     return fetch("./Data/Imagenes-de-fondo.json")
     .then( res  => {
         return res.json()
     })
     .then( res => {
-        res;
+        return res;  
     })
 }
 
+//Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
-    if ( !dataIDF ) {
-        dataIDF = await obtenerIDF();
-    }       
-    else {
-
+    //obtiene el numero actual cargado del local stora directo del html una vez sola
+    if ( !dataJsonIDF ) {
+        src2 = parseInt(preImagen2.getAttribute("src").slice(-5,-4));
+        src1 = src2 - 1 ;
+        src3 = src2 + 1 ;
     }
+
+    (direcion === "der") ? ( src1 = src2, src2 = src3, src3++ ) : ( src3 = src2, src2 = src1, src1-- ) ;
+
+    //obtiene obtiene las src una vez sola
+    if ( !dataJsonIDF ) {
+        dataJsonIDF = await obtenerJsonIDF();
+    }       
+
+    if ( src1 == -1 )  src1 = dataJsonIDF.length - 1 ;
+    if ( src3 == dataJsonIDF.length )  src3 = 0 ;
+
+    let preSRC1= dataJsonIDF[ src1 ].src;
+    let preSRC2 = dataJsonIDF[ src2 ].src;
+    let preSRC3= dataJsonIDF[ src3 ].src;
+
+    preImagen1.setAttribute("src", preSRC1 )
+    preImagen2.setAttribute("src", preSRC2 )
+    preImagen3.setAttribute("src", preSRC3 )
+
+    //guarda imagen de fondo del src2
+    guardarImagenDeFondo(preSRC2);
+    cambiarImagenDeFondo(preSRC2);
 }
 
 //Event
@@ -126,13 +158,14 @@ opciones.addEventListener("click", (e) => {
 
     //sub opcion imagen de fondo
     if ( evento.classList.contains("nav-superior__imagen-de-fondo") ) {
-        cambiarImagenDeFondo(evento)
+        if ( evento.getAttribute("id") === "IDF1") configuracionCambiarMiniImagenes("izq")
+        if ( evento.getAttribute("id") === "IDF3") configuracionCambiarMiniImagenes("der")
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
-        configuracionCambiarMiniImagenes("izq")
+        configuracionCambiarMiniImagenes("der")
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-der") ) {
-        configuracionCambiarMiniImagenes("der")
+        configuracionCambiarMiniImagenes("izq")
     }
 
     //sub opcion fuentes
