@@ -1,15 +1,197 @@
-:root{
-    /* temas predeterminado ------------------- */
+.tema-predeterminado{
+    --color-1: #343434;
+    --color-2: #8E8B82;
+    --color-3: #E9DCBE;
+    --color-4: #F3F3F3;
+}
+
+.tema-noche{
     --color-1: #222831;
     --color-2: #393E46;
     --color-3: #FFD369;
     --color-4: #EEEEEE;
 }
 
-:root{
-    --color-rojo: rgb(179, 11, 11);
-    --color-verde: rgb(82, 202, 27);
-    --color-violeta: rgb(76, 36, 221);
-    --color-celeste: rgb(73, 182, 233);
+.tema-lectura{
+    --color-1: #d1be6f;
+    --color-2: #1a1818;
+    --color-3: rgb(189, 135, 18);
+    --color-4: #8b0f73;
 }
+
+.tema-0{
+    --color-1: #1F1D36;
+    --color-2: #3F3351;
+    --color-3: #864879;
+    --color-4: #E9A6A6;
+}
+
+.tema-1{
+    --color-1: #222831;
+    --color-2: #393E46;
+    --color-3: #00ADB5;
+    --color-4: #EEEEEE;
+}
+
+.tema-2{
+    --color-1: #F9ED69;
+    --color-2: #F08A5D;
+    --color-3: #B83B5E;
+    --color-4: #6A2C70;
+}
+
+.tema-3{
+    --color-1: #08D9D6;
+    --color-2: #252A34;
+    --color-3: #FF2E63;
+    --color-4: #EAEAEA;
+}
+
+.tema-4{
+    --color-1: #F8EDE3;
+    --color-2: #BDD2B6;
+    --color-3: #A2B29F;
+    --color-4: #798777;
+}
+
+.tema-5{
+    --color-1: #000000;
+    --color-2: #3D0000;
+    --color-3: #950101;
+    --color-4: #FF0000;
+}
+
+.tema-6{
+    --color-1: #F9F7F7;
+    --color-2: #DBE2EF;
+    --color-3: #3F72AF;
+    --color-4: #112D4E;
+}
+
+.tema-7{
+    --color-1: #2B2E4A;
+    --color-2: #E84545;
+    --color-3: #903749;
+    --color-4: #53354A;
+}
+
+.tema-8{
+    --color-1: #E23E57;
+    --color-2: #88304E;
+    --color-3: #522546;
+    --color-4: #311D3F;
+}
+
+.tema-9{
+    --color-1: #E4F9F5;
+    --color-2: #30E3CA;
+    --color-3: #11999E;
+    --color-4: #40514E;
+}
+
+.tema-10{
+    --color-1: #F4EEFF;
+    --color-2: #DCD6F7;
+    --color-3: #A6B1E1;
+    --color-4: #424874;
+}
+
+.tema-11{
+    --color-1: #212121;
+    --color-2: #323232;
+    --color-3: #0D7377;
+    --color-4: #14FFEC;
+}
+
+.tema-12{
+    --color-1: #FFC8C8;
+    --color-2: #FF9999;
+    --color-3: #444F5A;
+    --color-4: #3E4149;
+}
+
+.tema-13{
+    --color-1: #F0F5F9;
+    --color-2: #C9D6DF;
+    --color-3: #52616B;
+    --color-4: #1E2022;
+}
+
+.tema-14{
+    --color-1: #2D4059;
+    --color-2: #EA5455;
+    --color-3: #F07B3F;
+    --color-4: #FFD460;
+}
+
+.tema-15{
+    --color-1: #3EC1D3;
+    --color-2: #F6F7D7;
+    --color-3: #FF9A00;
+    --color-4: #FF165D;
+}
+
+.tema-16{
+    --color-1: #FFD5CD;
+    --color-2: #EFBBCF;
+    --color-3: #C3AED6;
+    --color-4: #8675A9;
+}
+
+.tema-17{
+    --color-1: #6FE7DD;
+    --color-2: #3490DE;
+    --color-3: #6639A6;
+    --color-4: #521262;
+}
+
+.tema-18{
+    --color-1: #155263;
+    --color-2: #FF6F3C;
+    --color-3: #FF9A3C;
+    --color-4: #FFC93C;
+}
+
+.tema-19{
+    --color-1: #142850;
+    --color-2: #27496D;
+    --color-3: #0C7B93;
+    --color-4: #00A8CC;
+}
+
+.tema-20{
+    --color-1: #303841;
+    --color-2: #3A4750;
+    --color-3: #D72323;
+    --color-4: #EEEEEE;
+}
+
+.tema-21{
+    --color-1: #384259;
+    --color-2: #F73859;
+    --color-3: #7AC7C4;
+    --color-4: #C4EDDE;
+}
+
+.tema-22{
+    --color-1: #2A363B;
+    --color-2: #E84A5F;
+    --color-3: #FF847C;
+    --color-4: #FECEA8;
+}
+
+.tema-23{
+    --color-1: #FAF3E0;
+    --color-2: #EABF9F;
+    --color-3: #B68973;
+    --color-4: #1E212D;
+}
+
+.tema-24{
+    --color-1: #232931;
+    --color-2: #393E46;
+    --color-3: #4ECCA3;
+    --color-4: #EEEEEE;
+}
+
 

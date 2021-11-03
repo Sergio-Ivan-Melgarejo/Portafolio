@@ -32,7 +32,7 @@ const guardarDatoLocalStora = (nombreDeDato, dato) => {
     localStorage.setItem(nombreDeDato, dato)
 }
 
-export const cambiarAvatar = (genero) => {
+const cambiarAvatar = (genero) => {
     avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__blanco.svg`);
     avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__blanco.svg`);
 }
@@ -75,20 +75,25 @@ export const obtenerJsonIDF = async () => {
 const configuracionCambiarMiniImagenes = async (direcion) => {
     //obtiene el numero actual cargado del local stora directo del html una vez sola
     if ( !dataJsonIDF ) {
-        src2 = parseInt(preImagen2.getAttribute("src").slice(-5,-4));
+        src2 = parseInt(preImagen2.getAttribute("src").slice(-5,-4)) -1 ;
         src1 = src2 - 1 ;
         src3 = src2 + 1 ;
     }
-
-    (direcion === "der") ? ( src1 = src2, src2 = src3, src3++ ) : ( src3 = src2, src2 = src1, src1-- ) ;
 
     //obtiene obtiene las src una vez sola
     if ( !dataJsonIDF ) {
         dataJsonIDF = await obtenerJsonIDF();
     }       
 
-    if ( src1 == -1 )  src1 = dataJsonIDF.length - 1 ;
-    if ( src3 == dataJsonIDF.length )  src3 = 0 ;
+    //si pasa la cantidad de imagenes vuelve al principio y viseversa
+    if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
+    if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
+
+    (direcion === "der") ? ( src1 = src2, src2 = src3, src3++ ) : ( src3 = src2, src2 = src1, src1-- );
+    
+    //hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
+    if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
+    if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
 
     let preSRC1= dataJsonIDF[ src1 ].src;
     let preSRC2 = dataJsonIDF[ src2 ].src;
@@ -168,6 +173,17 @@ opciones.addEventListener("click", (e) => {
         configuracionCambiarMiniImagenes("izq")
     }
 
+    //tema noche
+
+    if ( evento.classList.contains("fa-moon") ) {
+        cambiarAvatarTema("tema-noche")
+    }
+
+    //tema noche
+
+    if ( evento.classList.contains("fa-book-open") ) {
+        cambiarAvatarTema("tema-lectura")
+    }
     //sub opcion fuentes
     //sub opcion temas
 
@@ -176,3 +192,13 @@ opciones.addEventListener("click", (e) => {
 avatarConfirmar.addEventListener("click", () => {
     comfirmarNombreAvatar()
 })
+
+const cambiarAvatarTema = (tema) => {
+    let remover = body.classList.toggle(tema);
+    if ( remover ) { 
+        localStorage.setItem("tema", tema)
+    }
+    else{
+        localStorage.setItem("tema", "predeterminado")
+    }
+}

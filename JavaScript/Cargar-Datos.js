@@ -49,18 +49,22 @@ const cartgarPreFondo = async () => {
     let dataJsonIDF = await obtenerJsonIDF();      
 
     if ( preI1 < 1 ) preI1 = dataJsonIDF.length ;
-    if ( preI2 > dataJsonIDF.length -1 ) preI2 = 1;
+    if ( preI2 > dataJsonIDF.length ) preI2 = 1;
 
     preImagen2.setAttribute("src", imagenElegida)
     preImagen1.setAttribute("src", `./images/imagenes-de-fondo/${preI1}.jpg`)
     preImagen3.setAttribute("src", `./images/imagenes-de-fondo/${preI2}.jpg`)
 }
-cartgarPreFondo()
 
-// -- ./nav-superior.js --
-cargarDeAvatar()
+const cargarTema = () => {
+    let tema = localStorage.getItem("tema");
+    body.classList.add(tema);
+}
+
+cargarDeAvatar();
 avatarNombre.textContent = localStorage.getItem( "nombreAvatar" ) || "Anonimo001";
-cargarDeFondo()
-
+cargarDeFondo();
+cartgarPreFondo();
+cargarTema();
 
 
