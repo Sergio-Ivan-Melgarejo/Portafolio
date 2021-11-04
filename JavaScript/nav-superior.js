@@ -25,6 +25,9 @@ export const preImagen3 = document.getElementById("IDF3");
 let dataJsonIDF = false;
 //serc = numero del data que mostrara en los predondos del menu configuracion
 let src1 , src2, src3;
+//Temas
+let memorizacion = "";
+
 
 //Funciones
 
@@ -108,15 +111,54 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
     cambiarImagenDeFondo(preSRC2);
 }
 
+//guarda el team elegido en local stora y remueve el ultimo elejido del body
+
+const cambiarTema = ( tema ) => {
+    let temaGuardado = localStorage.getItem("tema");
+
+    //0= entra por unica vez, SI SE REPITE LO GUARDADO CON LO CLICKEADO, elimina todo incluso lo almacenado en localStorage
+    if ( temaGuardado === tema && memorizacion === "" ) {
+        body.classList.replace( tema, "tema-predeterminado" );
+        localStorage.setItem( "tema", "tema-predeterminado" );
+        memorizacion = "tema-predeterminado";
+    } 
+    //1= entra por unica vez, SI LO CLICKEADO NO SE REPITE, elimina todo incluso lo almacenado en localStorage
+    else if ( temaGuardado && memorizacion === "" ) {
+        body.setAttribute( "class" , `body ${tema}` )
+        localStorage.setItem( "tema", tema );
+        memorizacion = tema;
+    } 
+    //2 = entra por primera vez a la pagina y unica vez
+    else if ( memorizacion === "" ) {
+        body.classList.remove( "tema-predeterminado" )
+        body.classList.add( tema );
+        localStorage.setItem( "tema", tema );
+        memorizacion = tema;
+    }
+    //3 = entra si vuelve a tocar el mismo boton, reseteando y poniendo el tema predeterminado
+    else if ( memorizacion === tema ) {
+        body.classList.replace( tema, "tema-predeterminado" );
+        localStorage.setItem( "tema", "tema-predeterminado" );
+        memorizacion = "tema-predeterminado";
+    }
+    //4 = entra si pasa de tema a otro tema
+    else { 
+        body.classList.add( tema );
+        body.classList.remove( memorizacion );
+        localStorage.setItem( "tema", tema );
+        memorizacion = tema;
+    }
+}
+
 //Event
 
 abrirCof.addEventListener( "click", () => {
     navSuperior.style.animation = "abrirNavSup 2s forwards";
-})
+});
 
 cerrarCof.addEventListener( "click", () => {
     navSuperior.style.animation = "cerrarNavSup 2s forwards";
-})
+});
 
 //opciones
 opciones.addEventListener("click", (e) => {
@@ -136,13 +178,13 @@ opciones.addEventListener("click", (e) => {
         opcionesFuente.classList.add("cerrados");
     }
     if ( evento.classList.contains("fa-text-height") ) {
-        opcionesFuente.classList.toggle("cerrados") 
+        opcionesFuente.classList.toggle("cerrados"); 
         opcionesUsuario.classList.add("cerrados");
         opcionesTemas.classList.add("cerrados");
         opcionesImagenDeFondo.classList.add("cerrados"); 
     }
     if ( evento.classList.contains("fa-palette") ) {
-        opcionesTemas.classList.toggle("cerrados") 
+        opcionesTemas.classList.toggle("cerrados"); 
         opcionesImagenDeFondo.classList.add("cerrados");
         opcionesUsuario.classList.add("cerrados");
         opcionesFuente.classList.add("cerrados");
@@ -150,15 +192,15 @@ opciones.addEventListener("click", (e) => {
 
     //sub opcion usuario
     if ( evento.classList.contains("fa-user-edit") ) {
-        cambiarNombreAvatar()
+        cambiarNombreAvatar();
     }
     else if ( evento.classList.contains("fa-venus") ) {
         guardarDatoLocalStora("avatarGenero","mujer");
-        cambiarAvatar("mujer")
+        cambiarAvatar("mujer");
     }
     else if ( evento.classList.contains("fa-mars") ) {
         guardarDatoLocalStora("avatarGenero","hombre");
-        cambiarAvatar("hombre")  
+        cambiarAvatar("hombre");  
     } 
 
     //sub opcion imagen de fondo
@@ -167,38 +209,55 @@ opciones.addEventListener("click", (e) => {
         if ( evento.getAttribute("id") === "IDF3") configuracionCambiarMiniImagenes("der")
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
-        configuracionCambiarMiniImagenes("der")
+        configuracionCambiarMiniImagenes("der");
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-der") ) {
-        configuracionCambiarMiniImagenes("izq")
+        configuracionCambiarMiniImagenes("izq");
     }
 
     //tema noche
 
     if ( evento.classList.contains("fa-moon") ) {
-        cambiarAvatarTema("tema-noche")
+        cambiarTema("tema-noche");
     }
 
-    //tema noche
+    //tema lectura
 
     if ( evento.classList.contains("fa-book-open") ) {
-        cambiarAvatarTema("tema-lectura")
+        cambiarTema("tema-lectura");
     }
-    //sub opcion fuentes
-    //sub opcion temas
 
-})
+    //sub opcion fuentes
+
+    if ( evento.classList.contains("fuente__fuentes") ) {
+        cambiarFuente( evento );
+    }
+
+    //sub opcion temas
+});
 
 avatarConfirmar.addEventListener("click", () => {
     comfirmarNombreAvatar()
-})
+});
 
-const cambiarAvatarTema = (tema) => {
-    let remover = body.classList.toggle(tema);
-    if ( remover ) { 
-        localStorage.setItem("tema", tema)
+const cambiarFuente = (evento) => {
+    let fuente = evento.getAttribute("class").split(" ")[1];
+    switch( fuente ) {
+        case "fuente__muy-pequeño":
+            fuente = "8px"
+            break
+        case "fuente__pequeño":
+            fuente = "12px"
+            break
+        case "fuente__mediano":
+            fuente = "16px"
+            break
+        case "fuente__grande":
+            fuente = "20px"
+            break
+        case "fuente__muy-grande":
+            fuente = "24px"
+            break
     }
-    else{
-        localStorage.setItem("tema", "predeterminado")
-    }
+    body.style.fontSize = fuente;
 }

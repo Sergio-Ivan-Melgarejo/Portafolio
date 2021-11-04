@@ -57,7 +57,7 @@ const cartgarPreFondo = async () => {
 }
 
 const cargarTema = () => {
-    let tema = localStorage.getItem("tema");
+    let tema = localStorage.getItem("tema") || "tema-predeterminado";
     body.classList.add(tema);
 }
 

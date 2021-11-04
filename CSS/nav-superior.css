@@ -24,6 +24,10 @@
     font-weight: bold;
 }
 
+.opciones__li{
+    flex-wrap: nowrap;
+}
+
 /* avatar -------------------------- */
 
 .nav-superior__contenedor{
@@ -209,6 +213,7 @@
     justify-content: center;
     gap: 10px;
     overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .nav-superior__imagen-de-fondo, .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .fa-check-circle, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
