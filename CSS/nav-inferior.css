@@ -4,8 +4,8 @@
 .nav-superior__boton-abrir{
     background-color: var(--color-2);
     color: var(--color-3);
-    padding: 20px 30px;
-    font-size: 25px;
+    padding: .6em 1em;
+    font-size: 1.56em;
     border-radius: 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
