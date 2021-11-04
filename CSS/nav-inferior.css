@@ -49,21 +49,21 @@
     display: flex;
     align-items: center;
     margin: 0;
-    padding:10px 20px;
-    gap: 10px;
+    padding: .6em 1.5em;
+    gap: .7em;
 }
 
 .nav-inferior__linea{
     flex: 1 1;
     background-color: var(--color-3);
-    height: 1px;
+    height: .1em;
 }
 
 /* avatar ---------------------- */
 
 .nav-inferior-imagen{
-    width: 50px;
-    border: 2px solid var(--color-3);
+    width: 3.125em;
+    border: .1em solid var(--color-3);
     border-radius: 50%;
 }
 

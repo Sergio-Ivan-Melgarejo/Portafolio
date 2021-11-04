@@ -36,8 +36,9 @@ const guardarDatoLocalStora = (nombreDeDato, dato) => {
 }
 
 const cambiarAvatar = (genero) => {
-    avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__blanco.svg`);
-    avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__blanco.svg`);
+    let color = localStorage.getItem("tema") || "tema-predeterminado";
+    avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
 }
 
 const cambiarNombreAvatar = () => {
@@ -157,6 +158,37 @@ const cambiarTema = ( tema ) => {
         localStorage.setItem( "tema", tema );
         memorizacion = tema;
     }
+    cambiarTemaDelAvatar();
+}
+
+const cambiarTemaDelAvatar = () => {
+    let genero = localStorage.getItem( "avatarGenero" );
+    let color = localStorage.getItem( "tema" );
+    avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
+}
+
+const cambiarFuente = (evento) => {
+    let fuente = evento.getAttribute("class").split(" ")[1];
+    switch( fuente ) {
+        case "fuente__muy-pequeño":
+            fuente = "8px"
+            break
+        case "fuente__pequeño":
+            fuente = "12px"
+            break
+        case "fuente__mediano":
+            fuente = "16px"
+            break
+        case "fuente__grande":
+            fuente = "20px"
+            break
+        case "fuente__muy-grande":
+            fuente = "24px"
+            break
+    }
+    body.style.fontSize = fuente;
+    localStorage.setItem("fuente", fuente)
 }
 
 //Event
@@ -244,30 +276,9 @@ opciones.addEventListener("click", (e) => {
     }
 
     //sub opcion temas
+
 });
 
 avatarConfirmar.addEventListener("click", () => {
     comfirmarNombreAvatar()
 });
-
-const cambiarFuente = (evento) => {
-    let fuente = evento.getAttribute("class").split(" ")[1];
-    switch( fuente ) {
-        case "fuente__muy-pequeño":
-            fuente = "8px"
-            break
-        case "fuente__pequeño":
-            fuente = "12px"
-            break
-        case "fuente__mediano":
-            fuente = "16px"
-            break
-        case "fuente__grande":
-            fuente = "20px"
-            break
-        case "fuente__muy-grande":
-            fuente = "24px"
-            break
-    }
-    body.style.fontSize = fuente;
-}
