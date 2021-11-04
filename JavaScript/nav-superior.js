@@ -76,6 +76,7 @@ export const obtenerJsonIDF = async () => {
 
 //Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
+
     //obtiene el numero actual cargado del local stora directo del html una vez sola
     if ( !dataJsonIDF ) {
         src2 = parseInt(preImagen2.getAttribute("src").slice(-5,-4)) -1 ;
@@ -92,7 +93,16 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
     if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
     if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
 
-    (direcion === "der") ? ( src1 = src2, src2 = src3, src3++ ) : ( src3 = src2, src2 = src1, src1-- );
+    if (direcion === "der")  {
+        src1 = src2;
+        src2 = src3;
+        src3++ 
+    }
+    if (direcion === "izq")  {
+        src3 = src2; 
+        src2 = src1; 
+        src1--
+    }
     
     //hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
     if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
@@ -111,8 +121,7 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
     cambiarImagenDeFondo(preSRC2);
 }
 
-//guarda el team elegido en local stora y remueve el ultimo elejido del body
-
+//guarda el tema elegido en local stora y remueve el ultimo elejido del body
 const cambiarTema = ( tema ) => {
     let temaGuardado = localStorage.getItem("tema");
 
@@ -206,6 +215,7 @@ opciones.addEventListener("click", (e) => {
     //sub opcion imagen de fondo
     if ( evento.classList.contains("nav-superior__imagen-de-fondo") ) {
         if ( evento.getAttribute("id") === "IDF1") configuracionCambiarMiniImagenes("izq")
+        if ( evento.getAttribute("id") === "IDF2") configuracionCambiarMiniImagenes()
         if ( evento.getAttribute("id") === "IDF3") configuracionCambiarMiniImagenes("der")
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
