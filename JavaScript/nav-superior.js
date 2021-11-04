@@ -161,9 +161,16 @@ const cambiarTema = ( tema ) => {
     cambiarTemaDelAvatar();
 }
 
+//si no hay genero elejido toma el generado al azar
 const cambiarTemaDelAvatar = () => {
     let genero = localStorage.getItem( "avatarGenero" );
     let color = localStorage.getItem( "tema" );
+
+    if ( !genero ) {
+        genero = avatarMenu.getAttribute( "src" ).indexOf("mujer");
+        genero == -1 ? genero = "hombre" : genero = "mujer";
+    }
+
     avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
     avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
 }
@@ -258,25 +265,26 @@ opciones.addEventListener("click", (e) => {
     }
 
     //tema noche
-
     if ( evento.classList.contains("fa-moon") ) {
         cambiarTema("tema-noche");
     }
 
     //tema lectura
-
     if ( evento.classList.contains("fa-book-open") ) {
         cambiarTema("tema-lectura");
     }
 
     //sub opcion fuentes
-
     if ( evento.classList.contains("fuente__fuentes") ) {
         cambiarFuente( evento );
     }
 
     //sub opcion temas
-
+    if ( evento.classList.contains("temas__boton") ) {
+        let color = evento.getAttribute( "class" ).split( " " )[1];
+        console.log(color)
+        cambiarTema( color );
+    }
 });
 
 avatarConfirmar.addEventListener("click", () => {

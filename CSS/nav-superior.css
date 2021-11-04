@@ -123,7 +123,6 @@
 
 /* sub menu usuario ---------------------- */
 
-
 /* sub menu imagen de fondo -------------- */
 
 .li__imagen-de-fondo{
@@ -134,7 +133,6 @@
 .nav-superior__imagen-de-fondo{
     height: 3.5em;
     width: 6em;
-    padding: 0 5px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -169,37 +167,6 @@
     opacity: 1;
 }
 
-/* sub menu temas ------------------------ */
-
-.nav-superior__li{
-    color: var(--color-3);
-}
-
-.temas__boton{
-    padding: 1.8em;
-    border: none;
-}
-
-/* .temas__rojo{
-    background-color: var(--color-rojo);
-}
-
-.temas__verde{
-    background-color: var(--color-verde);
-}
-
-.temas__violeta{
-    background-color: var(--color-violeta);
-}
-
-.temas__amarillo{
-    background-color: var(--color-3);
-}
-
-.temas__celeste{
-    background-color: var(--color-celeste);
-} */
-
 /* sub menu fuetes --------------------- */
 
 .fuente__fuentes{
@@ -212,6 +179,17 @@
     border-radius: 5px;
     padding: .6em;
     font-size: 1.3em;
+}
+
+/* sub menu temas ------------------------ */
+
+.nav-superior__li{
+    color: var(--color-3);
+}
+
+.temas__boton{
+    padding: 1.8em;
+    border-radius: 5px;
 }
 
 /* General ---------------------------- */
@@ -234,6 +212,9 @@
     opacity: 1;
     cursor: pointer;
     transform: scale(1.2);
+    outline-color: var(--color-3);
+    outline: inset;
+    outline-style: solid;
 }
 /* 
 .nav-superior__imagen-de-fondo, .fas-configuracion, .temas__boton, .fuente__fuentes, .fas-configuracion-user{

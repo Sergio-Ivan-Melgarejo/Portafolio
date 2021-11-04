@@ -194,4 +194,104 @@
     --color-4: #EEEEEE;
 }
 
+/* sub-temas __________________________________________________ */
 
+.tema-0{
+    background: linear-gradient(#1F1D36 20%, #3F3351 40%, #864879 60%, #E9A6A6 80%);
+}
+
+.tema-1{
+    background: linear-gradient(#222831 20%, #393E46 40%, #00ADB5 60%, #EEEEEE 80%);
+}
+
+.tema-2{
+    background: linear-gradient(#F9ED69 20%, #F08A5D 40%, #B83B5E 60%, #6A2C70 80%);
+}
+
+.tema-3{
+    background: linear-gradient(#08D9D6 20%, #252A34 40%, #FF2E63 60%, #EAEAEA 80%);
+}
+
+.tema-4{
+    background: linear-gradient(#F8EDE3 20%, #BDD2B6 40%, #A2B29F 60%, #798777 80%);
+}
+
+.tema-5{
+    background: linear-gradient(#000000 20%, #3D0000 40%, #950101 60%, #FF0000 80%);
+}
+
+.tema-6{
+    background: linear-gradient(#F9F7F7 20%, #DBE2EF 40%, #3F72AF 60%, #112D4E 80%);
+}
+
+.tema-7{
+    background: linear-gradient(#2B2E4A 20%, #E84545 40%, #903749 60%, #53354A 80%);
+}
+
+.tema-8{
+    background: linear-gradient(#E23E57 20%, #88304E 40%, #522546 60%, #311D3F 80%);
+}
+
+.tema-9{
+    background: linear-gradient(#E4F9F5 20%, #30E3CA 40%, #11999E 60%, #40514E 80%);
+}
+
+.tema-10{
+    background: linear-gradient(#F4EEFF 20%, #DCD6F7 40%, #A6B1E1 60%, #424874 80%);
+}
+
+.tema-11{
+    background: linear-gradient(#212121 20%, #323232 40%, #0D7377 60%, #14FFEC 80%);
+}
+
+.tema-12{
+    background: linear-gradient(#FFC8C8 20%, #FF9999 40%, #444F5A 60%, #3E4149 80%);
+}
+
+.tema-13{
+    background: linear-gradient(#F0F5F9 20%, #C9D6DF 40%, #52616B 60%, #1E2022 80%);
+}
+
+.tema-14{
+    background: linear-gradient(#2D4059 20%, #EA5455 40%, #F07B3F 60%, #FFD460 80%);
+}
+
+.tema-15{
+    background: linear-gradient(#3EC1D3 20%, #F6F7D7 40%, #FF9A00 60%, #FF165D 80%);
+}
+
+.tema-16{
+    background: linear-gradient(#FFD5CD 20%, #EFBBCF 40%, #C3AED6 60%, #8675A9 80%);
+}
+
+.tema-17{
+    background: linear-gradient(#6FE7DD 20%, #3490DE 40%, #6639A6 60%, #521262 80%);
+}
+
+.tema-18{
+    background: linear-gradient(#155263 20%, #FF6F3C 40%, #FF9A3C 60%, #FFC93C 80%);
+}
+
+.tema-19{
+    background: linear-gradient(#142850 20%, #27496D 40%, #0C7B93 60%, #00A8CC 80%);
+}
+
+.tema-20{
+    background: linear-gradient(#303841 20%, #3A4750 40%, #D72323 60%, #EEEEEE 80%);
+}
+
+.tema-21{
+    background: linear-gradient(#384259 20%, #F73859 40%, #7AC7C4 60%, #C4EDDE 80%);
+}
+
+.tema-22{
+    background: linear-gradient(#2A363B 20%, #E84A5F 40%, #FF847C 60%, #FECEA8 80%);
+}
+
+.tema-23{
+    background: linear-gradient(#FAF3E0 20%, #EABF9F 40%, #B68973 60%, #1E212D 80%);
+}
+
+.tema-24{
+    background: linear-gradient(#232931 20%, #393E46 40%, #4ECCA3 60%, #EEEEEE 80%);
+}

@@ -1,31 +1,29 @@
 "use strict"
-//Importaciones
 
-//LocalStorage
+//Importaciones
 import { body, avatarMenu, avatarCogiguracion, avatarNombre, preImagen1, preImagen2, preImagen3, obtenerJsonIDF } from "./nav-superior.js"
 
 //Declaraciones
 
-
 //funciones
-const generaNumeroAlAzar = (numero) => {
+export const generaNumeroAlAzar = ( numero ) => {
     let numeroAzar = Math.round(Math.random() * numero) || numero;
     return numeroAzar
 }
 
 //Elige al azar un avatar si no hay guardados
 const cargarDeAvatar = () =>{
-    let genero = localStorage.getItem("avatarGenero");
-    let color = localStorage.getItem("tema");
+    let genero = localStorage.getItem( "avatarGenero" );
+    let color = localStorage.getItem( "tema" ) || "tema-predeterminado";
 
     if ( !genero ) {
-        let generoAlAzar = generaNumeroAlAzar(2);
+        let generoAlAzar = generaNumeroAlAzar( 2 );
         generoAlAzar == 1 ? generoAlAzar = "mujer" : generoAlAzar = "hombre";
         genero = generoAlAzar;
     }
 
-    avatarMenu.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
-    avatarCogiguracion.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarMenu.setAttribute( "src", `./images/avatares/avatar-${genero}__${color}.svg` );
+    avatarCogiguracion.setAttribute( "src", `./images/avatares/avatar-${genero}__${color}.svg` );
 }
 
 //Elige al azar un fondo de imagen al entrar si no hay guardados
@@ -54,9 +52,9 @@ const cartgarPreFondo = async () => {
     if ( preI1 < 1 ) preI1 = dataJsonIDF.length ;
     if ( preI2 > dataJsonIDF.length ) preI2 = 1;
 
-    preImagen2.setAttribute( "src", `./images/imagenes-de-fondo/${imagenElegida}.jpg` )
-    preImagen1.setAttribute( "src", `./images/imagenes-de-fondo/${preI1}.jpg` )
-    preImagen3.setAttribute( "src", `./images/imagenes-de-fondo/${preI2}.jpg` )
+    preImagen2.setAttribute( "src", `./images/imagenes-de-fondo/${imagenElegida}.jpg` );
+    preImagen1.setAttribute( "src", `./images/imagenes-de-fondo/${preI1}.jpg` );
+    preImagen3.setAttribute( "src", `./images/imagenes-de-fondo/${preI2}.jpg` );
 }
 
 const cargarTema = () => {
@@ -69,6 +67,6 @@ avatarNombre.textContent = localStorage.getItem( "nombreAvatar" ) || "Anonimo001
 cargarDeFondo();
 cartgarPreFondo();
 cargarTema();
-body.style.fontSize = localStorage.getItem( "fuente" )
+body.style.fontSize = localStorage.getItem( "fuente" );
 
 
