@@ -7,12 +7,45 @@
     box-sizing: border-box;
     overflow: hidden;
     border-bottom: 10px solid var(--color-2);
+    transition: height 2s, color 2s, background-color 2s;
+    height: 80vh;
+    overflow-y: scroll;
 }
+
+/* barra de scroll _______________________________________ */
+
+.nav-superior::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.nav-superior::-webkit-scrollbar:vertical {
+    width:20px;
+}
+
+.nav-superior::-webkit-scrollbar-button:increment,.nav-superior::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.nav-superior::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.nav-superior::-webkit-scrollbar-thumb {
+    background-color: var(--color-3);
+    border-radius: 20px;
+    border: 5px solid var(--color-2);
+}
+
+.nav-superior::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 
 .nav-superior__titulo{
     color: var(--color-1);
     background-color: var(--color-3);
     max-width: 62.5em;
+    width: 90%;
     margin: auto;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -92,7 +125,7 @@
 /* sub menu opciones ---------------------- */
 
 .nav-superior__opciones{
-    width: clamp(23.5em, 50%, 37.5em);
+    width: clamp(23.5em, 50%, 40em);
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -241,6 +274,7 @@
     border-radius: 5px;
     color: var(--color-3);
     flex-wrap: wrap;
+    transition: height 3s;
     
 }
 
@@ -278,7 +312,6 @@
     }
     25%{
         opacity: .7;
-
     }
     50%{
         opacity: .7;
@@ -291,6 +324,6 @@
 /* JavaScript general ------------------------- */
 
 .cerrados{
-    height: 0;
+    height: 0em;
     padding: 0;
 }

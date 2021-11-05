@@ -5,6 +5,7 @@ export const body = document.getElementById("body");
 //Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
 const navSuperior = document.getElementById("nav-superior");
+const navInferior = document.getElementById("nav-inferior");
 //Opciones
 const opciones = document.getElementById("nav-superior__opciones");
 const opcionesUsuario = document.querySelector(".li__usuario");

@@ -1,8 +1,10 @@
 body{
-    overflow: hidden;
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
+    transition: background-image 500ms;
+    overflow: hidden;
+    height: 100vh;
 }
 
 /* pagina de inicio ____________________________*/
