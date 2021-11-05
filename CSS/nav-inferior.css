@@ -1,44 +1,5 @@
-
-/* Abrir menu superior ______________________________________*/
-
-.nav-superior__boton-abrir{
-    background-color: var(--color-2);
-    color: var(--color-3);
-    padding: .6em 1em;
-    font-size: 1.56em;
-    border-radius: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-}
-
-.abrir-menu-sup{
-    opacity: .5;
-    transition: opacity 350ms;
-    animation: configuracionGirar 20s infinite;
-}
-
-.abrir-menu-sup:hover{
-    opacity: 1;
-    cursor: pointer;
-}
-
-@keyframes abrirNavSup {
-    0%{
-        height: 0;
-    }
-    100%{
-        height: 500px;
-    }
-}
-
-/* __________________________________________________________*/
-
 .nav-inferior{
-    position: fixed;
+    position: sticky;
     top: 10px;
     width: 100%;
     background-color: var(--color-1);
@@ -65,6 +26,7 @@
     width: 3.125em;
     border: .1em solid var(--color-3);
     border-radius: 50%;
+    background-color: var(--color-3);
 }
 
 /* opciones -------------------- */

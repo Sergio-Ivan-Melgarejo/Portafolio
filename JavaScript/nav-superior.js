@@ -5,7 +5,6 @@ export const body = document.getElementById("body");
 //Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
 const navSuperior = document.getElementById("nav-superior");
-const cerrarCof = document.getElementById("cerrar-menu-sup");
 //Opciones
 const opciones = document.getElementById("nav-superior__opciones");
 const opcionesUsuario = document.querySelector(".li__usuario");
@@ -15,8 +14,9 @@ const opcionesFuente = document.querySelector(".li__fuente");
 //Avatares
 export const avatarMenu = document.querySelector(".nav-inferior-imagen");
 export const avatarCogiguracion = document.querySelector(".nav-superior__avatar-imagen");
-export const avatarNombre = document.querySelector(".avatar-nombre__span");
+export const nombreUsuarioMenuConf = document.querySelector(".avatar-nombre__span");
 const avatarConfirmar = document.querySelector(".fa-check-circle");
+export const nombreUsuario = document.getElementById("nombreDeUsuario");
 //Imagen de fondo
 export const preImagen1 = document.getElementById("IDF1");
 export const preImagen2 = document.getElementById("IDF2");
@@ -43,17 +43,18 @@ const cambiarAvatar = (genero) => {
 
 const cambiarNombreAvatar = () => {
     //permite editar directamente el nombre de avatar
-    avatarNombre.setAttribute("contenteditable", true);
-    avatarNombre.style = "border-bottom-width : 2px; opacity: 1; ";
+    nombreUsuarioMenuConf.setAttribute("contenteditable", true);
+    nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: 5px; line-height: 2em";
     avatarConfirmar.style.display = "block";
 }
 
 const comfirmarNombreAvatar = () => {
-    let dato = avatarNombre.textContent;
+    let dato = nombreUsuarioMenuConf.textContent;
     localStorage.setItem("nombreAvatar", dato)
-    avatarNombre.removeAttribute("contenteditable");
-    avatarNombre.style = "border-bottom-width : 0px; opacity: .7; ";
+    nombreUsuarioMenuConf.removeAttribute("contenteditable");
+    nombreUsuarioMenuConf.style = "border-bottom-width : 0px; opacity: .7; ";
     avatarConfirmar.removeAttribute("style");
+    nombreUsuario.textContent = dato;
 }
 
 const cambiarImagenDeFondo = (src) => {
@@ -200,12 +201,8 @@ const cambiarFuente = (evento) => {
 
 //Event
 
-abrirCof.addEventListener( "click", () => {
-    navSuperior.style.animation = "abrirNavSup 2s forwards";
-});
-
-cerrarCof.addEventListener( "click", () => {
-    navSuperior.style.animation = "cerrarNavSup 2s forwards";
+abrirCof.addEventListener("click", () => {
+    navSuperior.classList.toggle("cerrados")
 });
 
 //opciones
@@ -253,9 +250,9 @@ opciones.addEventListener("click", (e) => {
 
     //sub opcion imagen de fondo
     if ( evento.classList.contains("nav-superior__imagen-de-fondo") ) {
-        if ( evento.getAttribute("id") === "IDF1") configuracionCambiarMiniImagenes("izq")
-        if ( evento.getAttribute("id") === "IDF2") configuracionCambiarMiniImagenes()
-        if ( evento.getAttribute("id") === "IDF3") configuracionCambiarMiniImagenes("der")
+        if ( evento.getAttribute("id") === "IDF1" ) configuracionCambiarMiniImagenes("izq")
+        if ( evento.getAttribute("id") === "IDF2" ) configuracionCambiarMiniImagenes()
+        if ( evento.getAttribute("id") === "IDF3" ) configuracionCambiarMiniImagenes("der")
     }
     else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
         configuracionCambiarMiniImagenes("der");
@@ -276,14 +273,14 @@ opciones.addEventListener("click", (e) => {
 
     //sub opcion fuentes
     if ( evento.classList.contains("fuente__fuentes") ) {
-        cambiarFuente( evento );
+        cambiarFuente(evento);
     }
 
     //sub opcion temas
     if ( evento.classList.contains("temas__boton") ) {
-        let color = evento.getAttribute( "class" ).split( " " )[1];
+        let color = evento.getAttribute("class").split(" ")[1];
         console.log(color)
-        cambiarTema( color );
+        cambiarTema(color);
     }
 });
 

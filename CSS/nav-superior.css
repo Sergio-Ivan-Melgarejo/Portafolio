@@ -2,30 +2,22 @@
 
 .nav-superior{
     background-color: var(--color-1);
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
     color: var(--color-4);
-    border-bottom: 10px solid var(--color-2);
     text-align: center;
     box-sizing: border-box;
     overflow: hidden;
+    border-bottom: 10px solid var(--color-2);
 }
 
 .nav-superior__titulo{
     color: var(--color-1);
     background-color: var(--color-3);
-    width: clamp(21.8em, 80vw, 62.5em);
+    max-width: 62.5em;
     margin: auto;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     padding: 20px;
     font-weight: bold;
-}
-
-.opciones__li{
-    flex-wrap: nowrap;
 }
 
 /* avatar -------------------------- */
@@ -34,10 +26,9 @@
     display: flex;
     gap: 20px;
     padding: 20px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 50px;
 }
 
 .nav-superior__avatar-contenedor{
@@ -48,7 +39,7 @@
     text-align: center;
     background-color: var(--color-2);
     position: relative;
-    margin-top: 9.5em;
+    margin-top: 7.5em;
     padding: clamp(3.1em, 15vw, 6.25em) 20px 20px;
     border-radius: 10px;
 }
@@ -65,11 +56,12 @@
 }
 
 .nav-superior__avatar-nombre{
-    margin: 0;
+    margin: 0 auto;
     border-radius: 5px;
     color: var(--color-1);
     padding: 5px;
-    font-size: 1.2em;
+    font-size: 1.8em;
+    width: 90%;
 }
 
 .avatar-nombre__span{
@@ -77,9 +69,24 @@
     border-bottom: var(--color-3) solid 0px;
     outline: none;
     opacity: .7;
-    max-width: 50%;
     word-break: break-all;
-    overflow: hidden;
+}
+
+/* nombre de avatar / confirmar cambio nav-superior.js */
+
+.fa-check-circle{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: var(--color-3);
+    font-size: 1.5em;
+    display: none;
+}
+
+.fa-check-circle:hover{
+    transform: scale(1.5);
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* sub menu opciones ---------------------- */
@@ -93,21 +100,13 @@
     border-radius: 10px;
     padding: 1.3em;
     background-color: var(--color-2);
-    margin: 60px 0 0;
-    align-self: flex-end;
+    margin: 3.7em 0 0;
     position: relative;
-}
-
-.opciones__li{
-    background-color: var(--color-1);
-    border-radius: 5px;
-    color: var(--color-3);
-    padding: 0 5px;
 }
 
 .opciones__titulo{
     position: absolute;
-    top: -3.7em;
+    top: -3.2em;
     left: 50%;
     background-color: var(--color-2);
     color: var(--color-3);    
@@ -115,6 +114,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transform: translate(-50%);
+    margin: 0;
 }
 
 .logo-cog{
@@ -192,6 +192,42 @@
     border-radius: 5px;
 }
 
+/* Abrir menu superior ______________________________________*/
+
+.nav-superior__boton-abrir{
+    background-color: var(--color-2);
+    color: var(--color-3);
+    padding: .6em 1em;
+    font-size: 1.56em;
+    border-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.abrir-menu-sup{
+    opacity: .5;
+    transition: opacity 350ms;
+    animation: configuracionGirar 20s infinite;
+}
+
+.abrir-menu-sup:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+@keyframes abrirNavSup {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 500px;
+    }
+}
+
 /* General ---------------------------- */
 
 .opciones__li, .nav-superior__div{
@@ -201,6 +237,11 @@
     overflow: hidden;
     flex-wrap: wrap;
     padding: 1em;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    color: var(--color-3);
+    flex-wrap: wrap;
+    
 }
 
 .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .nav-superior__imagen-de-fondo, .fa-check-circle, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
@@ -208,7 +249,7 @@
     transition: opacity 350ms, transform 350ms;
 }
 
-.nav-superior__imagen-de-fondo:hover, .fa-check-circle:hover, .cerrar-menu-sup:hover, .fas-configuracion-user:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover{
+.nav-superior__imagen-de-fondo:hover, .fas-configuracion-user:hover, .fas-configuracion:hover, .temas__boton:hover, .fuente__fuentes:hover{
     opacity: 1;
     cursor: pointer;
     transform: scale(1.2);
@@ -216,18 +257,9 @@
     outline: inset;
     outline-style: solid;
 }
-/* 
-.nav-superior__imagen-de-fondo, .fas-configuracion, .temas__boton, .fuente__fuentes, .fas-configuracion-user{
-    margin: .6em 0;
-} */
 
-.nav-superior__boton-cerrar, .opciones__titulo, .nav-superior__avatar-contenedor, .nav-superior__div, .opciones__li, .nav-superior__opciones{
+.opciones__titulo, .nav-superior__avatar-contenedor, .nav-superior__div, .opciones__li, .nav-superior__opciones{
     border-top: .2em solid var(--color-3);
-}
-
-.nav-superior__div{
-    background-color: var(--color-1);
-    border-radius: 5px;
 }
 
 .fas-configuracion, .fas-configuracion-user{
@@ -238,75 +270,27 @@
     min-width: 2em;
 }
 
-/* abrir / cerrar */
-
-.nav-superior__div, .nav-superior{
-    overflow: hidden;
-    transition: height 2s;
-}
-
 /* Animaciones ------------------------ */
 
 @keyframes configuracionGirar {
     0%{
         transform: rotate(0deg);
     }
+    25%{
+        opacity: .7;
+
+    }
     50%{
-        opacity: 1;
+        opacity: .7;
     }
     100%{
         transform: rotate(360deg);
     }
 }
 
-/* botone cerrar menu ---------------- */
-
-.nav-superior__boton-cerrar{
-    background-color: var(--color-2);
-    color: var(--color-3);
-    position: absolute;
-    bottom: -48px;
-    left: 50%;
-    transform: translate(-50%);
-    padding: .6em .9em;
-    font-size: 1.5em;
-    border-radius: 10px;
-    bottom: -10px;
-    font-size: 2em;
-    border-left: 1px solid var(--color-3);
-    border-right: 1px solid var(--color-3);
-
-}
-
-
-@keyframes cerrarNavSup {
-    0%{
-        height: 100%;
-    }
-    100%{
-        height: 0%;
-    }
-}
-
 /* JavaScript general ------------------------- */
-
-/* .active-configuraciones{
-    opacity: 1;
-    color: var(--color-3);
-} */
 
 .cerrados{
     height: 0;
     padding: 0;
-}
-
-/* nombre de avatar / confirmar cambio nav-superior.js */
-
-.fa-check-circle{
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    color: var(--color-3);
-    font-size: 1.5em;
-    display: none;
 }

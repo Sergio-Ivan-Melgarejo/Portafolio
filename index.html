@@ -19,9 +19,89 @@
     <script src="./JavaScript/Cargar-Datos.js" type="module"></script>
 </head>
 <body class="body tema-predeterminado" id="body">
+
     <!-- <header class="header" id="header">
         <h1 class="titulo" id="titulo">Console.log("Bienvenidos")</h1>
     </header> -->
+
+    <!-- nav de configuraciones || barra supeior -->
+    <nav class="nav-superior" id="nav-superior">
+            <h2 class="nav-superior__titulo">
+                <i class="fas fa-cogs"></i>
+                Configuraciones
+            </h2>
+            <div class="nav-superior__contenedor">
+                <div class="nav-superior__avatar-contenedor">
+                    <img class="nav-superior__avatar-imagen" alt="avatar">
+                    <h3 class="nav-superior__avatar-nombre">@<span class="avatar-nombre__span">Avatar001</span></h3>
+                    <i class="far fa-check-circle"></i>
+                </div>
+                <ul class="nav-superior__opciones" id="nav-superior__opciones">
+                    <h3 class="opciones__titulo">Opciones</h3>
+                    <li class="opciones__li ">
+                        <i class="fas-configuracion fas fa-user" title="Editar Usuario"></i>
+                        <i class="fas-configuracion fas fa-images" title="Imagen de Fondo"></i>
+                        <i class="fas-configuracion fas fa-moon " title="Modo Noche"></i>
+                        <i class="fas-configuracion fas fa-book-open" title="Modo Lectura"></i>
+                        <i class="fas-configuracion fas fa-text-height" title="Tamaño de Fuente"></i>
+                        <i class="fas-configuracion fas fa-palette" title="Temas"></i>
+                    </li>
+                    <li class="nav-superior__li">
+                        <div class="nav-superior__div li__usuario cerrados">
+                            <i class="fas-configuracion-user fas fa-user-edit" title="Editar Nombre"></i>
+                            <i class="fas-configuracion-user fas fa-venus" title="Mujer"></i>
+                            <i class="fas-configuracion-user fas fa-mars" title="Hombre"></i>
+                        </div>
+                    </li>
+                    <li class="nav-superior__li">
+                        <div class="nav-superior__div li__imagen-de-fondo cerrados">
+                            <i class="imagenes-de-fondo__flecha-der fas fa-chevron-left"></i>
+                            <i class="imagenes-de-fondo__flecha-izq fas fa-chevron-right"></i>
+                            <img id="IDF1" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/1.jpg" alt="pre imagen defondo">
+                            <img id="IDF2" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/2.jpg" alt="pre imagen defondo">
+                            <img id="IDF3" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/3.jpg" alt="pre imagen defondo">
+                        </div>
+                    </li>
+                    <li class="nav-superior__li">
+                        <div class="nav-superior__div li__fuente cerrados">
+                            <button class="fuente__fuentes fuente__muy-pequeño">Muy Pequeño</button>
+                            <button class="fuente__fuentes fuente__pequeño">Pequeño</button>
+                            <button class="fuente__fuentes fuente__mediano">Mediano</button>
+                            <button class="fuente__fuentes fuente__grande">Grande</button>
+                            <button class="fuente__fuentes fuente__muy-grande">Muy Grande</button>
+                    </li>
+                    <li class="nav-superior__li">
+                        <div class="nav-superior__div li__temas cerrados">
+                            <div class="temas__boton tema-0"></div>
+                            <div class="temas__boton tema-1"></div>
+                            <div class="temas__boton tema-2"></div>
+                            <div class="temas__boton tema-3"></div>
+                            <div class="temas__boton tema-4"></div>
+                            <div class="temas__boton tema-5"></div>
+                            <div class="temas__boton tema-6"></div>
+                            <div class="temas__boton tema-7"></div>
+                            <div class="temas__boton tema-8"></div>
+                            <div class="temas__boton tema-9"></div>
+                            <div class="temas__boton tema-10"></div>
+                            <div class="temas__boton tema-11"></div>
+                            <div class="temas__boton tema-12"></div>
+                            <div class="temas__boton tema-13"></div>
+                            <div class="temas__boton tema-14"></div>
+                            <div class="temas__boton tema-15"></div>
+                            <div class="temas__boton tema-16"></div>
+                            <div class="temas__boton tema-17"></div>
+                            <div class="temas__boton tema-18"></div>
+                            <div class="temas__boton tema-19"></div>
+                            <div class="temas__boton tema-20"></div>
+                            <div class="temas__boton tema-21"></div>
+                            <div class="temas__boton tema-22"></div>
+                            <div class="temas__boton tema-23"></div>
+                            <div class="temas__boton tema-24"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    </nav>
 
     <!-- nav de configuraciones || barra inferior -->
     <nav class="nav-inferior">
@@ -29,7 +109,11 @@
             <li class="nav-inferior__avatar">
                 <img class="nav-inferior-imagen" alt="avatar">
             </li>
+            <li class="nav-inferior__li" id="nombreDeUsuario">Anonimo001</li>
             <li class="nav-inferior__linea"></li>
+            <li class="nav-inferior__li">
+                <i class="fas fa-bard"></i>
+            </li>
             <li class="nav-inferior__li">Trabajos</li>
             <li class="nav-inferior__li">Sobre mi</li>
             <li class="nav-inferior__li">Contacto</li>
@@ -38,87 +122,7 @@
             <i class="abrir-menu-sup fas fa-cog" id="abrir-cof"></i>
         </div>
     </nav>
-    <!-- nav de configuraciones || barra supeior -->
-    <nav class="nav-superior" id="nav-superior">
-        <h2 class="nav-superior__titulo">
-            <i class="fas fa-cogs"></i>
-            Configuraciones
-        </h2>
-        <div class="nav-superior__contenedor">
-            <div class="nav-superior__avatar-contenedor">
-                <img class="nav-superior__avatar-imagen" alt="avatar">
-                <h3 class="nav-superior__avatar-nombre">@<span class="avatar-nombre__span">Avatar001</span></h3>
-                <i class="far fa-check-circle"></i>
-            </div>
-            <ul class="nav-superior__opciones" id="nav-superior__opciones">
-                <h3 class="opciones__titulo">Opciones</h3>
-                <li class="opciones__li ">
-                    <i class="fas-configuracion fas fa-user" title="Editar Usuario"></i>
-                    <i class="fas-configuracion fas fa-images" title="Imagen de Fondo"></i>
-                    <i class="fas-configuracion fas fa-moon " title="Modo Noche"></i>
-                    <i class="fas-configuracion fas fa-book-open" title="Modo Lectura"></i>
-                    <i class="fas-configuracion fas fa-text-height" title="Tamaño de Fuente"></i>
-                    <i class="fas-configuracion fas fa-palette" title="Temas"></i>
-                </li>
-                <li class="nav-superior__li">
-                    <div class="nav-superior__div li__usuario cerrados">
-                        <i class="fas-configuracion-user fas fa-user-edit" title="Editar Nombre"></i>
-                        <i class="fas-configuracion-user fas fa-venus" title="Mujer"></i>
-                        <i class="fas-configuracion-user fas fa-mars" title="Hombre"></i>
-                    </div>
-                </li>
-                <li class="nav-superior__li">
-                    <div class="nav-superior__div li__imagen-de-fondo cerrados">
-                        <i class="imagenes-de-fondo__flecha-der fas fa-chevron-left"></i>
-                        <i class="imagenes-de-fondo__flecha-izq fas fa-chevron-right"></i>
-                        <img id="IDF1" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/1.jpg" alt="pre imagen defondo">
-                        <img id="IDF2" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/2.jpg" alt="pre imagen defondo">
-                        <img id="IDF3" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/3.jpg" alt="pre imagen defondo">
-                    </div>
-                </li>
-                <li class="nav-superior__li">
-                    <div class="nav-superior__div li__fuente cerrados">
-                        <button class="fuente__fuentes fuente__muy-pequeño">Muy Pequeño</button>
-                        <button class="fuente__fuentes fuente__pequeño">Pequeño</button>
-                        <button class="fuente__fuentes fuente__mediano">Mediano</button>
-                        <button class="fuente__fuentes fuente__grande">Grande</button>
-                        <button class="fuente__fuentes fuente__muy-grande">Muy Grande</button>
-                </li>
-                <li class="nav-superior__li">
-                    <div class="nav-superior__div li__temas cerrados">
-                        <div class="temas__boton tema-0"></div>
-                        <div class="temas__boton tema-1"></div>
-                        <div class="temas__boton tema-2"></div>
-                        <div class="temas__boton tema-3"></div>
-                        <div class="temas__boton tema-4"></div>
-                        <div class="temas__boton tema-5"></div>
-                        <div class="temas__boton tema-6"></div>
-                        <div class="temas__boton tema-7"></div>
-                        <div class="temas__boton tema-8"></div>
-                        <div class="temas__boton tema-9"></div>
-                        <div class="temas__boton tema-10"></div>
-                        <div class="temas__boton tema-11"></div>
-                        <div class="temas__boton tema-12"></div>
-                        <div class="temas__boton tema-13"></div>
-                        <div class="temas__boton tema-14"></div>
-                        <div class="temas__boton tema-15"></div>
-                        <div class="temas__boton tema-16"></div>
-                        <div class="temas__boton tema-17"></div>
-                        <div class="temas__boton tema-18"></div>
-                        <div class="temas__boton tema-19"></div>
-                        <div class="temas__boton tema-20"></div>
-                        <div class="temas__boton tema-21"></div>
-                        <div class="temas__boton tema-22"></div>
-                        <div class="temas__boton tema-23"></div>
-                        <div class="temas__boton tema-24"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-superior__boton-cerrar">
-            <i class="cerrar-menu-sup fas fa-times" id="cerrar-menu-sup"></i>
-        </div>
-    </nav>
+
 
 
     <main class="main" id="main"></main>
