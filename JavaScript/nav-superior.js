@@ -4,8 +4,8 @@
 export const body = document.getElementById("body");
 //Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
-const navSuperior = document.getElementById("nav-superior");
-const navInferior = document.getElementById("nav-inferior");
+const cerrarCof = document.getElementById("cerrar-cof");
+export const navSuperior = document.getElementById("nav-superior");
 //Opciones
 const opciones = document.getElementById("nav-superior__opciones");
 const opcionesUsuario = document.querySelector(".li__usuario");
@@ -42,10 +42,10 @@ const cambiarAvatar = (genero) => {
     avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
 }
 
-const cambiarNombreAvatar = () => {
+export const cambiarNombreAvatar = () => {
     //permite editar directamente el nombre de avatar
     nombreUsuarioMenuConf.setAttribute("contenteditable", true);
-    nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: 5px; line-height: 2em";
+    nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: .5em 1em; line-height: 2em; background-color: var(--color-1); margin-left: .5em";
     avatarConfirmar.style.display = "block";
 }
 
@@ -53,7 +53,7 @@ const comfirmarNombreAvatar = () => {
     let dato = nombreUsuarioMenuConf.textContent;
     localStorage.setItem("nombreAvatar", dato)
     nombreUsuarioMenuConf.removeAttribute("contenteditable");
-    nombreUsuarioMenuConf.style = "border-bottom-width : 0px; opacity: .7; ";
+    nombreUsuarioMenuConf.removeAttribute("style");
     avatarConfirmar.removeAttribute("style");
     nombreUsuario.textContent = dato;
 }
@@ -206,6 +206,10 @@ abrirCof.addEventListener("click", () => {
     navSuperior.classList.toggle("cerrados")
 });
 
+cerrarCof.addEventListener("click", () => {
+    navSuperior.classList.toggle("cerrados")
+});
+
 //opciones
 opciones.addEventListener("click", (e) => {
     let evento = e.target;
@@ -218,7 +222,7 @@ opciones.addEventListener("click", (e) => {
         opcionesFuente.classList.add("cerrados");
     }
     if ( evento.classList.contains("fa-images") ) {
-        opcionesImagenDeFondo.classList.toggle("cerrados") 
+        opcionesImagenDeFondo.classList.toggle("cerrados");
         opcionesUsuario.classList.add("cerrados");
         opcionesTemas.classList.add("cerrados");
         opcionesFuente.classList.add("cerrados");

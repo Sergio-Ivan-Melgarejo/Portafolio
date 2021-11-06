@@ -28,16 +28,91 @@
     border: .1em solid var(--color-3);
     border-radius: 50%;
     background-color: var(--color-3);
+    cursor: pointer;
+}
+
+/* nombre usuario -------------- */
+
+.nav-inferior__usuario{
+    display: none;
 }
 
 /* opciones -------------------- */
 
 .nav-inferior__li{
     color: var(--color-3);
-    transition: color 350ms;
     cursor: pointer;
+    transition: background-color 1s, color 350ms;
+    border-radius: 10px;
 }
 
 .nav-inferior__li:hover{
     color: var(--color-2);
+}
+
+/* sub-menu modo movil ___________________________________ */
+
+.nav-inferior__sub-menu{
+    padding: 0;
+    display: none;
+}
+
+.nav-inferior__bars{
+    font-size: 2em;
+    padding: .5em;
+}
+
+
+/* javascript ----------------- */
+
+.abiertos{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    position: absolute;
+    top: 6em;
+    background-color: var(--color-1);
+    padding: 1em;
+    text-align: center;
+    right: 10%;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 800px) {
+
+    .nav-inferior__usuario{
+        display: block;
+    }
+
+    .nav-inferior__li{
+        display: inline-block;
+    }
+
+    /* sub-menu modo movil ___________________________________ */
+    
+    .nav-inferior__bars{
+        display: none;
+    }
+
+    .nav-inferior__sub-menu{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .abiertos{
+        position: static;
+        width: auto;
+        padding: 0;
+    }
+
+    .nav-inferior__li{
+        color: var(--color-3);
+        cursor: pointer;
+        transition: background-color 1s, color 350ms;
+    }
+    
+    .nav-inferior__li:hover{
+        color: var(--color-2);
+    }
 }

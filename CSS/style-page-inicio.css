@@ -1,6 +1,7 @@
 body{
     background-size: cover;
-    background-position: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
     font-family: sans-serif;
     transition: background-image 500ms;
     overflow: hidden;
@@ -26,10 +27,4 @@ body{
     color: var(--color-3);
     font-size: 1.4em;
     margin: 100px 0;
-}
-
-/* main ________________________________________ */
-
-.main{ 
-    min-height: 100vh;
 }

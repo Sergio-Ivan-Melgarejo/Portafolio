@@ -1,0 +1,77 @@
+.main{ 
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+
+
+    height: 85vh;
+    background-color: rgba(0, 0, 255, 0.226);
+}
+
+
+.main__item-flex{
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+
+.item-flex__box-1{
+    padding: 1em;
+    background-color: var(--color-1);
+    display: flex;
+    align-items: center;
+}
+
+.main__logo{height: clamp(50px, 10vw, 100px);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.main__sub-titulo{
+    display: inline-block;
+    color: var(--color-3);
+    background-color: var(--color-2);
+    padding: 1em;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: -50px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.main__sub-titulo::after{
+    content: "+";
+    position: absolute;
+    right: 10px;
+    font-size: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item-flex__box-2{
+    background-color: var(--color-2);
+    height: 100%;
+}
+
+/* 
+<main class="main" id="main">
+    <div class="main__item-flex">
+        <div class="item-flex__box-1">
+            <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
+            <h2 class="main__sub-titulo">Front Mentor</h2>
+        </div>
+        <div class="item-flex__box-2" id="front-mentor"></div>
+    </div>
+</main>
+ */
+
+
+ @media screen and (min-width: 800px) {
+    .main{
+        flex-direction: row;
+    }
+ }

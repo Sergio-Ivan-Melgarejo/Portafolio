@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="CSS/normalize.css">
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style-page-inicio.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/nav-superior.css">
     <link rel="stylesheet" href="CSS/nav-inferior.css">
     <link rel="stylesheet" href="CSS/temas.css">
@@ -29,6 +30,7 @@
             <h2 class="nav-superior__titulo">
                 <i class="fas fa-cogs"></i>
                 Configuraciones
+                <i id="cerrar-cof" class="cerrar-menu-cof fas fa-times"></i>
             </h2>
             <div class="nav-superior__contenedor">
                 <div class="nav-superior__avatar-contenedor">
@@ -109,26 +111,60 @@
             <li class="nav-inferior__avatar">
                 <img class="nav-inferior-imagen" alt="avatar">
             </li>
-            <li class="nav-inferior__li" id="nombreDeUsuario">Anonimo001</li>
+            <li class="nav-inferior__li nav-inferior__usuario" id="nombreDeUsuario">Anonimo001</li>
             <li class="nav-inferior__linea"></li>
             <li class="nav-inferior__li">
-                <i class="fas fa-bard"></i>
+                <i class="nav-inferior__bars fas fa-bars"></i>
             </li>
-            <li class="nav-inferior__li">Trabajos</li>
-            <li class="nav-inferior__li">Sobre mi</li>
-            <li class="nav-inferior__li">Contacto</li>
+            <ul class="nav-inferior__ul nav-inferior__sub-menu">
+                <li class="nav-inferior__li">Trabajos</li>
+                <li class="nav-inferior__li">Sobre mi</li>
+                <li class="nav-inferior__li">Contacto</li>
+            </ul>
         </ul>
-        <div class="nav-superior__boton-abrir">
-            <i class="abrir-menu-sup fas fa-cog" id="abrir-cof"></i>
+        <div class="nav-superior__boton-abrir" id="abrir-cof">
+            <i class="abrir-menu-sup fas fa-cog"></i>
         </div>
     </nav>
-
-
-
-    <main class="main" id="main"></main>
+<!-- 
+    <main class="main" id="main">
+        <div class="main__item-flex">
+            <div class="item-flex__box-1">
+                <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
+                <h2 class="main__sub-titulo">Front Mentor</h2>
+            </div>
+            <div class="item-flex__box-2" id="front-mentor"></div>
+        </div>
+        <div class="main__item-flex">
+            <div class="item-flex__box-1">
+                <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
+                <h2 class="main__sub-titulo">Fronddddddddddddddddd Mentor</h2>
+            </div>
+            <div class="item-flex__box-2" id="front-mentor"></div>
+        </div>
+        <div class="main__item-flex">
+            <div class="item-flex__box-1">
+                <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
+                <h2 class="main__sub-titulo">Front Mentor</h2>
+            </div>
+            <div class="item-flex__box-2" id="front-mentor"></div>
+        </div>
+        <div class="main__item-flex">
+            <div class="item-flex__box-1">
+                <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
+                <h2 class="main__sub-titulo">Front Mentor</h2>
+            </div>
+            <div class="item-flex__box-2" id="front-mentor"></div>
+        </div>
+    </main> -->
     
+    <footer class="footer">
+
+    </footer>
+
     <!-- javascript -->
     <script src="./JavaScript/code-inicio.js"></script>
     <script src="./JavaScript/nav-superior.js" type="module"></script>
+    <script src="./JavaScript/nav-inferior.js" type="module"></script>
 </body>
 </html>

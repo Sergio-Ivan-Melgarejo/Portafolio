@@ -1,7 +1,7 @@
 "use strict"
 
 //Importaciones
-import { body, avatarMenu, avatarCogiguracion, nombreUsuario, nombreUsuarioMenuConf, preImagen1, preImagen2, preImagen3, obtenerJsonIDF } from "./nav-superior.js"
+import { body, avatarMenu, avatarCogiguracion, nombreUsuario, nombreUsuarioMenuConf, preImagen1, preImagen2, preImagen3, obtenerJsonIDF } from "./nav-superior.js";
 
 //Declaraciones
 
@@ -24,6 +24,13 @@ const cargarDeAvatar = () =>{
 
     avatarMenu.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
     avatarCogiguracion.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
+}
+
+//Carga el nombre de usuiario y si es muy largo lo edita para mostrar acortado
+const cargarNombreUsuario = () => {
+    let nombre = localStorage.getItem("nombreAvatar") || "Anonimo001";
+    if ( nombre.length > 15 ) nombre = (nombre.slice( 0, 15 ) + "...");
+    nombreUsuario.textContent = nombre;
 }
 
 //Elige al azar un fondo de imagen al entrar si no hay guardados
@@ -64,7 +71,7 @@ const cargarTema = () => {
 
 cargarDeAvatar();
 nombreUsuarioMenuConf.textContent = localStorage.getItem("nombreAvatar") || "Anonimo001";
-nombreUsuario.textContent = localStorage.getItem("nombreAvatar") || "Anonimo001";
+cargarNombreUsuario();
 cargarDeFondo();
 cartgarPreFondo();
 cargarTema();
