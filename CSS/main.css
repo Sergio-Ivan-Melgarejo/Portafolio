@@ -5,73 +5,76 @@
     padding: 1em;
 
 
-    height: 85vh;
+    height: 80vh;
     background-color: rgba(0, 0, 255, 0.226);
 }
 
-
 .main__item-flex{
-    box-sizing: border-box;
+    flex: 0 1 3em;
     overflow: hidden;
-    border: 1px solid red;
-    border-radius: 20px;
+    border-radius: 10px;
+    transition: flex-grow 2s;
 }
 
 .item-flex__box-1{
-    padding: 1em;
     background-color: var(--color-1);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1em;
 }
 
-.main__logo{height: clamp(50px, 10vw, 100px);
-    z-index: 10;
-    cursor: pointer;
+.main__imagen{
+    height: clamp(3em, 10vw, 5em);
+    margin: 10px;
 }
 
 .main__sub-titulo{
-    display: inline-block;
     color: var(--color-3);
     background-color: var(--color-2);
-    padding: 1em;
-    width: 100%;
+    padding: .5em;
     border-radius: 10px;
     text-align: center;
-    position: relative;
-    left: -50px;
-    cursor: pointer;
-    margin: 0;
-}
-
-.main__sub-titulo::after{
-    content: "+";
-    position: absolute;
-    right: 10px;
-    font-size: 2em;
-    top: 50%;
-    transform: translateY(-50%);
+    margin:5px 5px 0 0;
+    width: 100%;
 }
 
 .item-flex__box-2{
     background-color: var(--color-2);
     height: 100%;
+    padding: 0 3em;
 }
 
-/* 
-<main class="main" id="main">
-    <div class="main__item-flex">
-        <div class="item-flex__box-1">
-            <img class="main__logo" src="./images/main/undraw_text_files_au1q.svg" alt="">
-            <h2 class="main__sub-titulo">Front Mentor</h2>
-        </div>
-        <div class="item-flex__box-2" id="front-mentor"></div>
-    </div>
-</main>
- */
+.main__abrir-i{
+    color: var(--color-1);
+    align-self: start;
+    font-size: 1.8em;
+    background-color: var(--color-2);
+    padding: 0.2em;
+    border-radius: 10px;
+    margin: 0.118em;
+}
 
+ /* Trabajos -------------------------------------- */
+ .fa-code{
+     font-size: 1.8em;
+ }
 
  @media screen and (min-width: 800px) {
     .main{
         flex-direction: row;
     }
  }
+
+ /* javascript ------------------------------------ */
+
+ .main__item-flex-selecionado{
+    flex: 1 1 ;
+    cursor: auto;
+}
+
+.main__item-flex-selecionado  .main__abrir-i{
+    color: var(--color-3);    
+}
+
+.main__item-flex-selecionado .item-flex__box-2{
+}

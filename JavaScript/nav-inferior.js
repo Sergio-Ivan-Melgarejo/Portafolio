@@ -31,7 +31,7 @@ navInferior.addEventListener("click", (e) => {
             menuMovil.parentNode.style = "background-color: var(--color-3); color: var(--color-1)";
         }
         else{
-            menuMovil.parentNode.removeAttribute("style")
+            menuMovil.parentNode.removeAttribute("style");
             
         }
     }

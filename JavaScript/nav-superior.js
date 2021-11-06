@@ -45,7 +45,7 @@ const cambiarAvatar = (genero) => {
 export const cambiarNombreAvatar = () => {
     //permite editar directamente el nombre de avatar
     nombreUsuarioMenuConf.setAttribute("contenteditable", true);
-    nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: .5em 1em; line-height: 2em; background-color: var(--color-1); margin-left: .5em";
+    nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: .5em 1em; line-height: 2em; margin-left: .5em";
     avatarConfirmar.style.display = "block";
 }
 
@@ -55,6 +55,8 @@ const comfirmarNombreAvatar = () => {
     nombreUsuarioMenuConf.removeAttribute("contenteditable");
     nombreUsuarioMenuConf.removeAttribute("style");
     avatarConfirmar.removeAttribute("style");
+
+    if ( dato.length > 15 ) dato = (dato.slice( 0, 15 ) + "...");
     nombreUsuario.textContent = dato;
 }
 
