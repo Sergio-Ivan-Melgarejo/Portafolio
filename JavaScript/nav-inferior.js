@@ -26,13 +26,7 @@ navInferior.addEventListener("click", (e) => {
     }
 
     if ( evento.contains("nav-inferior__bars") ) {
-        let abierto = subMenu.classList.toggle("abiertos");
-        if( abierto ){
-            menuMovil.parentNode.style = "background-color: var(--color-3); color: var(--color-1)";
-        }
-        else{
-            menuMovil.parentNode.removeAttribute("style");
-            
-        }
+        subMenu.classList.toggle("abiertos");
+        menuMovil.parentNode.classList.toggle("bars-selecionado");
     }
 });

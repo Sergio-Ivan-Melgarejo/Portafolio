@@ -80,6 +80,11 @@
     border: var(--color-3) .2em solid;
 }
 
+.bars-selecionado{
+    color: var(--color-1);
+    background-color: var(--color-3);
+}
+
 @media screen and (min-width: 800px) {
 
     .nav-inferior__usuario{
@@ -92,7 +97,7 @@
 
     /* sub-menu modo movil ___________________________________ */
     
-    .nav-inferior__bars{
+    .nav-inferior__li-movil, .nav-inferior__bars{
         display: none;
     }
 
@@ -105,6 +110,11 @@
         position: static;
         width: auto;
         padding: 0;
+        border-color: transparent;
+    }
+
+    .bars-selecionado{
+        display: none;
     }
 
     .nav-inferior__li{

@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    padding: 1em;
+    padding: 1em; 
+    justify-content: center;
+    align-items: center;
 
 
     height: 80vh;
-    background-color: rgba(0, 0, 255, 0.226);
 }
 
 .main__item-flex{
@@ -15,19 +16,16 @@
     border-radius: 10px;
     transition: flex-grow 2s;
     opacity: .3;
-    cursor: pointer;
-    transition: opacity 350ms;
     display: flex;
     flex-direction: column;
+    height: 3em;
+    width: 3em;
+    transition: opacity 2s, flex-grow 2s, flex-shrink 2s, height 2s, width 2s;
 }
 
 .main__item-flex:hover{
     opacity: 1;
 }
-
-.main__item-flex:hover > .item-flex__box-1 > .main__abrir-i{
-    color: var(--color-3);
-} 
 
 .item-flex__box-1{
     background-color: var(--color-1);
@@ -66,26 +64,38 @@
     align-self: start;
     font-size: 1.8em;
     background-color: var(--color-2);
-    padding: 0.2em;
+    padding: .2em;
     border-radius: 10px;
     margin: 0.118em;
     transition: color 350ms;
+    cursor: pointer; 
+}
+
+.main__abrir-i:hover{
+    color: var(--color-3);
+}
+
+.fa-code, .fa-gamepad{
+    padding: .2em .1em;
 }
 
  /* javascript _____________ */
 
  .main__item-flex-selecionado{
     flex: 1 1 ;
-    cursor: auto;
     opacity: 1;
+    width: 100%;
+    height: 100%;
 }
 
-.main__item-flex-selecionado  .main__abrir-i{
-    color: var(--color-3);    
+.main__item-flex-selecionado .main__abrir-i{
+    color: var(--color-3);   
 }
 
-.main__item-flex-selecionado .item-flex__box-2{
+.main__item-flex-selecionado .main__abrir-i:hover{
+    color: var(--color-1); 
 }
+
 
 /* barra de scroll  ________________ */
 
@@ -189,7 +199,7 @@
     flex: 1 1;
 }
 
- /* Trabajos -------------------------------------- */
+ /* barra de busqueda -------------------------------------- */
 
 .main__barra-de-busqueda{
     text-align: center;
