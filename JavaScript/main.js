@@ -15,4 +15,9 @@ main.addEventListener("click", (e) => {
         if ( memorizacion != undefined && memorizacion != evento ) memorizacion.classList.remove("main__item-flex-selecionado");
         memorizacion = evento ;
     }
+
+    if ( evento.classList.contains("main__filtro-boton") ) {
+        let menufiltro = evento.parentNode.parentNode.children[1];
+        menufiltro.classList.toggle("filtro-abierto");
+    }
 })

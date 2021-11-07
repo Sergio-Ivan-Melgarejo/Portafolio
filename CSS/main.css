@@ -14,7 +14,20 @@
     overflow: hidden;
     border-radius: 10px;
     transition: flex-grow 2s;
+    opacity: .3;
+    cursor: pointer;
+    transition: opacity 350ms;
+    display: flex;
+    flex-direction: column;
 }
+
+.main__item-flex:hover{
+    opacity: 1;
+}
+
+.main__item-flex:hover > .item-flex__box-1 > .main__abrir-i{
+    color: var(--color-3);
+} 
 
 .item-flex__box-1{
     background-color: var(--color-1);
@@ -40,8 +53,12 @@
 
 .item-flex__box-2{
     background-color: var(--color-2);
-    height: 100%;
-    padding: 0 3em;
+    height: 50%;
+    padding: 0 3em 3em;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
 }
 
 .main__abrir-i{
@@ -52,24 +69,15 @@
     padding: 0.2em;
     border-radius: 10px;
     margin: 0.118em;
+    transition: color 350ms;
 }
 
- /* Trabajos -------------------------------------- */
- .fa-code{
-     font-size: 1.8em;
- }
-
- @media screen and (min-width: 800px) {
-    .main{
-        flex-direction: row;
-    }
- }
-
- /* javascript ------------------------------------ */
+ /* javascript _____________ */
 
  .main__item-flex-selecionado{
     flex: 1 1 ;
     cursor: auto;
+    opacity: 1;
 }
 
 .main__item-flex-selecionado  .main__abrir-i{
@@ -78,3 +86,142 @@
 
 .main__item-flex-selecionado .item-flex__box-2{
 }
+
+/* barra de scroll  ________________ */
+
+.main___filtro-lista::-webkit-scrollbar, .item-flex__box-2::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.main___filtro-lista::-webkit-scrollbar:vertical, .item-flex__box-2::-webkit-scrollbar:vertical {
+    width:20px;
+}
+
+.main___filtro-lista::-webkit-scrollbar-button:increment, .main___filtro-lista::-webkit-scrollbar-button, .item-flex__box-2::-webkit-scrollbar-button:increment,.item-flex__box-2::-webkit-scrollbar-button {
+    display: none;
+}
+
+.main___filtro-lista::-webkit-scrollbar-thumb, .item-flex__box-2::-webkit-scrollbar-thumb {
+    background-color: var(--color-3);
+    border-radius: 20px;
+    border: 3px solid var(--color-1);
+}
+
+.main___filtro-lista::-webkit-scrollbar-track, .item-flex__box-2::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+/* barra de filtro ------------------------------ */
+
+.item-flex__box-2 .main___filtro-lista{
+    background-color: var(--color-1);
+    padding: .2em;
+    height: 0em;
+    overflow: hidden;
+    transition: flex-grow 2s;
+    overflow-y: scroll;
+}
+
+.main__filtro-boton{
+    cursor: pointer;
+    color: var(--color-4);
+    font-weight: bold;
+    background-color: var(--color-1);
+    border: none;
+    transition: color 350ms, background-color 350ms;
+    padding: .55em;
+    border-radius: 5px;
+}
+
+.main__filtro-boton:hover{
+    color: var(--color-1);
+    background-color: var(--color-3);
+}
+
+.item-flex__box-2 ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main__filtro .main__lista-ul{
+    padding: .5em;
+}
+
+.main__lista-titulo{
+    background-color: var(--color-2);
+    display: block;
+    padding: .5em;
+    color: var(--color-3);
+    margin-top: 0.3em;
+}
+
+.main__lista-li{
+    color: var(--color-4);
+    border-bottom: .1em solid var(--color-2);
+    transition: background-color 350ms, color 350ms;
+}
+
+.main__lista-contenedor{
+    display: flex;
+}
+
+.main__lista-opcion{
+    margin: .5em;
+    cursor: pointer;
+}
+
+.main__lista-label{
+    padding: .5em;
+    width: 100%;
+    display: inline-block;
+}
+
+.main__lista-label:hover{
+    background-color: var(--color-3);
+    color: var(--color-1);
+    cursor: pointer;
+}
+
+/* javascript _________________ */
+
+.item-flex__box-2 .filtro-abierto{
+    flex: 1 1;
+}
+
+ /* Trabajos -------------------------------------- */
+
+.main__barra-de-busqueda{
+    text-align: center;
+    padding: 1em 0;
+}
+
+.main__buscador{
+    padding: .5em;
+    color: var(--color-1);
+    border-radius: 5px;
+    border: none;
+    outline-color: var(--color-3);
+    width: 50%;
+}
+
+.main__logo-buscador{
+    color: var(--color-4);
+    font-size: 1em;
+    background-color: var(--color-1);
+    padding: .55em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 350ms, background-color 350ms;
+}
+
+.main__logo-buscador:hover{
+    color: var(--color-1);
+    background-color: var(--color-3);
+}
+
+ @media screen and (min-width: 800px) {
+    .main{
+        flex-direction: row;
+    }
+ }
