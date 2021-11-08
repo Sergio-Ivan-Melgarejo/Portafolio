@@ -22,8 +22,8 @@ const cargarDeAvatar = () =>{
         genero = generoAlAzar;
     }
 
-    avatarMenu.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
-    avatarCogiguracion.setAttribute("src", `./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarMenu.setAttribute("src", `./imagenes/avatares/avatar-${genero}__${color}.svg`);
+    avatarCogiguracion.setAttribute("src", `./imagenes/avatares/avatar-${genero}__${color}.svg`);
 }
 
 //Carga el nombre de usuiario y si es muy largo lo edita para mostrar acortado
@@ -38,7 +38,7 @@ const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
         let numeroAzar = generaNumeroAlAzar(8);
-        body.style.backgroundImage = `url(./images/imagenes-de-fondo/${(numeroAzar)}.jpg)`
+        body.style.backgroundImage = `url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg)`
     }
     else {
         body.style.backgroundImage = `url(${src})`
@@ -59,9 +59,9 @@ const cartgarPreFondo = async () => {
     if ( preI1 < 1 ) preI1 = dataJsonIDF.length ;
     if ( preI2 > dataJsonIDF.length ) preI2 = 1;
 
-    preImagen2.setAttribute("src", `./images/imagenes-de-fondo/${imagenElegida}.jpg`);
-    preImagen1.setAttribute("src", `./images/imagenes-de-fondo/${preI1}.jpg`);
-    preImagen3.setAttribute("src", `./images/imagenes-de-fondo/${preI2}.jpg`);
+    preImagen2.setAttribute("src", `./imagenes/imagenes-de-fondo/${imagenElegida}.jpg`);
+    preImagen1.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI1}.jpg`);
+    preImagen3.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI2}.jpg`);
 }
 
 const cargarTema = () => {

@@ -38,8 +38,8 @@ const guardarDatoLocalStora = (nombreDeDato, dato) => {
 
 const cambiarAvatar = (genero) => {
     let color = localStorage.getItem("tema") || "tema-predeterminado";
-    avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
-    avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarMenu.setAttribute("src",`./imagenes/avatares/avatar-${genero}__${color}.svg`);
+    avatarCogiguracion.setAttribute("src",`./imagenes/avatares/avatar-${genero}__${color}.svg`);
 }
 
 export const cambiarNombreAvatar = () => {
@@ -175,8 +175,8 @@ const cambiarTemaDelAvatar = () => {
         genero == -1 ? genero = "hombre" : genero = "mujer";
     }
 
-    avatarMenu.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
-    avatarCogiguracion.setAttribute("src",`./images/avatares/avatar-${genero}__${color}.svg`);
+    avatarMenu.setAttribute("src",`./imagenes/avatares/avatar-${genero}__${color}.svg`);
+    avatarCogiguracion.setAttribute("src",`./imagenes/avatares/avatar-${genero}__${color}.svg`);
 }
 
 const cambiarFuente = (evento) => {
@@ -223,7 +223,7 @@ opciones.addEventListener("click", (e) => {
         opcionesTemas.classList.add("cerrados");
         opcionesFuente.classList.add("cerrados");
     }
-    if ( evento.classList.contains("fa-images") ) {
+    if ( evento.classList.contains("fa-imagenes") ) {
         opcionesImagenDeFondo.classList.toggle("cerrados");
         opcionesUsuario.classList.add("cerrados");
         opcionesTemas.classList.add("cerrados");

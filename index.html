@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="CSS/normalize.css">
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style-page-inicio.css">
-    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/nav-superior.css">
     <link rel="stylesheet" href="CSS/nav-inferior.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/temas.css">
     <!-- Cagar datos Guardados del usuario -->
     <script src="./JavaScript/Cargar-Datos.js" type="module"></script>
@@ -59,9 +59,9 @@
                         <div class="nav-superior__div li__imagen-de-fondo cerrados">
                             <i class="imagenes-de-fondo__flecha-der fas fa-chevron-left"></i>
                             <i class="imagenes-de-fondo__flecha-izq fas fa-chevron-right"></i>
-                            <img id="IDF1" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/1.jpg" alt="pre imagen defondo">
-                            <img id="IDF2" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/2.jpg" alt="pre imagen defondo">
-                            <img id="IDF3" class="nav-superior__imagen-de-fondo" src="./images/imagenes-de-fondo/3.jpg" alt="pre imagen defondo">
+                            <img id="IDF1" class="nav-superior__imagen-de-fondo" src="./imagenes/imagenes-de-fondo/1.jpg" alt="pre imagen defondo">
+                            <img id="IDF2" class="nav-superior__imagen-de-fondo" src="./imagenes/imagenes-de-fondo/2.jpg" alt="pre imagen defondo">
+                            <img id="IDF3" class="nav-superior__imagen-de-fondo" src="./imagenes/imagenes-de-fondo/3.jpg" alt="pre imagen defondo">
                         </div>
                     </li>
                     <li class="nav-superior__li">
@@ -128,10 +128,9 @@
     </nav>
 
     <main class="main" id="main">
-        <div class="main__item-flex main__item-flex-selecionado">
+        <div class="main__item-flex main__fron-mentor">
             <div class="item-flex__box-1">
                 <i class="main__abrir-i fas fa-briefcase"></i>
-                <img class="main__imagen" src="./images/main/undraw_text_files_au1q.svg" alt="">
                 <h2 class="main__sub-titulo">Front Mentor</h2>
             </div>
             <div class="item-flex__box-2" id="front-mentor">
@@ -201,13 +200,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="main__modal"></div>
         </div>
-        <div class="main__item-flex">
+        <div class="main__item-flex main__fron-projectos">
             <div class="item-flex__box-1">
                 <i class="main__abrir-i fas fa-code"></i>
-                <img class="main__imagen" src="./images/main/undraw_text_files_au1q.svg" alt="">
-                <h2 class="main__sub-titulo">Front Mentor</h2>
+                <h2 class="main__sub-titulo">Projectos</h2>
             </div>
             <div class="item-flex__box-2" id="front-mentor">
                 <div class="main__barra-de-busqueda">
@@ -276,13 +273,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="main__modal"></div>
         </div>
-        <div class="main__item-flex">
+        <div class="main__item-flex main__fron-juegos">
             <div class="item-flex__box-1">
                 <i class="main__abrir-i fas fa-gamepad"></i>
-                <img class="main__imagen" src="./images/main/undraw_text_files_au1q.svg" alt="">
-                <h2 class="main__sub-titulo">Front Mentor</h2>
+                <h2 class="main__sub-titulo">Juegos</h2>
             </div>
             <div class="item-flex__box-2" id="front-mentor">
                 <div class="main__barra-de-busqueda">
@@ -351,13 +346,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="main__modal"></div>
         </div>
-        <div class="main__item-flex">
+        <div class="main__item-flex main__fron-proximamente">
             <div class="item-flex__box-1">
                 <i class="main__abrir-i fas fa-hard-hat"></i>
-                <img class="main__imagen" src="./images/main/undraw_text_files_au1q.svg" alt="">
-                <h2 class="main__sub-titulo">Front Mentor</h2>
+                <h2 class="main__sub-titulo">Proximamente</h2>
             </div>
             <div class="item-flex__box-2" id="front-mentor">
                 <div class="main__barra-de-busqueda">
@@ -426,12 +419,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="main__modal"></div>
         </div>
+    
+        <i class="main__abrir-footer fas fa-th"></i>
     </main>
     
     <footer class="footer">
-
     </footer>
 
     <!-- javascript -->
@@ -440,72 +433,3 @@
     <script src="./JavaScript/nav-inferior.js" type="module"></script>
     <script src="./JavaScript/main.js"></script>
 </body>
-
-<!-- Barra de Busqueda
-    <div class="main__barra-de-busqueda">
-    <input id="buscador-trabajos" class="main__buscador" type="text" placeholder="Buscardor">
-    <label for="buscador-trabajos" class="main__logo-buscador"><i class="fas fa-search"></i></label>
-    <div class="main__selector">
-        <button class="main__selector-boton">Selector</button>
-        <ul class="main___selector-lista">
-            <li class="main__lista-opciones">
-                <span id="" class="main__lista-titulo">Dificultad</span>
-                <ul class="main__lista-ul">
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="novato" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">Novato</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">Junior</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">Intermedio</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">Avanzado</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">Gurú</label>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <span id="" class="main__lista-titulo">Lenguaje</span>
-                <ul class="main__lista-ul">
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">HTML &amp; CSS</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">JS</label>
-                        </div>
-                    </li>
-                    <li class="main__lista-li">
-                        <div class="main__lista-contenedor">
-                            <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                            <label for="" class="main__lista-label">API</label>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div> -->

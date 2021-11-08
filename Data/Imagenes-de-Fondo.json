@@ -1,34 +1,34 @@
 [
     {
-        "src": "./images/imagenes-de-fondo/1.jpg",
+        "src": "./imagenes/imagenes-de-fondo/1.jpg",
         "tema": "ambos"
     },
     {
-        "src": "./images/imagenes-de-fondo/2.jpg",
+        "src": "./imagenes/imagenes-de-fondo/2.jpg",
         "tema": "ambos"
     },
     {
-        "src": "./images/imagenes-de-fondo/3.jpg",
+        "src": "./imagenes/imagenes-de-fondo/3.jpg",
         "tema": "claro"
     },
     {
-        "src": "./images/imagenes-de-fondo/4.jpg",
+        "src": "./imagenes/imagenes-de-fondo/4.jpg",
         "tema": "ambos"
     },
     {
-        "src": "./images/imagenes-de-fondo/5.jpg",
+        "src": "./imagenes/imagenes-de-fondo/5.jpg",
         "tema": "claro"
     },
     {
-        "src": "./images/imagenes-de-fondo/6.jpg",
+        "src": "./imagenes/imagenes-de-fondo/6.jpg",
         "tema": "ambos"
     },
     {
-        "src": "./images/imagenes-de-fondo/7.jpg",
+        "src": "./imagenes/imagenes-de-fondo/7.jpg",
         "tema": "claro"
     },
     {
-        "src": "./images/imagenes-de-fondo/8.jpg",
+        "src": "./imagenes/imagenes-de-fondo/8.jpg",
         "tema": "claro"
     }
 ]
