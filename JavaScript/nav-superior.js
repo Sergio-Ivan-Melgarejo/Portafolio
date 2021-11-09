@@ -223,7 +223,7 @@ opciones.addEventListener("click", (e) => {
         opcionesTemas.classList.add("cerrados");
         opcionesFuente.classList.add("cerrados");
     }
-    if ( evento.classList.contains("fa-imagenes") ) {
+    if ( evento.classList.contains("fa-images") ) {
         opcionesImagenDeFondo.classList.toggle("cerrados");
         opcionesUsuario.classList.add("cerrados");
         opcionesTemas.classList.add("cerrados");
