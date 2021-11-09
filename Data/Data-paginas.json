@@ -1,6 +1,6 @@
 [
     {
-        "tipo": "From Mentor",
+        "tipo": "Front Mentor",
         "datos": {
             "titulo": "Frontend Mentor - Testimonials grid section solution",
             "imagen": "https://raw.githubusercontent.com/Sergio-Ivan-Melgarejo/Front-Mentor-01/main/design/cap1.jpeg",
@@ -10,7 +10,7 @@
         }
     },
     {
-        "tipo": "From Mentor",
+        "tipo": "Front Mentor",
         "datos": {
             "titulo": "Frontend Mentor - Profile card component solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-02/blob/main/design/1634152929005.jpeg?raw=true",
@@ -20,7 +20,7 @@
         }
     },
     {
-        "tipo": "From Mentor",
+        "tipo": "Front Mentor",
         "datos": {
             "titulo": "Frontend Mentor - Stats preview card component solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-03/blob/main/design/13-10-2021_17469_.jpeg?raw=true",
@@ -30,7 +30,7 @@
         }
     },
     {
-        "tipo": "From Mentor",
+        "tipo": "Front Mentor",
         "datos": {
             "titulo": "Frontend Mentor - FAQ accordion card solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-04/blob/main/design/1.png?raw=true",
@@ -40,13 +40,23 @@
         }
     },
     {
-        "tipo": "From Mentor",
+        "tipo": "Front Mentor",
         "datos": {
             "titulo": "Frontend Mentor - Tip calculator app solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-05/blob/main/design/1.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-05/",
             "lenguaje": "HTML CSS JS",
             "dificultad": "JUNIOR"
+        }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "MI APLICACION PARA FINANZAS",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/MiApp-Practica-01/blob/main/imagenes/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/MiApp-Practica-01/",
+            "lenguaje": "HTML CSS JS",
+            "extra": "localStorage"
         }
     }
 ]

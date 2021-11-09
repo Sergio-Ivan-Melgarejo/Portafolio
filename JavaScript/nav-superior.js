@@ -286,7 +286,6 @@ opciones.addEventListener("click", (e) => {
     //sub opcion temas
     if ( evento.classList.contains("temas__boton") ) {
         let color = evento.getAttribute("class").split(" ")[1];
-        console.log(color)
         cambiarTema(color);
     }
 });
