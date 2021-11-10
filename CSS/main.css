@@ -389,3 +389,20 @@
         grid-area: 1/2/6/3;
     }
  }
+
+/* mensaje 404 / mensaje sin archivos subidos */
+
+.mensajes404-text{
+    width: 100%;
+    text-align: center;
+    color: var(--color-4);
+}
+
+.mensajes404-img{
+    width: 50%;
+}
+
+.mensajes404-span{
+    font-weight: bold;
+    color: var(--color-3);
+}

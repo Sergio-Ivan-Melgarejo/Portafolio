@@ -19,7 +19,7 @@ const buscadorProximamente = document.getElementById("buscador__proximamente");
 //primer parametro es el padre que los contiene atodos, segundo opcional del buscador, tercero opcional del filtro
 const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) => {
     //para dar mensaje de 0 cerultado o no hay datos subidos todabia
-    let aplicadosLosFiltro = false;
+    let todosLosFiltro = "no aplicados";
 
     //obtiene dato para editar
     let datoAMostrar = datos;
@@ -32,7 +32,7 @@ const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) =>
             contenido = contenido.toLowerCase();
             return contenido.includes(bus)
         });
-        if ( datoAMostrar.length == 0) aplicadosLosFiltro = true;
+        todosLosFiltro = "aplicados";
     }
 
     //pasa filtro y ordena
@@ -48,14 +48,21 @@ const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) =>
     //             dificultad.includes(bus) 
     //             )
     //     });
-    //    if ( datoAMostrar.length == 0) aplicadosLosFiltro = true;
+    //    todosLosFiltro = "aplicados";
     // }
 
     // let mostrarDeA = filtro() || 5;
-    let mostrarDeA = 6;
+    let mostrarDeA = 10;
     let paginaActual = 0;
+//filtro para tipo a mostrar
+    datoAMostrar = datoAMostrar.filter( dato => dato.tipo.includes( eventoPadre.getAttribute("data-tipo") ));
 
     datoAMostrar = datoAMostrar.slice(paginaActual * mostrarDeA, (1 + paginaActual) * mostrarDeA);
+
+    //termina si noy hay que mostrar y retornando un mensaje
+    if ( datoAMostrar.length == 0 && todosLosFiltro == "aplicados" ) return mensajeCeroResultado(eventoPadre.children[1].children[2], resbuscador);
+    else if ( datoAMostrar.length == 0 && todosLosFiltro ==  "no aplicados" ) return mensajeSinArchivosSubidos(eventoPadre.children[1].children[2]);
+
 
 
     //muestra segun filtro , buscador y si coniciden el data- del html y el tipo del json
@@ -63,15 +70,11 @@ const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) =>
     paginas.classList.add("main__paginas");
 
     for (let i = 0; i < datoAMostrar.length; i++) {
-        if( eventoPadre.getAttribute("data-tipo") == datoAMostrar[i].tipo ){
-             let pagina = crearPagina(datoAMostrar[i]);
-             paginas.appendChild(pagina);
-        }
+        let pagina = crearPagina(datoAMostrar[i]);
+        paginas.appendChild(pagina);
     }
-
-    if ( paginas.children.length == 0 && aplicadosLosFiltro ) mensajeCeroResultado(eventoPadre.children[1].children[2], resbuscador);
-    else if ( paginas.children.length == 0 && !aplicadosLosFiltro ) mensajeSinArchivosSubidos(eventoPadre.children[1].children[2]);
-    else eventoPadre.children[1].replaceChild( paginas ,eventoPadre.children[1].children[2] );
+  
+    eventoPadre.children[1].replaceChild( paginas ,eventoPadre.children[1].children[2] );
 }
 
 //recipe los datos de una pagina para armarlos antes de mostrar
@@ -114,7 +117,7 @@ const crearPagina = (pagina) => {
     divPagina.appendChild(divFooter);
 
     //cambio el diseño para las 4 clases
-    if( pagina.tipo == "From Mentor" ) {     
+    if( pagina.tipo == "Front Mentor" ) {     
         //version front mentor
 
         const pDificultad = document.createElement("p");
@@ -139,34 +142,61 @@ const crearPagina = (pagina) => {
     return divPagina
 }
 
+//salta cuando no haya resultado de busqueda
 const mensajeCeroResultado = ( evento , resbuscador ) => {
-    console.log("cero res",evento);
+
+    if ( evento.getAttribute("data-msg") !== "sin resultado" ){
+
+        let paginas = document.createElement("div");
+        let mensaje = document.createElement("h3");
+        let span = document.createElement("span");
+
+        paginas.classList.add("main__paginas");
+        mensaje.classList.add("mensajes404-text");
+        span.classList.add("mensajes404-span");
+
+        mensaje.textContent = "No se hayaron resuldtados con ";
+        span.textContent = resbuscador;
+
+        mensaje.appendChild(span);
+        evento.appendChild(mensaje);
+        paginas.appendChild(mensaje);
+        evento.style.alignItems = "center";
+
+        //para no hacer todo lo anterior de nuevo y simplemente cambiar el textcontent en el else
+        paginas.setAttribute("data-msg", "sin resultado")
+
+        evento.parentNode.replaceChild(paginas, evento.parentNode.children[2]);
+    }
+    else if ( evento.getAttribute("data-msg") == "sin resultado" ){
+        evento.children[0].children[0].textContent = resbuscador;
+    }
    
-    let mensaje = document.createElement("h3");
-    mensaje.classList.add("mensajes404-h3")
-    mensaje.textContent = "No se hayaron resuldtados con ";
-    let span = document.createElement("span");
-    span.textContent = resbuscador;
-    span.classList.add("mensajes404-span")
-
-    mensaje.appendChild(span);
-    evento.appendChild(mensaje);
-    evento.style.alignItems = "center";
+ 
 }
-const mensajeSinArchivosSubidos= ( evento ) => {
-    console.log("sin archivos",evento)
 
-    let mensaje = document.createElement("h3");
-    mensaje.classList.add("mensajes404-text")
-    mensaje.textContent = "No hay datos subidos aun...";
-    let img = document.createElement("img");
-    img.classList.add("mensajes404-img")
-    img.setAttribute("src", "./imagenes/undraw_under_construction_46pa.svg");
-    img.setAttribute("alt", "imagen de contruccion svg");
+//salta si no hay archivos para mostrar / subidos
+const mensajeSinArchivosSubidos = ( evento ) => {
 
-    evento.appendChild(mensaje);
-    evento.appendChild(img);
-    evento.style.alignItems = "center";
+    if ( evento.getAttribute("data-msg") !== "sin archivos" ){
+        let mensaje = document.createElement("h3");
+        let img = document.createElement("img");
+
+        mensaje.classList.add("mensajes404-text")
+        img.classList.add("mensajes404-img")
+        
+        img.setAttribute("src", "./imagenes/undraw_under_construction_46pa.svg");
+        img.setAttribute("alt", "imagen de contruccion svg");
+
+        mensaje.textContent = "No hay datos subidos aun...";
+
+        evento.appendChild(mensaje);
+        evento.appendChild(img);
+        evento.style.alignItems = "center";
+
+        //para no volver a poner si ya estaba
+        evento.setAttribute("data-msg", "sin archivos");
+    }
 }
 
 
@@ -242,4 +272,3 @@ buscadorJuegos.addEventListener("keyup", (e) => {
 buscadorProximamente.addEventListener("keyup", (e) => {
     mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
 })
-

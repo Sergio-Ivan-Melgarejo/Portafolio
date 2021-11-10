@@ -58,5 +58,45 @@
             "lenguaje": "HTML CSS JS",
             "extra": "localStorage"
         }
+    },
+    {
+        "tipo": "Projectos - Juegos",
+        "datos": {
+            "titulo": "Javascript Simple Quiz",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Javascript-Simple-Quiz/blob/main/screenshot.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Javascript-Simple-Quiz/index.html",
+            "lenguaje": "HTML CSS JS",
+            "extra": "Poo"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Frontend Mentor - Time tracking dashboard solution",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-06/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-06/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "JUNIOR"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Frontend Mentor - Ping coming soon page solution",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-07/blob/main/design/desktop-preview.jpg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-07/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Frontend Mentor - Order summary card solution",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-08/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-08/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
     }
 ]
