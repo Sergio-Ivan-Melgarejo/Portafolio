@@ -13,20 +13,44 @@ const buscadorFrontMentor = document.getElementById("buscador__front-mentor");
 const buscadorProjectos = document.getElementById("buscador__projectos");
 const buscadorJuegos = document.getElementById("buscador__juegos");
 const buscadorProximamente = document.getElementById("buscador__proximamente");
+//filtro
+const datosfiltro = {
+    "Front Mentor": {
+        "Dificultad": "Junior",
+        "Lenguaje": "",
+        "Mostrar": 10
+    },
+    "Projectos": {
+        "Lenguaje": "",
+        "Mostrar": 10
+    },
+    "Juegos": {
+        "Lenguaje": "",
+        "Mostrar": 10
+    },
+    "Proximamente": {
+        "Lenguaje": "",
+        "Mostrar": 10
+    }
+};
 
 //Funciones
 
 //primer parametro es el padre que los contiene atodos, segundo opcional del buscador, tercero opcional del filtro
-const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) => {
+const mostrarPaginas = ( eventoPadre, resBuscador = false, resFiltro = false) => {
     //para dar mensaje de 0 cerultado o no hay datos subidos todabia
     let todosLosFiltro = "no aplicados";
 
     //obtiene dato para editar
     let datoAMostrar = datos;
 
-    //si esta resBuscador aplica y reordena
-    if ( resbuscador ) {
-        let bus = resbuscador.toLowerCase();
+    //si esta resBuscador aplica y reordena / si hay algo en el buscador tambien (evita bug cuando pasa pagina)
+    if ( resBuscador || !eventoPadre.children[1].children[0].children[1].value == "" ) {
+        let bus;
+        console.log("resb",resBuscador,"evet",eventoPadre.children[1].children[0].children[1].value)
+        if( resBuscador !== false ) bus = resBuscador.toLowerCase();
+        else bus = eventoPadre.children[1].children[0].children[1].value.toLowerCase();
+
         datoAMostrar = datoAMostrar.filter(elemento => {
             let contenido = elemento.datos.titulo + elemento.datos.lenguaje + ( elemento.datos.dificultad || "" )+ ( elemento.datos.extra || "" );
             contenido = contenido.toLowerCase();
@@ -35,35 +59,72 @@ const mostrarPaginas = ( eventoPadre, resbuscador = false, resFiltro = false) =>
         todosLosFiltro = "aplicados";
     }
 
+
+
     //pasa filtro y ordena
-    // if ( resFiltro ){
-    //     let bus = resbuscador.toLowerCase();
-    //     datoAMostrar = datoAMostrar.filter( elemento => {
-    //         let titulo = elemento.datos.titulo.toLowerCase();
-    //         let lenguaje = elemento.datos.lenguaje.toLowerCase();
-    //         let dificultad = elemento.datos.dificultad.toLowerCase();
-    //         return ( 
-    //             titulo.includes(bus) || 
-    //             lenguaje.includes(bus) || 
-    //             dificultad.includes(bus) 
-    //             )
-    //     });
-    //    todosLosFiltro = "aplicados";
-    // }
+    if ( eventoPadre ){
+        let filtro = eventoPadre.children[1].children[1];
+    
+        if( filtro.children[0].getAttribute("data-tipo") == "Dificultad" ) {
+            let ul = filtro.children[0].children[1];
+
+            console.log(datosfiltro["Front Mentor"]["Dificultad"])
+            datoAMostrar.filter( elemento => {
+                elemento.datos.dificultad.includes( datosfiltro["Front Mentor"]["Dificultad"] );
+                console.log(elemento.datos.dificultad)
+            });
+            
+
+            console.log(datoAMostrar)
+
+        }
+
+
+       todosLosFiltro = "aplicados";
+    }
 
     // let mostrarDeA = filtro() || 5;
-    let mostrarDeA = 10;
-    let paginaActual = 0;
-//filtro para tipo a mostrar
+
+
+    let mostrarDeA = 4;
+
+
+
+    //filtro para que tipo va a mostrar
     datoAMostrar = datoAMostrar.filter( dato => dato.tipo.includes( eventoPadre.getAttribute("data-tipo") ));
+
+
+
+    //pones los numeros en html de pagina y paginas totales - por unica vez
+    if ( datoAMostrar.length == 0 && eventoPadre.children[1].children[3].children[0].children[3].textContent === "" ) {
+        eventoPadre.children[1].children[3].children[0].children[1].textContent = 0;
+        eventoPadre.children[1].children[3].children[0].children[3].textContent = 0;
+    }//establece la pagina inicial
+    else if ( datoAMostrar.length > 0 && eventoPadre.children[1].children[3].children[0].children[3].textContent === "" ) {
+        eventoPadre.children[1].children[3].children[0].children[1].textContent = 1;
+    }
+
+
+
+    //obtiene la pagina actual del html
+    let paginaActual = eventoPadre.children[1].children[3].children[0].children[1].textContent;
+    //le resta porque en array se cuenta desde el 0
+    paginaActual--
+
+    //establece las paginas totales
+    eventoPadre.children[1].children[3].children[0].children[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
 
     datoAMostrar = datoAMostrar.slice(paginaActual * mostrarDeA, (1 + paginaActual) * mostrarDeA);
 
+
+
+
+
+
+
     //termina si noy hay que mostrar y retornando un mensaje
-    if ( datoAMostrar.length == 0 && todosLosFiltro == "aplicados" ) return mensajeCeroResultado(eventoPadre.children[1].children[2], resbuscador);
+    if ( datoAMostrar.length == 0 && todosLosFiltro == "aplicados" ) return mensajeCeroResultado(eventoPadre.children[1].children[2], resBuscador);
     else if ( datoAMostrar.length == 0 && todosLosFiltro ==  "no aplicados" ) return mensajeSinArchivosSubidos(eventoPadre.children[1].children[2]);
-
-
 
     //muestra segun filtro , buscador y si coniciden el data- del html y el tipo del json
     let paginas = document.createElement("div");
@@ -114,10 +175,9 @@ const crearPagina = (pagina) => {
     pLenguaje.appendChild(spanLenguaje);
     divFooter.appendChild(pLenguaje);
     divFooter.appendChild(a);
-    divPagina.appendChild(divFooter);
 
     //cambio el diseño para las 4 clases
-    if( pagina.tipo == "Front Mentor" ) {     
+    if( pagina.tipo.startsWith("Front Mentor") ) {     
         //version front mentor
 
         const pDificultad = document.createElement("p");
@@ -129,15 +189,19 @@ const crearPagina = (pagina) => {
         pDificultad.textContent = "Dificultad: ";
         spanDificultad.textContent = pagina.datos.dificultad;
 
+        divPagina.appendChild(divFooter);
         pDificultad.appendChild(spanDificultad);
         divPagina.appendChild(pDificultad);
-
     }
-    else if ( pagina.tipo == "projectos" ){
-        //version projectos
+    else if ( pagina.tipo.includes("Projectos") ||  pagina.tipo.includes("Juegos") || pagina.tipo.includes("Proximamente") ){
+        //version del resto
+        let extra = document.createElement("p");
+        extra.classList.add("main__pagina-extra");
+        extra.textContent = pagina.datos.extra;
 
+        divFooter.appendChild(extra);
+        divPagina.appendChild(divFooter);
     }
-
 
     return divPagina
 }
@@ -179,9 +243,11 @@ const mensajeCeroResultado = ( evento , resbuscador ) => {
 const mensajeSinArchivosSubidos = ( evento ) => {
 
     if ( evento.getAttribute("data-msg") !== "sin archivos" ){
+        let paginas = document.createElement("div");
         let mensaje = document.createElement("h3");
         let img = document.createElement("img");
 
+        paginas.classList.add("main__paginas");
         mensaje.classList.add("mensajes404-text")
         img.classList.add("mensajes404-img")
         
@@ -190,16 +256,15 @@ const mensajeSinArchivosSubidos = ( evento ) => {
 
         mensaje.textContent = "No hay datos subidos aun...";
 
-        evento.appendChild(mensaje);
-        evento.appendChild(img);
-        evento.style.alignItems = "center";
+        paginas.appendChild(mensaje);
+        paginas.appendChild(img);
 
         //para no volver a poner si ya estaba
         evento.setAttribute("data-msg", "sin archivos");
+
+        evento.parentNode.replaceChild(paginas, evento.parentNode.children[2]);
     }
 }
-
-
 
 //Eventos
 
@@ -242,6 +307,38 @@ main.addEventListener("click", (e) => {
         menufiltro.classList.toggle("filtro-abierto");
     }
 
+    /* cambiar paginas */
+
+    if ( evento.classList.contains("main__pagina-anterior") ){
+        let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
+        if( cambio >= 0 ){     
+            evento.parentNode.children[1].textContent = cambio;
+            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        }
+    }
+
+    else if ( evento.classList.contains("main__pagina-actual") ){}
+
+    else if ( evento.classList.contains("main__pagina-siguiente") ){
+        let cambio = parseInt(evento.parentNode.children[1].textContent) + 1;
+        if( cambio <= evento.parentNode.children[3].textContent ){     
+            evento.parentNode.children[1].textContent = cambio ;
+            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        }
+    }
+
+    else if ( evento.classList.contains("main__paginas-totales") ){
+        let cambio = parseInt(evento.parentNode.children[3].textContent);
+        if( cambio <= evento.parentNode.children[3].textContent ){     
+            evento.parentNode.children[1].textContent = cambio ;
+            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        }
+    }
+
+    /* cambiar paginas */
+
+    // if (  ){}
+
     /* abrir footer */
 
     if (evento.classList.contains("main__abrir-footer")) {
@@ -258,17 +355,25 @@ main.addEventListener("click", (e) => {
 
 //eventos de cada buscador(agregar los otros)
 buscadorFrontMentor.addEventListener("keyup", (e) => {
+    //establece la pagina a 1 para evitar errores
+    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
     mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
 })
 
 buscadorProjectos.addEventListener("keyup", (e) => {
+    //establece la pagina a 1 para evitar errores
+    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
     mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
 })
 
 buscadorJuegos.addEventListener("keyup", (e) => {
+    //establece la pagina a 1 para evitar errores
+    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
     mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
 })
 
 buscadorProximamente.addEventListener("keyup", (e) => {
+    //establece la pagina a 1 para evitar errores
+    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
     mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
 })

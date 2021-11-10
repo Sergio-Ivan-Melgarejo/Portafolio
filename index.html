@@ -139,9 +139,9 @@
                     <input id="buscador__front-mentor" class="main__buscador" type="text" placeholder="Buscardor">
                     <label for="buscador__front-mentor" class="main__logo-buscador"><i class="fas fa-search"></i></label>
                 </div>
-                <ul class="main___filtro-lista">
-                    <li class="main__lista-opciones">
-                        <span id="" class="main__lista-titulo">Dificultad</span>
+                <ul class="main___filtro-lista" data-tipo="Front Mentor">
+                    <li class="main__lista-opciones" data-tipo="Dificultad">
+                        <span class="main__lista-titulo">Dificultad</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
@@ -175,8 +175,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <span id="" class="main__lista-titulo">Lenguaje</span>
+                    <li data-tipo="Lenguaje">
+                        <span class="main__lista-titulo">Lenguaje</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
@@ -198,8 +198,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <span id="" class="main__lista-titulo">Mostrar de a :</span>
+                    <li data-tipo="Mostrar">
+                        <span class="main__lista-titulo">Mostrar de a :</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
@@ -209,7 +209,7 @@
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-10" type="checkbox" value="10">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-10" type="checkbox" value="10" checked>
                                     <label for="front-mentor__mostrar-de-10" class="main__lista-label">10</label>
                                 </div>
                             </li>
@@ -222,9 +222,16 @@
                         </ul>
                     </li>
                 </ul>
-
                 <div class="main__paginas"></div>
-
+                <footer class="main__footer">
+                    <p>Pagina 
+                        <span class="main__pagina-anterior">Anterior</span>
+                        <span class="main__pagina-actual"></span>
+                        <span class="main__pagina-siguiente">Siguiente</span>
+                         de 
+                         <span class="main__paginas-totales"></span>
+                    </p>
+                </footer>
             </div>
         </div>
         <div class="main__item-flex main__fron-projectos" data-tipo="Projectos">
@@ -298,9 +305,16 @@
                         </ul>
                     </li>
                 </ul>
-                
                 <div class="main__paginas"></div>
-
+                <footer class="main__footer">
+                    <p>Pagina 
+                        <span class="main__pagina-anterior">Anterior</span>
+                        <span class="main__pagina-actual"></span>
+                        <span class="main__pagina-siguiente">Siguiente</span>
+                         de 
+                         <span class="main__paginas-totales"></span>
+                    </p>
+                </footer>
             </div>
         </div>
         <div class="main__item-flex main__fron-juegos" data-tipo="Juegos">
@@ -374,9 +388,16 @@
                         </ul>
                     </li>
                 </ul>
-                
                 <div class="main__paginas"></div>
-
+                <footer class="main__footer">
+                    <p>Pagina 
+                        <span class="main__pagina-anterior">Anterior</span>
+                        <span class="main__pagina-actual"></span>
+                        <span class="main__pagina-siguiente">Siguiente</span>
+                         de 
+                         <span class="main__paginas-totales"></span>
+                    </p>
+                </footer>
             </div>
         </div>
         <div class="main__item-flex main__fron-proximamente" data-tipo="Proximamente">
@@ -396,13 +417,13 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="novato" name="" type="checkbox" value="">
+                                    <input class="main__lista-opcion" id="novato" type="checkbox" value="novato">
                                     <label for="" class="main__lista-label">Novato</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
+                                    <input class="main__lista-opcion" id="" type="checkbox" value="junior">
                                     <label for="" class="main__lista-label">Junior</label>
                                 </div>
                             </li>
@@ -450,9 +471,16 @@
                         </ul>
                     </li>
                 </ul>
-
                 <div class="main__paginas"></div>
-
+                <footer class="main__footer">
+                    <p>Pagina 
+                        <span class="main__pagina-anterior">Anterior</span>
+                        <span class="main__pagina-actual"></span>
+                        <span class="main__pagina-siguiente">Siguiente</span>
+                         de 
+                         <span class="main__paginas-totales"></span>
+                    </p>
+                </footer>
             </div>
         </div>
     

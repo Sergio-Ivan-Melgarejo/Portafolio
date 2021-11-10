@@ -56,7 +56,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/MiApp-Practica-01/blob/main/imagenes/1.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/MiApp-Practica-01/",
             "lenguaje": "HTML CSS JS",
-            "extra": "localStorage"
+            "extra": "- localStorage - "
         }
     },
     {
@@ -66,7 +66,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Javascript-Simple-Quiz/blob/main/screenshot.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Javascript-Simple-Quiz/index.html",
             "lenguaje": "HTML CSS JS",
-            "extra": "Poo"
+            "extra": "- Poo -"
         }
     },
     {
