@@ -1,53 +1,56 @@
 "use strict"
 
-//Declaraciones
+// Declaraciones
 
 const main = document.getElementById("main");
-//para cerrar el ultimo abierto
+// para cerrar el ultimo abierto
 let memorizacion;
-//donde pondre los Datos de las paginas a mostrar
+// donde pondre los Datos de las paginas a mostrar
 let datos = "nada";
 const divPaginas = document.querySelector(".main__paginas");
-//buscador
+// buscador
 const buscadorFrontMentor = document.getElementById("buscador__front-mentor");
 const buscadorProjectos = document.getElementById("buscador__projectos");
 const buscadorJuegos = document.getElementById("buscador__juegos");
 const buscadorProximamente = document.getElementById("buscador__proximamente");
-//filtro
+// filtro
+const filtro = document.querySelectorAll("main___filtro-lista")
 const datosfiltro = {
     "Front Mentor": {
-        "Dificultad": "Junior",
-        "Lenguaje": "",
-        "Mostrar": 10
+        "Dificultad": [],
+        "Lenguaje": [],
+        "Mostrar": "10"
     },
     "Projectos": {
-        "Lenguaje": "",
-        "Mostrar": 10
+        "Lenguaje": [],
+        "Mostrar": "10"
     },
     "Juegos": {
-        "Lenguaje": "",
-        "Mostrar": 10
+        "Lenguaje": [],
+        "Mostrar": "10"
     },
     "Proximamente": {
-        "Lenguaje": "",
-        "Mostrar": 10
+        "Lenguaje": [],
+        "Mostrar": "10"
     }
 };
 
-//Funciones
+// Funciones
 
-//primer parametro es el padre que los contiene atodos, segundo opcional del buscador, tercero opcional del filtro
+// primer parametro es el padre que los contiene atodos, segundo opcional del buscador, tercero opcional del filtro
 const mostrarPaginas = ( eventoPadre, resBuscador = false, resFiltro = false) => {
-    //para dar mensaje de 0 cerultado o no hay datos subidos todabia
+    // para dar mensaje de 0 cerultado o no hay datos subidos todabia
     let todosLosFiltro = "no aplicados";
 
-    //obtiene dato para editar
+    // obtiene dato para editar
     let datoAMostrar = datos;
 
-    //si esta resBuscador aplica y reordena / si hay algo en el buscador tambien (evita bug cuando pasa pagina)
-    if ( resBuscador || !eventoPadre.children[1].children[0].children[1].value == "" ) {
+    // la cantidad de pagina que mostrara
+    let mostrarDeA ;
+
+    // si esta resBuscador aplica y reordena / si hay algo en el buscador tambien (evita bug cuando pasa pagina)
+    if ( resBuscador || eventoPadre.children[1].children[0].children[1].value !== "" ) {
         let bus;
-        console.log("resb",resBuscador,"evet",eventoPadre.children[1].children[0].children[1].value)
         if( resBuscador !== false ) bus = resBuscador.toLowerCase();
         else bus = eventoPadre.children[1].children[0].children[1].value.toLowerCase();
 
@@ -58,75 +61,133 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false, resFiltro = false) =>
         });
         todosLosFiltro = "aplicados";
     }
-
-
-
-    //pasa filtro y ordena
-    if ( eventoPadre ){
-        let filtro = eventoPadre.children[1].children[1];
-    
-        if( filtro.children[0].getAttribute("data-tipo") == "Dificultad" ) {
-            let ul = filtro.children[0].children[1];
-
-            console.log(datosfiltro["Front Mentor"]["Dificultad"])
-            datoAMostrar.filter( elemento => {
-                elemento.datos.dificultad.includes( datosfiltro["Front Mentor"]["Dificultad"] );
-                console.log(elemento.datos.dificultad)
-            });
-            
-
-            console.log(datoAMostrar)
-
-        }
-
-
-       todosLosFiltro = "aplicados";
-    }
-
-    // let mostrarDeA = filtro() || 5;
-
-
-    let mostrarDeA = 4;
-
-
-
-    //filtro para que tipo va a mostrar
+    // filtro para que tipo va a mostrar
     datoAMostrar = datoAMostrar.filter( dato => dato.tipo.includes( eventoPadre.getAttribute("data-tipo") ));
 
+    // pasa filtro y ordena
+    if ( eventoPadre ){
+        let filtro = eventoPadre.children[1].children[1];
+        let mensaje = "";
+
+        // filtro solo para front mentor
+        if( filtro.children[0].getAttribute("data-tipo") == "Dificultad" && datosfiltro["Front Mentor"]["Dificultad"].length !== 0 ) {
+            let filtroDificultad = datosfiltro["Front Mentor"]["Dificultad"];
+
+            // quito los que no son de front mentor
+            datoAMostrar = datoAMostrar.filter( elemento =>  elemento.datos.dificultad !== undefined )
+
+            // filtro segun lo que hay en datosfiltro
+            datoAMostrar = datoAMostrar.filter( elemento => {
+                let elem = elemento.datos.dificultad.toLowerCase() ;
+                for ( let elemento of filtroDificultad ) {
+                    if ( elem == elemento ) return elem;
+                }
+                return false;
+            });
+        
+            // para mensaje el mensaje si no hay resultados
+            if ( datoAMostrar.length == 0 ) { 
+                let index = 0;
+                for ( let msg of filtroDificultad ) {
+                    switch (msg) {
+                        case "newbie":
+                            mensaje += " Nobato";
+                            break
+                        case "junior":
+                            mensaje += " Junior";
+                            break
+                        case "intermediate":
+                            mensaje += " Intermedio";
+                            break
+                        case "advanced":
+                            mensaje += " Avanzado";
+                            break     
+                        case "guru":
+                            mensaje += " Gurú";
+                            break    
+                    }
+                    index++
+                }
+                resBuscador = mensaje;
+            }
+
+            todosLosFiltro = "aplicados";
+        }
+
+        // filtro para todos Lenguaje
+        if( filtro.children[0].getAttribute("data-tipo") == "Lenguaje" || filtro.children[1].getAttribute("data-tipo") == "Lenguaje" && datosfiltro["Front Mentor"]["Lenguaje"].length !== 0) {
+            let filtroLenguaje = datosfiltro["Front Mentor"]["Lenguaje"];
 
 
-    //pones los numeros en html de pagina y paginas totales - por unica vez
-    if ( datoAMostrar.length == 0 && eventoPadre.children[1].children[3].children[0].children[3].textContent === "" ) {
-        eventoPadre.children[1].children[3].children[0].children[1].textContent = 0;
-        eventoPadre.children[1].children[3].children[0].children[3].textContent = 0;
-    }//establece la pagina inicial
-    else if ( datoAMostrar.length > 0 && eventoPadre.children[1].children[3].children[0].children[3].textContent === "" ) {
-        eventoPadre.children[1].children[3].children[0].children[1].textContent = 1;
+            // filtro segun lo que hay en datosfiltro
+            datoAMostrar = datoAMostrar.filter( elemento => {
+                let elem = elemento.datos.lenguaje.toLowerCase() ;
+                for ( let elemento of filtroLenguaje ) {
+                    if ( elem.includes(elemento) ) return elem;
+                }
+                return false;
+            });
+
+            // para mensaje el mensaje si no hay resultados
+            if ( datoAMostrar.length == 0 ) { 
+                mensaje = filtroLenguaje;
+                let index = 0;
+                for ( let msg of mensaje ) {
+                    switch (msg) {
+                        case "html & css":
+                            mensaje[index] = " HTML & CSS";
+                            break
+                        case "js":
+                            mensaje[index] = " JS";
+                            break
+                        case "api":
+                            mensaje[index] = " API";
+                            break
+                        case "react":
+                            mensaje[index] = " REACT";
+                            break     
+                        case "node":
+                            mensaje[index] = " NODE";
+                            break    
+                    }
+                    index++
+                }
+                resBuscador = mensaje;
+    
+                todosLosFiltro = "aplicados";
+            }
+        }
+
+        // filtro para todos Mostrar de a :
+        if( filtro.children[1].getAttribute("data-tipo") == "Mostrar" || filtro.children[2].getAttribute("data-tipo") == "Mostrar" ) {
+            let tipo = filtro.getAttribute("data-tipo");
+            mostrarDeA = datosfiltro[tipo]["Mostrar"];
+        }
     }
 
+    // simplemente para acortar
+    let acortar = eventoPadre.children[1].children[3].children[0].children;
+    if ( acortar[1].textContent == "0" ) {
+        // establece las paginas totales
+        acortar[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
+        // establece pagina actual
+        acortar[1].textContent = (acortar[3].textContent >= 1 ) ? 1 : 0;
+    }
+    //siempre se actualiza el total, por tema de busqueda y filtro
+    acortar[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
 
-
-    //obtiene la pagina actual del html
-    let paginaActual = eventoPadre.children[1].children[3].children[0].children[1].textContent;
-    //le resta porque en array se cuenta desde el 0
+    // obtiene la pagina actual del html
+    let paginaActual = acortar[1].textContent;
+    // le resta porque en array se cuenta desde el 0
     paginaActual--
-
-    //establece las paginas totales
-    eventoPadre.children[1].children[3].children[0].children[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
 
     datoAMostrar = datoAMostrar.slice(paginaActual * mostrarDeA, (1 + paginaActual) * mostrarDeA);
 
-
-
-
-
-
-
-    //termina si noy hay que mostrar y retornando un mensaje
+    // termina si noy hay que mostrar y retornando un mensaje
     if ( datoAMostrar.length == 0 && todosLosFiltro == "aplicados" ) return mensajeCeroResultado(eventoPadre.children[1].children[2], resBuscador);
     else if ( datoAMostrar.length == 0 && todosLosFiltro ==  "no aplicados" ) return mensajeSinArchivosSubidos(eventoPadre.children[1].children[2]);
 
-    //muestra segun filtro , buscador y si coniciden el data- del html y el tipo del json
+    // muestra segun filtro , buscador y si coniciden el data- del html y el tipo del json
     let paginas = document.createElement("div");
     paginas.classList.add("main__paginas");
 
@@ -138,7 +199,7 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false, resFiltro = false) =>
     eventoPadre.children[1].replaceChild( paginas ,eventoPadre.children[1].children[2] );
 }
 
-//recipe los datos de una pagina para armarlos antes de mostrar
+// recipe los datos de una pagina para armarlos antes de mostrar
 const crearPagina = (pagina) => {
 
     //lo creo
@@ -206,8 +267,11 @@ const crearPagina = (pagina) => {
     return divPagina
 }
 
-//salta cuando no haya resultado de busqueda
+// salta cuando no haya resultado de busqueda
 const mensajeCeroResultado = ( evento , resbuscador ) => {
+    // establece en 0 las paginas
+    evento.parentNode.children[3].children[0].children[1].textContent = 0;
+    evento.parentNode.children[3].children[0].children[3].textContent = 0
 
     if ( evento.getAttribute("data-msg") !== "sin resultado" ){
 
@@ -219,7 +283,7 @@ const mensajeCeroResultado = ( evento , resbuscador ) => {
         mensaje.classList.add("mensajes404-text");
         span.classList.add("mensajes404-span");
 
-        mensaje.textContent = "No se hayaron resuldtados con ";
+        mensaje.textContent = "No se hayaron resultados con ";
         span.textContent = resbuscador;
 
         mensaje.appendChild(span);
@@ -227,7 +291,7 @@ const mensajeCeroResultado = ( evento , resbuscador ) => {
         paginas.appendChild(mensaje);
         evento.style.alignItems = "center";
 
-        //para no hacer todo lo anterior de nuevo y simplemente cambiar el textcontent en el else
+        // para no hacer todo lo anterior de nuevo y simplemente cambiar el textcontent en el else
         paginas.setAttribute("data-msg", "sin resultado")
 
         evento.parentNode.replaceChild(paginas, evento.parentNode.children[2]);
@@ -235,11 +299,9 @@ const mensajeCeroResultado = ( evento , resbuscador ) => {
     else if ( evento.getAttribute("data-msg") == "sin resultado" ){
         evento.children[0].children[0].textContent = resbuscador;
     }
-   
- 
 }
 
-//salta si no hay archivos para mostrar / subidos
+// salta si no hay archivos para mostrar / subidos
 const mensajeSinArchivosSubidos = ( evento ) => {
 
     if ( evento.getAttribute("data-msg") !== "sin archivos" ){
@@ -305,13 +367,47 @@ main.addEventListener("click", (e) => {
     if (evento.classList.contains("main__filtro-boton")) {
         let menufiltro = evento.parentNode.parentNode.children[1];
         menufiltro.classList.toggle("filtro-abierto");
+    }   
+
+    /* click en opciones de filtro */
+    
+    if ( evento.classList.contains("main__lista-opcion") ) {
+        // obtengo de quien de los 4 es el filtro, cambio el valor y aplico cambios
+        let deQuienESElFiltro = evento.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
+        let queClaseDeFiltroEs = evento.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
+        let value = evento.value;
+        let almacenar = datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs];
+
+        if ( queClaseDeFiltroEs !== "Mostrar" ) {
+            // añadimos o quitamos en funcion si esta o no . Y si no es Mostrar
+            if ( datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs].includes(value) ) {
+                let indice = almacenar.indexOf(value); // obtenemos el indice
+                almacenar.splice(indice, 1); // 1 es la cantidad de elemento a eliminar 
+            }
+            else almacenar.push(value)
+        }
+        else {
+            // marcamos y desenmarca los demas (solo para Mostrar)
+            evento.checked = true;
+            let aDesenmarcar = evento.parentNode.parentNode.parentNode.children;
+            for( let i of aDesenmarcar ) {
+                if ( i.children[0].children[0] !== evento ) {
+                    i.children[0].children[0].checked = false;
+                }
+            }
+            datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs] = value; // no me acepta poner almacenar... raro
+        }
+
+        mostrarPaginas( evento.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode );
     }
+
+
 
     /* cambiar paginas */
 
     if ( evento.classList.contains("main__pagina-anterior") ){
         let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
-        if( cambio >= 0 ){     
+        if( cambio >= 1 ){     
             evento.parentNode.children[1].textContent = cambio;
             mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
         }
@@ -334,10 +430,6 @@ main.addEventListener("click", (e) => {
             mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
         }
     }
-
-    /* cambiar paginas */
-
-    // if (  ){}
 
     /* abrir footer */
 

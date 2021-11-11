@@ -2,7 +2,7 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Testimonials grid section solution",
+            "titulo": "Testimonials grid section solution",
             "imagen": "https://raw.githubusercontent.com/Sergio-Ivan-Melgarejo/Front-Mentor-01/main/design/cap1.jpeg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-01/",
             "lenguaje": "HTML CSS",
@@ -12,7 +12,7 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Profile card component solution",
+            "titulo": "Profile card component solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-02/blob/main/design/1634152929005.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-02/",
             "lenguaje": "HTML CSS",
@@ -22,7 +22,7 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Stats preview card component solution",
+            "titulo": "Stats preview card component solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-03/blob/main/design/13-10-2021_17469_.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-03/",
             "lenguaje": "HTML CSS",
@@ -32,7 +32,7 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - FAQ accordion card solution",
+            "titulo": "FAQ accordion card solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-04/blob/main/design/1.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-04/",
             "lenguaje": "HTML CSS JS",
@@ -42,11 +42,11 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Tip calculator app solution",
+            "titulo": "Tip calculator app solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-05/blob/main/design/1.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-05/",
             "lenguaje": "HTML CSS JS",
-            "dificultad": "JUNIOR"
+            "dificultad": "Junior"
         }
     },
     {
@@ -72,17 +72,17 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Time tracking dashboard solution",
+            "titulo": "Time tracking dashboard solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-06/blob/main/design/1.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-06/",
             "lenguaje": "HTML CSS JS",
-            "dificultad": "JUNIOR"
+            "dificultad": "Junior"
         }
     },
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Ping coming soon page solution",
+            "titulo": "Ping coming soon page solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-07/blob/main/design/desktop-preview.jpg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-07/",
             "lenguaje": "HTML CSS JS",
@@ -92,11 +92,121 @@
     {
         "tipo": "Front Mentor",
         "datos": {
-            "titulo": "Frontend Mentor - Order summary card solution",
+            "titulo": "Order summary card solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-08/blob/main/design/1.jpeg?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-08/",
             "lenguaje": "HTML CSS",
             "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Single price grid component",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-10/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-10/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "3-column preview card component",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-11/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-11/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Huddle landing page with single introductory section",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-12/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-12/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Base Apparel coming soon page",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-13/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-13/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Article preview component",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-14/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-14/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Four card feature section",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-16/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-16/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Social proof section",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-17/blob/main/design/1.jpeg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-17/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Fylo data storage component",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-18/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-18/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Junior"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Intro component with sign up form",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-19/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-19/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Newbie"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Clipboard landing page",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-20/blob/main/design/1.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-20/",
+            "lenguaje": "HTML CSS",
+            "dificultad": "Junior"
+        }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "Sunnyside agency landing page",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-21/blob/main/design/1.jpg?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-21/",
+            "lenguaje": "HTML CSS JS",
+            "dificultad": "Junior"
         }
     }
 ]
