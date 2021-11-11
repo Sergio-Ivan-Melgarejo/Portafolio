@@ -154,6 +154,7 @@
 .li__imagen-de-fondo{
     position: relative;
     align-items: center;
+    flex-direction: column;
 }
 
 .nav-superior__imagen-de-fondo{
@@ -166,14 +167,13 @@
 .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
     position: absolute;
     right: 5px;
-    top: 2.1em;
+    top: 50%;
     transform: translateY(-50%);
-    font-size: 1.5em;
     display: inline-block;
     font-size: 1.5em;
     padding: 5px;
-    width: 1em;
     text-align: right;
+    width: .9em;
 }
 
 .imagenes-de-fondo__flecha-der:hover, .imagenes-de-fondo__flecha-izq:hover{
@@ -337,4 +337,10 @@
 .cerrados{
     height: 0em;
     padding: 0;
+}
+
+@media screen and (min-width: 900px) {
+    .li__imagen-de-fondo{
+        flex-direction: row;
+    }
 }

@@ -418,7 +418,7 @@ input:checked + label {
 
 /* ______ */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .main {
     grid-template-columns: 4em 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;

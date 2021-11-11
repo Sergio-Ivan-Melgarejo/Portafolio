@@ -30,5 +30,33 @@
     {
         "src": "./imagenes/imagenes-de-fondo/8.jpg",
         "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/9.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/10.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/11.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/12.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/13.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/14.jpg",
+        "tema": "claro"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/15.jpg",
+        "tema": "claro"
     }
 ]

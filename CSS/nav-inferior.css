@@ -85,7 +85,7 @@
     background-color: var(--color-3);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
 
     .nav-inferior__usuario{
         display: block;

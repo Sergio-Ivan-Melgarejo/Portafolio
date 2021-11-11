@@ -37,8 +37,12 @@ const cargarNombreUsuario = () => {
 const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
-        let numeroAzar = generaNumeroAlAzar(8);
-        body.style.backgroundImage = `url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg)`
+        let numeroAzar = generaNumeroAlAzar(15);
+        body.style = 
+        `background-image: url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg);
+        background-size: cover;
+        background-position-x: center;
+        background-repeat: no-repeat; `;
     }
     else {
         body.style.backgroundImage = `url(${src})`
