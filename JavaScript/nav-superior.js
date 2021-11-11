@@ -70,7 +70,12 @@ const guardarImagenDeFondo = (src) => {
 
 /* obeter src de ./Data/Imagenes-de-fondo */
 export const obtenerJsonIDF = async () => {
-    return fetch("./Data/Imagenes-de-fondo.json")
+    return fetch("./Data/Imagenes-de-fondo.json", {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+    })
     .then( res  => {
         return res.json()
     })
