@@ -108,16 +108,25 @@
     position: absolute;
     right: 5px;
     bottom: 5px;
-    color: var(--color-3);
+    color: var(--color-1);
     font-size: 1.5em;
     display: none;
+    transition: color 350ms;
 }
 
-.fa-check-circle:hover{
+/* javascript ----------- */
+
+.boton-confirmar-editar{
+    cursor: pointer;
+    color: var(--color-3);
+    display: block;
+}
+
+.boton-confirmar-editar:hover{
     transform: scale(1.5);
     opacity: 1;
-    cursor: pointer;
 }
+
 
 /* sub menu opciones ---------------------- */
 
@@ -164,16 +173,15 @@
     overflow: hidden;
 }
 
-.imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
+.li__imagen-de-fondo .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
     position: absolute;
     right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 3em;
     padding: 5px;
     text-align: right;
-    width: .9em;
+    width: .9em; 
+    bottom: 5px;
 }
 
 .imagenes-de-fondo__flecha-der:hover, .imagenes-de-fondo__flecha-izq:hover{
@@ -181,10 +189,9 @@
     cursor: pointer;
 }
 
-.imagenes-de-fondo__flecha-der{
-    left: 5px;
-    transform: translateY(-50%);
-    text-align: left;
+.li__imagen-de-fondo .imagenes-de-fondo__flecha-der{
+    top: 5px;
+    height: .9em;
 }
 
 #IDF2{
@@ -289,7 +296,7 @@
     
 }
 
-.cerrar-menu-cof, .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .nav-superior__imagen-de-fondo, .fa-check-circle, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
+.cerrar-menu-cof, .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .nav-superior__imagen-de-fondo, .boton-confirmar-editar, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
     opacity: .2;
     transition: opacity 350ms, transform 350ms;
 }
@@ -340,7 +347,22 @@
 }
 
 @media screen and (min-width: 900px) {
+   
+    /* sub menu imagen de fondo -------------- */
+
     .li__imagen-de-fondo{
         flex-direction: row;
+    }
+
+    .li__imagen-de-fondo .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{
+        top: 50%;
+        transform: translateY(-50%) rotate(0.75turn);
+        font-size: 2.5em;
+    }
+
+    .li__imagen-de-fondo .imagenes-de-fondo__flecha-der{
+        left: 5px;
+        transform: translateY(-50%) rotate(0.75turn);
+        padding: 0px 5px 10px 5px;
     }
 }

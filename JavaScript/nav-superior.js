@@ -1,36 +1,37 @@
 "use stric"
 
-//General
+// General
 export const body = document.getElementById("body");
-//Abrir / cerrar configuracion
+// Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
 const cerrarCof = document.getElementById("cerrar-cof");
 export const navSuperior = document.getElementById("nav-superior");
-//Opciones
+// Opciones
 const opciones = document.getElementById("nav-superior__opciones");
 const opcionesUsuario = document.querySelector(".li__usuario");
 const opcionesImagenDeFondo = document.querySelector(".li__imagen-de-fondo");
 const opcionesTemas = document.querySelector(".li__temas");
 const opcionesFuente = document.querySelector(".li__fuente");
-//Avatares
+// Avatares
 export const avatarMenu = document.querySelector(".nav-inferior-imagen");
 export const avatarCogiguracion = document.querySelector(".nav-superior__avatar-imagen");
 export const nombreUsuarioMenuConf = document.querySelector(".avatar-nombre__span");
 const avatarConfirmar = document.querySelector(".fa-check-circle");
 export const nombreUsuario = document.getElementById("nombreDeUsuario");
-//Imagen de fondo
+// Imagen de fondo
 export const preImagen1 = document.getElementById("IDF1");
 export const preImagen2 = document.getElementById("IDF2");
 export const preImagen3 = document.getElementById("IDF3");
 // -- Data/Imagenes-de-fondo.json --
 let dataJsonIDF = false;
-//serc = numero del data que mostrara en los predondos del menu configuracion
+// src = numero del data que mostrara en los predondos del menu configuracion
 let src1 , src2, src3;
-//Temas
+
+// Temas
 let memorizacion = "";
 
 
-//Funciones
+// Funciones
 
 const guardarDatoLocalStora = (nombreDeDato, dato) => {
     localStorage.setItem(nombreDeDato, dato)
@@ -43,10 +44,10 @@ const cambiarAvatar = (genero) => {
 }
 
 export const cambiarNombreAvatar = () => {
-    //permite editar directamente el nombre de avatar
+    // permite editar directamente el nombre de avatar
     nombreUsuarioMenuConf.setAttribute("contenteditable", true);
     nombreUsuarioMenuConf.style = "border-bottom-width : 2px; opacity: 1; padding: .5em 1em; line-height: 2em; margin-left: .5em";
-    avatarConfirmar.style.display = "block";
+    avatarConfirmar.classList.add("boton-confirmar-editar");
 }
 
 const comfirmarNombreAvatar = () => {
@@ -54,7 +55,7 @@ const comfirmarNombreAvatar = () => {
     localStorage.setItem("nombreAvatar", dato)
     nombreUsuarioMenuConf.removeAttribute("contenteditable");
     nombreUsuarioMenuConf.removeAttribute("style");
-    avatarConfirmar.removeAttribute("style");
+    avatarConfirmar.classList.remove("boton-confirmar-editar");
 
     if ( dato.length > 15 ) dato = (dato.slice( 0, 15 ) + "...");
     nombreUsuario.textContent = dato;
@@ -84,22 +85,35 @@ export const obtenerJsonIDF = async () => {
     })
 }
 
-//Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
+// Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
 
-    //obtiene el numero actual cargado del local stora directo del html una vez sola
-    if ( !dataJsonIDF ) {
-        src2 = parseInt(preImagen2.getAttribute("src").slice(-5,-4)) -1 ;
-        src1 = src2 - 1 ;
-        src3 = src2 + 1 ;
-    }
 
+    // obtiene el numero actual cargado del local stora directo del html una vez sola
+    if ( !dataJsonIDF ) {
+        // si hay almacenado en localStorage 
+        if ( localStorage.getItem("imagenDeFondo") == undefined ) {
+            src2 = ( body.style.backgroundImage.slice(-8,-6) ) ;
+            if ( src2[0] == "/" ) src2 = src2[1];
+            src2 = parseInt( src2 ) -1;
+            src1 = src2 - 1 ;
+            src3 = src2 + 1 ;
+        } // si no hay
+        else{ 
+            src2 = ( preImagen2.getAttribute("src").slice(-6,-4) ) ;
+            if ( src2[0] == "/" ) src2 = src2[1];
+            src2 = parseInt( src2 ) -1;
+            src1 = src2 - 1 ;
+            src3 = src2 + 1 ;
+        }
+    }
+console.log(src1, src2, src3)
     //obtiene obtiene las src una vez sola
     if ( !dataJsonIDF ) {
         dataJsonIDF = await obtenerJsonIDF();
     }       
 
-    //si pasa la cantidad de imagenes vuelve al principio y viseversa
+    // si pasa la cantidad de imagenes vuelve al principio y viseversa
     if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
     if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
 
@@ -114,10 +128,10 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
         src1--
     }
     
-    //hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
+    // hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
     if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
     if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
-
+console.log(src1, src2, src3)
     let preSRC1= dataJsonIDF[ src1 ].src;
     let preSRC2 = dataJsonIDF[ src2 ].src;
     let preSRC3= dataJsonIDF[ src3 ].src;
@@ -248,7 +262,7 @@ opciones.addEventListener("click", (e) => {
     }
 
     //sub opcion usuario
-    if ( evento.classList.contains("fa-user-edit") ) {
+    if ( evento.classList.contains("fa-user-edit")) {
         cambiarNombreAvatar();
     }
     else if ( evento.classList.contains("fa-venus") ) {

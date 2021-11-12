@@ -1,17 +1,17 @@
 "use strict"
 
-//Importaciones
+// Importaciones
 import { body, avatarMenu, avatarCogiguracion, nombreUsuario, nombreUsuarioMenuConf, preImagen1, preImagen2, preImagen3, obtenerJsonIDF } from "./nav-superior.js";
 
-//Declaraciones
+// Declaraciones
 
-//funciones
+// funciones
 export const generaNumeroAlAzar = (numero) => {
     let numeroAzar = Math.round(Math.random() * numero) || numero;
     return numeroAzar
 }
 
-//Elige al azar un avatar si no hay guardados
+// Elige al azar un avatar si no hay guardados
 const cargarDeAvatar = () =>{
     let genero = localStorage.getItem("avatarGenero");
     let color = localStorage.getItem("tema") || "tema-predeterminado";
@@ -26,14 +26,20 @@ const cargarDeAvatar = () =>{
     avatarCogiguracion.setAttribute("src", `./imagenes/avatares/avatar-${genero}__${color}.svg`);
 }
 
-//Carga el nombre de usuiario y si es muy largo lo edita para mostrar acortado
+// Carga el nombre de usuiario y si es muy largo lo edita para mostrar acortado
 const cargarNombreUsuario = () => {
-    let nombre = localStorage.getItem("nombreAvatar") || "Anonimo001";
-    if ( nombre.length > 15 ) nombre = (nombre.slice( 0, 15 ) + "...");
-    nombreUsuario.textContent = nombre;
+    let nombre = localStorage.getItem("nombreAvatar");
+    if ( nombre !== null  ) {     
+        // para nav superior
+        nombreUsuarioMenuConf.textContent = nombre;
+
+        if ( nombre.length > 15 ) nombre = ( nombre.slice( 0, 15 ) + "..." ) 
+        // para nav inferior
+        nombreUsuario.textContent = nombre;
+    }
 }
 
-//Elige al azar un fondo de imagen al entrar si no hay guardados
+// Elige al azar un fondo de imagen al entrar si no hay guardados
 const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
@@ -49,12 +55,14 @@ const cargarDeFondo = () =>{
     }
 }
 
-//Elige el pre fondo del menu de configuracion que eligio el usuario o los pone los por defecto
+// Elige el pre fondo del menu de configuracion que eligio el usuario o los pone los por defecto
 const cartgarPreFondo = async () => {
     let imagenElegida = localStorage.getItem("imagenDeFondo");
 
     // obtiene el numero de la imagend de fondo para centrar las pre imagenes segun esa imagen
-    imagenElegida = parseInt(body.style.backgroundImage.slice(-7,-6)) ;
+    imagenElegida = body.style.backgroundImage.slice(-8,-6);
+    if ( imagenElegida[0] == "/" ) imagenElegida = imagenElegida[1];
+    imagenElegida =  parseInt(imagenElegida);
     let preI1 = imagenElegida - 1 ;
     let preI2 = imagenElegida + 1 ;
 
@@ -74,11 +82,14 @@ const cargarTema = () => {
 }
 
 cargarDeAvatar();
-nombreUsuarioMenuConf.textContent = localStorage.getItem("nombreAvatar") || "Anonimo001";
 cargarNombreUsuario();
 cargarDeFondo();
 cartgarPreFondo();
 cargarTema();
 body.style.fontSize = localStorage.getItem("fuente");
 
-
+for( let i = 0; i < 1000; i++ ){
+    let j = generaNumeroAlAzar(15)
+    if( j <= 0 ){console.log(j)};
+   
+}

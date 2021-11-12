@@ -97,7 +97,7 @@
 
     /* sub-menu modo movil ___________________________________ */
     
-    .nav-inferior__li-movil, .nav-inferior__bars{
+    .nav-inferior__li-movil, .nav-inferior__li .nav-inferior__bars{
         display: none;
     }
 
