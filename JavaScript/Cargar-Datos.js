@@ -84,12 +84,11 @@ const cargarTema = () => {
 cargarDeAvatar();
 cargarNombreUsuario();
 cargarDeFondo();
-cartgarPreFondo();
 cargarTema();
 body.style.fontSize = localStorage.getItem("fuente");
 
-for( let i = 0; i < 1000; i++ ){
-    let j = generaNumeroAlAzar(15)
-    if( j <= 0 ){console.log(j)};
-   
-}
+// Evento
+
+addEventListener("DOMContentLoaded" ,() => {
+    cartgarPreFondo();
+})

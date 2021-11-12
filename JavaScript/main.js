@@ -14,7 +14,7 @@ const buscadorProjectos = document.getElementById("buscador__projectos");
 const buscadorJuegos = document.getElementById("buscador__juegos");
 const buscadorProximamente = document.getElementById("buscador__proximamente");
 // filtro
-const filtro = document.querySelectorAll("main___filtro-lista")
+// const filtro = document.querySelectorAll("main___filtro-lista")
 const datosfiltro = {
     "Front Mentor": {
         "Dificultad": [],
@@ -71,7 +71,7 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
         let mensaje = "";
         // evita sobrescribir si se usa mas de una clase de filtro (solo hay 2 y no sirviria si se agrega otro filtro)
         let filtroDificultad = datosfiltro["Front Mentor"]["Dificultad"];
-        let filtroLenguaje = datosfiltro["Front Mentor"]["Lenguaje"];
+        let filtroLenguaje = datosfiltro[eventoPadre.getAttribute("data-tipo")]["Lenguaje"];
 
         // filtro solo para front mentor (si es el unico filtro activo)
         if( filtro.children[0].getAttribute("data-tipo") == "Dificultad" && datosfiltro["Front Mentor"]["Dificultad"].length !== 0 ) {
@@ -133,7 +133,11 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
         }
 
         // filtro para todos Lenguaje
-        if( filtro.children[0].getAttribute("data-tipo") == "Lenguaje" || filtro.children[1].getAttribute("data-tipo") == "Lenguaje" && datosfiltro["Front Mentor"]["Lenguaje"].length !== 0) {
+        if( 
+            (filtro.children[0].getAttribute("data-tipo") == "Lenguaje" ||
+             filtro.children[1].getAttribute("data-tipo") == "Lenguaje") &&
+              datosfiltro[eventoPadre.getAttribute("data-tipo")]["Lenguaje"].length !== 0 
+            ) {
 
             if ( filtroDificultad.length == 0 ){
                 // añade segun lo que hay en datosfiltro (si es el unico filtro activo)
@@ -436,7 +440,6 @@ main.addEventListener("click", (e) => {
 
     if ( evento.classList.contains("main__pagina-anterior") ){
         let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
-        console.log(cambio)
         if( cambio >= 1 ){     
             evento.parentNode.children[1].textContent = cambio;
             mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);

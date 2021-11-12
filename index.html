@@ -117,9 +117,18 @@
                 <i class="nav-inferior__bars fas fa-bars"></i>
             </li>
             <ul class="nav-inferior__ul nav-inferior__sub-menu">
-                <li class="nav-inferior__li">Trabajos</li>
-                <li class="nav-inferior__li">Sobre mi</li>
+                <li class="nav-inferior__li nav-inferior__trabajos">
+                    <span class="nav-inferior__trabajos-span">trabajos</span>
+                    <ul class="nav-inferior__ul nav-inferior__sub-trabajos">
+                        <li class="nav-inferior__li">Front Mentor</li>
+                        <li class="nav-inferior__li">Projectos</li>
+                        <li class="nav-inferior__li">Juegos</li>
+                        <li class="nav-inferior__li">Proximamente</li>
+                    </ul>
+                </li>
+                
                 <li class="nav-inferior__li">Contacto</li>
+                <li class="nav-inferior__li">Sobre mi</li>
             </ul>
         </ul>
         <div class="nav-superior__boton-abrir" id="abrir-cof">
@@ -175,7 +184,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li data-tipo="Lenguaje" data-tipo="Lenguaje">
+                    <li data-tipo="Lenguaje">
                         <span class="main__lista-titulo">Lenguaje</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
@@ -246,25 +255,37 @@
                     <label for="buscador__projectos" class="main__logo-buscador"><i class="fas fa-search"></i></label>
                 </div>
                 <ul class="main___filtro-lista" data-tipo="Projectos">
-                    <li>
+                    <li data-tipo="Lenguaje">
                         <span id="" class="main__lista-titulo">Lenguaje</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="projectos__mostrar-html&css" type="checkbox" value="html & css">
+                                    <label for="projectos__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">JS</label>
+                                    <input class="main__lista-opcion" id="projectos__mostrar-js" type="checkbox" value="js">
+                                    <label for="projectos__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">API</label>
+                                    <input class="main__lista-opcion" id="projectos__mostrar-api" type="checkbox" value="api">
+                                    <label for="projectos__mostrar-api" class="main__lista-label">API</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-react" type="checkbox" value="react">
+                                    <label for="projectos__mostrar-react" class="main__lista-label">REACT</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-node" type="checkbox" value="node">
+                                    <label for="projectos__mostrar-node" class="main__lista-label">Node</label>
                                 </div>
                             </li>
                         </ul>
@@ -317,25 +338,37 @@
                     <label for="buscador__juegos" class="main__logo-buscador"><i class="fas fa-search"></i></label>
                 </div>
                 <ul class="main___filtro-lista" data-tipo="Juegos">
-                    <li>
+                    <li data-tipo="Lenguaje">
                         <span id="" class="main__lista-titulo">Lenguaje</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="juegos__mostrar-html&css" type="checkbox" value="html & css">
+                                    <label for="juegos__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">JS</label>
+                                    <input class="main__lista-opcion" id="juegos__mostrar-js" type="checkbox" value="js">
+                                    <label for="juegos__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">API</label>
+                                    <input class="main__lista-opcion" id="juegos__mostrar-api" type="checkbox" value="api">
+                                    <label for="juegos__mostrar-api" class="main__lista-label">API</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-react" type="checkbox" value="react">
+                                    <label for="juegos__mostrar-react" class="main__lista-label">REACT</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-node" type="checkbox" value="node">
+                                    <label for="juegos__mostrar-node" class="main__lista-label">Node</label>
                                 </div>
                             </li>
                         </ul>
@@ -388,25 +421,37 @@
                     <label for="buscador__proximamente" class="main__logo-buscador"><i class="fas fa-search"></i></label>
                 </div>
                 <ul class="main___filtro-lista" data-tipo="Proximamente">
-                    <li>
+                    <li data-tipo="Lenguaje">
                         <span id="" class="main__lista-titulo">Lenguaje</span>
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-html&css" type="checkbox" value="html & css">
+                                    <label for="proximamente__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">JS</label>
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-js" type="checkbox" value="js">
+                                    <label for="proximamente__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="" name="" type="checkbox" value="">
-                                    <label for="" class="main__lista-label">API</label>
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-api" type="checkbox" value="api">
+                                    <label for="proximamente__mostrar-api" class="main__lista-label">API</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-react" type="checkbox" value="react">
+                                    <label for="proximamente__mostrar-react" class="main__lista-label">REACT</label>
+                                </div>
+                            </li>
+                            <li class="main__lista-li">
+                                <div class="main__lista-contenedor">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-node" type="checkbox" value="node">
+                                    <label for="proximamente__mostrar-node" class="main__lista-label">Node</label>
                                 </div>
                             </li>
                         </ul>

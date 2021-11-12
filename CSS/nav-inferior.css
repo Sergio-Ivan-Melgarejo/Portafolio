@@ -85,6 +85,18 @@
     background-color: var(--color-3);
 }
 
+/* sub menu trabajos ---------- */
+
+.nav-inferior__trabajos-span{
+    display: none;
+}
+
+.nav-inferior__sub-trabajos{
+    flex-direction: column;
+    padding: 0;
+
+}
+
 @media screen and (min-width: 900px) {
 
     .nav-inferior__usuario{
@@ -126,4 +138,45 @@
     .nav-inferior__li:hover{
         color: var(--color-2);
     }
+
+    /* sub menu trabajos ---------- */
+    
+    .nav-inferior__trabajos{
+        position: relative;
+        padding: 1em;
+        background-color: var(--color-3);
+        color: var(--color-1);
+        font-weight: bold;
+    }
+
+    .nav-inferior__trabajos:hover{
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
+
+    .nav-inferior__trabajos-span{
+        display: block;
+    }
+
+    .nav-inferior__trabajos:hover > .nav-inferior__sub-trabajos{
+        display: flex;
+        opacity: 1;
+    }
+
+    .nav-inferior__sub-trabajos{
+        display: none;
+        position: absolute;
+        bottom: -8.85em;
+        left: 3em;
+        background-color: var(--color-1);
+        padding: 1em;
+        border: .1em var(--color-3) solid;
+        opacity: 0;
+    }
+
+    .nav-inferior__sub-trabajos:hover{
+        display: flex;
+        opacity: 1;
+    }
+
 }
