@@ -85,18 +85,6 @@
     background-color: var(--color-3);
 }
 
-/* sub menu trabajos ---------- */
-
-.nav-inferior__trabajos-span{
-    display: none;
-}
-
-.nav-inferior__sub-trabajos{
-    flex-direction: column;
-    padding: 0;
-
-}
-
 @media screen and (min-width: 900px) {
 
     .nav-inferior__usuario{
@@ -147,6 +135,7 @@
         background-color: var(--color-3);
         color: var(--color-1);
         font-weight: bold;
+        display: block;
     }
 
     .nav-inferior__trabajos:hover{
@@ -154,29 +143,46 @@
         color: var(--color-1);
     }
 
-    .nav-inferior__trabajos-span{
-        display: block;
+}
+
+/* javascript seleccion trabajos */
+
+.main__trabajos-click{
+    background-color: var(--color-2);
+    color: var(--color-1);
+}
+
+.main__animacion-trabajos-1{
+    animation: mostrarTrabajos 3s forwards;
+}
+.main__animacion-trabajos-2{
+    animation: mostrarTrabajos 3.5s forwards;
+}
+.main__animacion-trabajos-3{
+    animation: mostrarTrabajos 4s forwards;
+}
+.main__animacion-trabajos-4{
+    animation: mostrarTrabajos 4.5s forwards;
+}
+
+@keyframes mostrarTrabajos {
+    0%{
+        border: 0 solid var(--color-1);
+        transform: scale(1);
+        box-shadow: 0 0 0em var(--color-1);
     }
 
-    .nav-inferior__trabajos:hover > .nav-inferior__sub-trabajos{
-        display: flex;
-        opacity: 1;
+    50%{
+        box-shadow: 0 0 1.5em var(--color-3);
+        border: .1em solid var(--color-3);
+        transform: scale(.8);
+
     }
 
-    .nav-inferior__sub-trabajos{
-        display: none;
-        position: absolute;
-        bottom: -8.85em;
-        left: 3em;
-        background-color: var(--color-1);
-        padding: 1em;
-        border: .1em var(--color-3) solid;
-        opacity: 0;
+    100%{
+        border: 0 solid var(--color-1);
+        transform: scale(1);
+        box-shadow: 0 0 0em var(--color-1);
     }
-
-    .nav-inferior__sub-trabajos:hover{
-        display: flex;
-        opacity: 1;
-    }
-
+    
 }

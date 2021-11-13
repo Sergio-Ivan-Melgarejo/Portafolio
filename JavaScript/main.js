@@ -7,7 +7,7 @@ const main = document.getElementById("main");
 let memorizacion;
 // donde pondre los Datos de las paginas a mostrar
 let datos = "nada";
-const divPaginas = document.querySelector(".main__paginas");
+// const divPaginas = document.querySelector(".main__paginas");
 // buscador
 const buscadorFrontMentor = document.getElementById("buscador__front-mentor");
 const buscadorProjectos = document.getElementById("buscador__projectos");
