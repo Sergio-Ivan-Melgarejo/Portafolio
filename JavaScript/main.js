@@ -48,6 +48,8 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
     // la cantidad de pagina que mostrara
     let mostrarDeA ;
 
+    /* barra de busqueda ---------------------------- */
+
     // si esta resBuscador aplica y reordena / si hay algo en el buscador tambien (evita bug cuando pasa pagina)
     if ( resBuscador || eventoPadre.children[1].children[0].children[1].value !== "" ) {
         let bus;
@@ -61,12 +63,20 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
         });
         todosLosFiltro = "aplicados";
     }
+ 
+    /* Filtro  ------------------------------------- */
 
     // filtro para que tipo va a mostrar
     datoAMostrar = datoAMostrar.filter( dato => dato.tipo.includes( eventoPadre.getAttribute("data-tipo") ));
 
+    //comprueba si esta activo algun filtro
+    let comprobacionFiltro = datosfiltro[eventoPadre.getAttribute("data-tipo")]["Lenguaje"].length 
+    if ( datosfiltro[eventoPadre.getAttribute("data-tipo")]["Dificultad"] !== undefined ){
+        comprobacionFiltro += datosfiltro[eventoPadre.getAttribute("data-tipo")]["Dificultad"].length
+    }
+
     // pasa filtro y ordena
-    if ( eventoPadre ){
+    if ( comprobacionFiltro ){
         let filtro = eventoPadre.children[1].children[1];
         let mensaje = "";
         // evita sobrescribir si se usa mas de una clase de filtro (solo hay 2 y no sirviria si se agrega otro filtro)
@@ -200,16 +210,22 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
         }
     }
 
+    //si no se aplica filtro, se pone por defecto
+    if ( mostrarDeA ==  undefined ) mostrarDeA =  datosfiltro[eventoPadre.getAttribute("data-tipo")]["Mostrar"];
+
+    /* numero de pagina y cambio de paginas -------- */
+
     // simplemente para acortar
     let acortar = eventoPadre.children[1].children[3].children[0].children;
-    if ( acortar[1].textContent == "0" ) {
+
+    //siempre se actualiza el total, por tema de busqueda y filtro
+    acortar[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
+    if ( acortar[1].textContent == "0" || acortar[1].textContent > acortar[3].textContent ) {
         // establece las paginas totales
         acortar[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
         // establece pagina actual
         acortar[1].textContent = (acortar[3].textContent >= 1 ) ? 1 : 0;
     }
-    //siempre se actualiza el total, por tema de busqueda y filtro
-    acortar[3].textContent = Math.ceil(datoAMostrar.length /  mostrarDeA);
 
     // obtiene la pagina actual del html
     let paginaActual = acortar[1].textContent;
@@ -218,11 +234,13 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
 
     datoAMostrar = datoAMostrar.slice(paginaActual * mostrarDeA, (1 + paginaActual) * mostrarDeA);
 
-    // termina si noy hay que mostrar y retornando un mensaje
+    /* mensaje si no hay resultados ----------------- */
+    
     if ( datoAMostrar.length == 0 && todosLosFiltro == "aplicados" ) return mensajeCeroResultado(eventoPadre.children[1].children[2], resBuscador);
     else if ( datoAMostrar.length == 0 && todosLosFiltro ==  "no aplicados" ) return mensajeSinArchivosSubidos(eventoPadre.children[1].children[2]);
 
-    // muestra segun filtro , buscador y si coniciden el data- del html y el tipo del json
+    /* imprime resultado  -------------------------- */
+
     let paginas = document.createElement("div");
     paginas.classList.add("main__paginas");
 
@@ -230,7 +248,7 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
         let pagina = crearPagina(datoAMostrar[i]);
         paginas.appendChild(pagina);
     }
-  
+
     eventoPadre.children[1].replaceChild( paginas ,eventoPadre.children[1].children[2] );
 }
 
@@ -304,10 +322,6 @@ const crearPagina = (pagina) => {
 
 // salta cuando no haya resultado de busqueda
 const mensajeCeroResultado = ( evento , resbuscador ) => {
-    // establece en 0 las paginas
-    evento.parentNode.children[3].children[0].children[1].textContent = 0;
-    evento.parentNode.children[3].children[0].children[3].textContent = 0
-
     if ( evento.getAttribute("data-msg") !== "sin resultado" ){
 
         let paginas = document.createElement("div");
@@ -377,7 +391,6 @@ main.addEventListener("click", (e) => {
         if (memorizacion != undefined && memorizacion != secionElejida) {
             memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
         }
-
         memorizacion = secionElejida;
     }
 
