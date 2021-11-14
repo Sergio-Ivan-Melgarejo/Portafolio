@@ -1,6 +1,6 @@
 .nav-inferior{
     position: sticky;
-    top: 0;
+    top: -1px;
     width: 100%;
     background-color: var(--color-1);
     transition: height 2s, color 2s, background-color 2s;
@@ -85,6 +85,73 @@
     background-color: var(--color-3);
 }
 
+/* javascript seleccion trabajos */
+
+.nav-i__trabajos-click{
+    color: var(--color-2);
+}
+
+.nav-i__animacion-trabajos-1{
+    animation: mostrarTrabajos 3s forwards;
+}
+
+.nav-i__animacion-trabajos-2{
+    animation: mostrarTrabajos 3.5s forwards;
+}
+
+.nav-i__animacion-trabajos-3{
+    animation: mostrarTrabajos 4s forwards;
+}
+
+.nav-i__animacion-trabajos-4{
+    animation: mostrarTrabajos 4.5s forwards;
+}
+
+.nav-i__animacion-main{
+    animation: mostrarTrabajosBody 4.5s linear;
+    background-color: var(--color-3);
+}
+
+@keyframes mostrarTrabajos {
+    0%{
+        border: 0 solid var(--color-1);
+        transform: scale(1);
+        box-shadow: 0 0 0em var(--color-1);
+    }
+
+    50%{
+        box-shadow: 0 0 1.5em var(--color-3);
+        border: .1em solid var(--color-3);
+        transform: scale(.8);
+
+    }
+
+    100%{
+        border: 0 solid var(--color-1);
+        transform: scale(1);
+        box-shadow: 0 0 0em var(--color-1);
+    }
+    
+}
+
+@keyframes mostrarTrabajosBody {
+    0%{
+        background-color: transparent;
+    }
+    30%{
+        background-color: var(--color-1);
+    }
+
+    60%{
+        background-color: var(--color-1);
+    }
+
+    100%{
+        background-color: transparent;
+    }
+    
+}
+
 @media screen and (min-width: 900px) {
 
     .nav-inferior__usuario{
@@ -142,47 +209,19 @@
         background-color: var(--color-2);
         color: var(--color-1);
     }
-
-}
-
-/* javascript seleccion trabajos */
-
-.main__trabajos-click{
-    background-color: var(--color-2);
-    color: var(--color-1);
-}
-
-.main__animacion-trabajos-1{
-    animation: mostrarTrabajos 3s forwards;
-}
-.main__animacion-trabajos-2{
-    animation: mostrarTrabajos 3.5s forwards;
-}
-.main__animacion-trabajos-3{
-    animation: mostrarTrabajos 4s forwards;
-}
-.main__animacion-trabajos-4{
-    animation: mostrarTrabajos 4.5s forwards;
-}
-
-@keyframes mostrarTrabajos {
-    0%{
-        border: 0 solid var(--color-1);
-        transform: scale(1);
-        box-shadow: 0 0 0em var(--color-1);
-    }
-
-    50%{
-        box-shadow: 0 0 1.5em var(--color-3);
-        border: .1em solid var(--color-3);
-        transform: scale(.8);
-
-    }
-
-    100%{
-        border: 0 solid var(--color-1);
-        transform: scale(1);
-        box-shadow: 0 0 0em var(--color-1);
-    }
     
+    .nav-i__trabajos-click{
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
 }
+
+@media screen and (max-height: 600px){
+    .nav-inferior{
+        position: relative;
+        top: -1px;
+        width: 100%;
+        background-color: var(--color-1);
+        transition: height 2s, color 2s, background-color 2s;
+    }
+  }

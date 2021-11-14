@@ -45,6 +45,7 @@
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     padding: 20px;
+    padding-right: 1em;
     font-weight: bold;
     position: relative;
 }

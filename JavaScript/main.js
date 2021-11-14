@@ -2,7 +2,7 @@
 
 // Declaraciones
 
-const main = document.getElementById("main");
+export const main = document.getElementById("main");
 // para cerrar el ultimo abierto
 let memorizacion;
 // donde pondre los Datos de las paginas a mostrar

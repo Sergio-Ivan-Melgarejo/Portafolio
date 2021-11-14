@@ -1,11 +1,12 @@
 "use strict"
 
 import { navSuperior, cambiarNombreAvatar} from "./nav-superior.js"
+import { main } from "./main.js";
 
 //Declaraciones
 
 const navInferior = document.getElementById("nav-inferior");
-const avatar = document.querySelector(".nav-inferior-imagen");
+// const avatar = document.querySelector(".nav-inferior-imagen");
 export const nombreUsuario = document.getElementById("nombreDeUsuario");
 const menuMovil = document.querySelector(".nav-inferior__bars");
 const subMenu = document.querySelector(".nav-inferior__sub-menu");
@@ -14,7 +15,7 @@ const mainFrontMentor = document.querySelector(".main__front-mentor");
 const mainProjectos = document.querySelector(".main__projectos");
 const mainJuegos = document.querySelector(".main__juegos");
 const mainProximamente = document.querySelector(".main__proximamente");
-
+let evitarClickConpulsivos = true;
 //Funciones
 
 //Eventos
@@ -38,24 +39,26 @@ navInferior.addEventListener("click", (e) => {
 
     /* mostrar animacion de donde esta main  */
 
-    if (evento.classList.contains("nav-inferior__trabajos")) {
-        
-        evento.classList.add("main__trabajos-click");
-        mainFrontMentor.classList.add("main__animacion-trabajos-1");
-        mainProjectos.classList.add("main__animacion-trabajos-2");   
-        mainJuegos.classList.add("main__animacion-trabajos-3"); 
-        mainProximamente.classList.add("main__animacion-trabajos-4");
+    if (evento.classList.contains("nav-inferior__trabajos") && evitarClickConpulsivos) {
+        evitarClickConpulsivos = false
+
+        evento.classList.add("nav-i__trabajos-click");
+        mainFrontMentor.classList.add("nav-i__animacion-trabajos-1");
+        mainProjectos.classList.add("nav-i__animacion-trabajos-2");   
+        mainJuegos.classList.add("nav-i__animacion-trabajos-3"); 
+        mainProximamente.classList.add("nav-i__animacion-trabajos-4");
+        main.classList.add("nav-i__animacion-main");
 
         setTimeout( () => {
-            mainFrontMentor.classList.remove("main__animacion-trabajos-1");
-            mainProjectos.classList.remove("main__animacion-trabajos-2");   
-            mainJuegos.classList.remove("main__animacion-trabajos-3"); 
-            mainProximamente.classList.remove("main__animacion-trabajos-4");
-            console.log(mainFrontMentor)
-            evento.classList.remove("main__trabajos-click");
-        } ,4600)
-        console.log(mainFrontMentor)
+            evento.classList.remove("nav-i__trabajos-click");
+                mainFrontMentor.classList.remove("nav-i__animacion-trabajos-1");
+            mainProjectos.classList.remove("nav-i__animacion-trabajos-2");   
+            mainJuegos.classList.remove("nav-i__animacion-trabajos-3"); 
+            mainProximamente.classList.remove("nav-i__animacion-trabajos-4");
+            main.classList.remove("nav-i__animacion-main");
+
+            evitarClickConpulsivos = true
+        } ,5000)
+        
     }
 })
-
-

@@ -3,10 +3,12 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr 4em;
   row-gap: clamp(0%, 1vw, 1em);
-  height: calc(100vh - 5.2em - 10px);
-  width: 100vw;
+  width: 100%;
   margin: auto;
-
+  box-sizing: border-box !important;
+  height: calc(100vh - 5.2em - 10px);
+  padding: clamp(0%, 1vmin , 1em);
+  background-color: transparent;
 }
 
 .main__item-flex {
@@ -424,6 +426,7 @@ input:checked + label {
   .main {
     grid-template-columns: 4em 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    height: calc(100vh - 4.8em - 10px);
   }
 
   /* posicionar los iconos en modo scritorio */
@@ -457,6 +460,18 @@ input:checked + label {
   .main__footer p {
     width: clamp(300px, 20vw, 400px);
     margin: 1em auto;
+  }
+}
+
+@media screen and (max-height: 450px){
+
+  .main{
+    min-height: calc(100vh - 5.2em - 10px);
+    height: auto;
+  }
+
+  .main__item-flex-selecionado {
+    width: 95%;
   }
 }
 
