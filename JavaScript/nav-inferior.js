@@ -24,12 +24,12 @@ navInferior.addEventListener("click", (e) => {
     let evento = e.target;
 
     if ( evento.classList.contains("nav-inferior-imagen" )){
-        navSuperior.classList.toggle("cerrados")
+        navSuperior.classList.toggle("cerrados");
     }
 
     if ( evento.getAttribute("id") == "nombreDeUsuario" ){
-        navSuperior.classList.toggle("cerrados")
-        cambiarNombreAvatar()
+        navSuperior.classList.toggle("cerrados");
+        cambiarNombreAvatar();
     }
 
     if ( evento.classList.contains("nav-inferior__bars") ) {
@@ -44,21 +44,28 @@ navInferior.addEventListener("click", (e) => {
 
         evento.classList.add("nav-i__trabajos-click");
         mainFrontMentor.classList.add("nav-i__animacion-trabajos-1");
-        mainProjectos.classList.add("nav-i__animacion-trabajos-2");   
-        mainJuegos.classList.add("nav-i__animacion-trabajos-3"); 
+        mainFrontMentor.setAttribute("data-animacion-trabajos", "activo");
+        mainProjectos.classList.add("nav-i__animacion-trabajos-2");
+        mainProjectos.setAttribute("data-animacion-trabajos", "activo");   
+        mainJuegos.classList.add("nav-i__animacion-trabajos-3");
+        mainJuegos.setAttribute("data-animacion-trabajos", "activo"); 
         mainProximamente.classList.add("nav-i__animacion-trabajos-4");
+        mainProximamente.setAttribute("data-animacion-trabajos", "activo");
         main.classList.add("nav-i__animacion-main");
 
         setTimeout( () => {
             evento.classList.remove("nav-i__trabajos-click");
-                mainFrontMentor.classList.remove("nav-i__animacion-trabajos-1");
-            mainProjectos.classList.remove("nav-i__animacion-trabajos-2");   
+            mainFrontMentor.classList.remove("nav-i__animacion-trabajos-1");
+            mainFrontMentor.removeAttribute("data-animacion-trabajos");
+            mainProjectos.classList.remove("nav-i__animacion-trabajos-2"); 
+            mainProjectos.removeAttribute("data-animacion-trabajos");  
             mainJuegos.classList.remove("nav-i__animacion-trabajos-3"); 
+            mainJuegos.removeAttribute("data-animacion-trabajos"); 
             mainProximamente.classList.remove("nav-i__animacion-trabajos-4");
+            mainProximamente.removeAttribute("data-animacion-trabajos");
             main.classList.remove("nav-i__animacion-main");
 
             evitarClickConpulsivos = true
-        } ,5000)
-        
+        } ,5000);
     }
 })

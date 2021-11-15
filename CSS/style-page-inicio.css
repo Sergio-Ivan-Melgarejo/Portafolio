@@ -6,6 +6,7 @@ body{
     transition: background-image 500ms, background-color 500ms;
     height: auto;
     overflow-x: hidden;
+    background: linear-gradient(var(--color-1),var(--color-2),var(--color-3),var(--color-4));
 }
 
 /* pagina de inicio ____________________________*/
@@ -53,12 +54,16 @@ body{
     margin: 0;
     font-size: clamp(1em, 10vw, 4em);
     padding: 0 .5em; 
+    margin-bottom: 10px;
+}
+
+.header__h1 span {
+    transition: color 350ms;
 }
 
 .header__div{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: .5em;
     height: 99%;
@@ -71,11 +76,17 @@ body{
     background-color: var(--color-3);
     border: .3em solid var(--color-3);
     border-radius: 50%;
+    opacity: .7;
 }
 
 .header__nombreUsuario{
-    color: var(--color-3);
+    color: var(--color-4);
     font-size: 1em;
+    font-weight: bold;
+}
+
+.header__nombreUsuario span{
+    transition: color 350ms;
 }
 
 .header__boton-conf{
@@ -91,7 +102,9 @@ body{
     border-radius: 10px;
     font-size: .8em;
     max-width: 600px;
-    min-width: 40%;
+    min-width: 32%;
+    text-align: left;
+    min-height: 2.7em;
 }
 
 .header__boton-conf:hover{
@@ -119,12 +132,12 @@ body{
     }
 
     .header__div{
-        padding: 2em;
         height: 95%;
         grid-area: 3/1/4/4;
         display: grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 60% ;
+        grid-template-rows: 2fr 2fr 1fr;
+        padding: 1em;
     }
 
     .header__img{
@@ -136,8 +149,9 @@ body{
     }
 
     .header__nombreUsuario{
-        font-size: 3em;
-        grid-area: 1/2/3/3;
+        font-size: 4em;
+        grid-area: 1/2/2/3;
+        margin-top: auto;
     }
 
     .header__boton-conf{
@@ -145,9 +159,11 @@ body{
         padding: 1em;
         border-radius: 10px;
         font-size: 1em;
-        width: 100%;
-        grid-area: 3/1/4/4;
-        margin: auto;
+        width: 30%;
+        min-width: 250px;
+        grid-area: 2/2/3/3;
+        min-height: 3.15em;
+        margin-bottom: auto;
     }
 }
 
@@ -155,9 +171,13 @@ body{
     0%{
         transform: translateX(0%);
         opacity: 1;
+        background-color: rgba(51, 50, 50, 0.247);
+        box-shadow: 0 0 10em var(--color-1) inset;
     }    
     100%{
         transform: translateX(100%);
         opacity: 0;
+        background-color: rgba(51, 50, 50, 0.247);
+        box-shadow: 0 0 10em rgb(156, 10, 10) inset;
     }
 }

@@ -1,5 +1,7 @@
 "use stric"
 
+import { main } from "./main.js";
+
 // General
 export const body = document.getElementById("body");
 // Abrir / cerrar configuracion
@@ -93,7 +95,7 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
     if ( !dataJsonIDF ) {
         // si hay almacenado en localStorage 
         if ( localStorage.getItem("imagenDeFondo") == undefined ) {
-            src2 = ( body.style.backgroundImage.slice(-8,-6) ) ;
+            src2 = ( main.style.backgroundImage.slice(-8,-6) ) ;
             if ( src2[0] == "/" ) src2 = src2[1];
             src2 = parseInt( src2 ) -1;
             src1 = src2 - 1 ;
@@ -107,7 +109,7 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
             src3 = src2 + 1 ;
         }
     }
-console.log(src1, src2, src3)
+
     //obtiene obtiene las src una vez sola
     if ( !dataJsonIDF ) {
         dataJsonIDF = await obtenerJsonIDF();
@@ -131,7 +133,7 @@ console.log(src1, src2, src3)
     // hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
     if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
     if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
-console.log(src1, src2, src3)
+
     let preSRC1= dataJsonIDF[ src1 ].src;
     let preSRC2 = dataJsonIDF[ src2 ].src;
     let preSRC3= dataJsonIDF[ src3 ].src;

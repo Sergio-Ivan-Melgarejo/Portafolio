@@ -381,32 +381,47 @@ const mensajeSinArchivosSubidos = ( evento ) => {
 
 main.addEventListener("click", (e) => {
     let evento = e.target;
+    /* se cansela si el evento de nav-inferior (trabajos) esta activo */
+    if ( evento.parentNode.parentNode.getAttribute("data-animacion-trabajos") == undefined ) {
 
-    /* contraccion de secciones de main  */
+        /* contraccion de secciones de main  */
 
-    if (evento.classList.contains("main__abrir-i")) {
-        let secionElejida = evento.parentNode.parentNode;
-        secionElejida.classList.toggle("main__item-flex-selecionado");
+        if (evento.classList.contains("main__abrir-i")) {
+            let secionElejida = evento.parentNode.parentNode;
+            secionElejida.classList.toggle("main__item-flex-selecionado");
 
-        if (memorizacion != undefined && memorizacion != secionElejida) {
-            memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
+            if (memorizacion != undefined && memorizacion != secionElejida) {
+                memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
+            }
+            memorizacion = secionElejida;
         }
-        memorizacion = secionElejida;
-    }
 
-    /* obtener las paginas */
+        /* obtener las paginas */
 
-    if (evento.classList.contains("main__abrir-i")) {
-        if (datos === "nada") {
-            fetch("./Data/Data-paginas.json").then(res => {
-                return res.json()
-            }).then(res => {
-                datos = res;
+        if (evento.classList.contains("main__abrir-i")) {
+            if (datos === "nada") {
+                fetch("./Data/Data-paginas.json").then(res => {
+                    return res.json()
+                }).then(res => {
+                    datos = res;
+                    mostrarPaginas(evento.parentNode.parentNode);
+                })
+            } //para que no borre y vuelva a cargar si lo minimiza y lo vuelve abrir
+            else if ( evento.parentNode.parentNode.children[1].children[2].children.length == 0 ){
                 mostrarPaginas(evento.parentNode.parentNode);
-            })
-        } //para que no borre y vuelva a cargar si lo minimiza y lo vuelve abrir
-        else if ( evento.parentNode.parentNode.children[1].children[2].children.length == 0 ){
-            mostrarPaginas(evento.parentNode.parentNode);
+            }
+        }
+            
+        /* abrir footer */
+
+        if (evento.classList.contains("main__abrir-footer")) {
+            evento.classList.toggle("main__footer-selecionado");
+
+            if (memorizacion != undefined && memorizacion != evento) {
+                memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
+            }
+
+            memorizacion = evento;
         }
     }
 
@@ -476,19 +491,6 @@ main.addEventListener("click", (e) => {
             mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
         }
     }
-
-    /* abrir footer */
-
-    if (evento.classList.contains("main__abrir-footer")) {
-        evento.classList.toggle("main__footer-selecionado");
-
-        if (memorizacion != undefined && memorizacion != evento) {
-            memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
-        }
-
-        memorizacion = evento;
-    }
-
 });
 
 //eventos de cada buscador(agregar los otros)

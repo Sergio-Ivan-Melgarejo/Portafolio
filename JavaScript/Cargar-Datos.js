@@ -2,6 +2,7 @@
 
 // Importaciones
 import { body, avatarMenu, avatarCogiguracion, nombreUsuario, nombreUsuarioMenuConf, preImagen1, preImagen2, preImagen3, obtenerJsonIDF } from "./nav-superior.js";
+import { main } from "./main.js";
 
 // Declaraciones
 
@@ -44,14 +45,17 @@ const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
         let numeroAzar = generaNumeroAlAzar(15);
-        body.style = 
+        main.style = 
         `background-image: url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg);
         background-size: cover;
         background-position-x: center;
         background-repeat: no-repeat; `;
     }
     else {
-        body.style.backgroundImage = `url(${src})`
+        main.style = `background-image: url(${src});
+        background-size: cover;
+        background-position-x: center;
+        background-repeat: no-repeat;`
     }
 }
 
@@ -60,7 +64,7 @@ const cartgarPreFondo = async () => {
     let imagenElegida = localStorage.getItem("imagenDeFondo");
 
     // obtiene el numero de la imagend de fondo para centrar las pre imagenes segun esa imagen
-    imagenElegida = body.style.backgroundImage.slice(-8,-6);
+    imagenElegida = main.style.backgroundImage.slice(-8,-6);
     if ( imagenElegida[0] == "/" ) imagenElegida = imagenElegida[1];
     imagenElegida =  parseInt(imagenElegida);
     let preI1 = imagenElegida - 1 ;

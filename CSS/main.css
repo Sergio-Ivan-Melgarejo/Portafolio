@@ -9,11 +9,11 @@
   height: calc(100vh - 5.2em - 10px);
   padding: clamp(0%, 1vmin , 1em);
   background-color: transparent;
+  min-height: calc( 600px - 5.2em - 10px);
 }
 
 .main__item-flex {
   margin: auto;
-  overflow: hidden;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@
 
 .fa-code,
 .fa-gamepad {
-  padding: 0.3em 0.2em;
+  padding: 0.3em 0.21em;
 }
 
 /* javascript _____________ */
