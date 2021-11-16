@@ -7,7 +7,7 @@ const header = document.getElementById("header");
 const headerTitulo = document.getElementById("header-h1");
 const headerBotonconf = document.getElementById("header-boton-conf");
 const headerImg = document.getElementById("header-img");
-export const headerNombreUsuario = document.getElementById("header-nombre-usuario");
+const headerNombreUsuario = document.getElementById("header-nombre-usuario");
 // para obtener nombre
 const avatarDeNavInf = document.querySelector(".nav-inferior-imagen");
 
@@ -93,23 +93,30 @@ const efectoEscribir = ( nombreSetInt, id, ...textos ) => {
     let array = texto.split("");
 
     let fragmento = document.createDocumentFragment();
-    for( i; i < array.length; i++ ){
+    for( i; i <= array.length; i++ ){
         let span = document.createElement("span");
-        span.textContent = array[i];
+        span.textContent = array[i] || "_";
         fragmento.appendChild(span)
     }
     elementoHTML.appendChild(fragmento);
-    i--
+    i -= 2
 
     let imprimido = "si";
     let palabraActual = 0;
 
     nombreSetInt = setInterval(() => {
+//frena al darle x del header
+        if ( elementoHTML.getAttribute("data-parar") ){
+            clearInterval( nombreSetInt )
+        }
+
 // comprueba si esta impresa
         if ( i <= -1 ) {
-            i = 0;
+            elementoHTML.children[0].textContent = array[i];
+
             imprimido = "no";
             palabraActual++
+            i = 0;
         }
 
         if ( i >= array.length ) {
@@ -122,21 +129,17 @@ const efectoEscribir = ( nombreSetInt, id, ...textos ) => {
         if ( array !== textos[palabraActual] ) array = textos[palabraActual];
 
 // imprime / borra
-        if ( imprimido == "si" ){
-            elementoHTML.removeChild( elementoHTML.children[i] );
-            i--
+        if( imprimido == "si" ) {
+            elementoHTML.removeChild( elementoHTML.children[i] )
+            i--;
+            
         }
-
-        if ( imprimido == "no" ){
+        else {
             let span = document.createElement("span");
-            span.textContent = array[i];
-            elementoHTML.appendChild( span )
-            i++
-        }
-
-//frena al darle x del header
-        if ( elementoHTML.getAttribute("data-parar") ){
-            clearInterval( nombreSetInt )
+            span.textContent = "_";
+            elementoHTML.appendChild( span );
+            elementoHTML.children[i].textContent = array[i];
+            i++ 
         }
     }, 200);
 }

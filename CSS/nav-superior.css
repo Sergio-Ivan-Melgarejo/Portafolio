@@ -10,6 +10,7 @@
     transition: height 1s, color 1s, background-color 1s;
     height: 100vh;
     overflow-y: scroll;
+    padding-left: 20px;
 }
 
 /* barra de scroll _______________________________________ */
@@ -40,14 +41,14 @@
     color: var(--color-1);
     background-color: var(--color-3);
     max-width: 62.5em;
-    width: 90%;
+    width: calc(90% - 40px);
     margin: auto;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    padding: 20px;
-    padding-right: 1em;
+    padding: 2em 1em 1em;
     font-weight: bold;
     position: relative;
+    font-size: 1.5em;
 }
 
 /* avatar -------------------------- */
@@ -62,8 +63,8 @@
 }
 
 .nav-superior__avatar-contenedor{
-    max-width: 18.75em;
-    width: 40vw;
+    max-width: 21em;
+    width: 100%;
     min-width: 12.5em;
     text-align: left;
     text-align: center;
@@ -271,8 +272,7 @@
     right: 10px;
     padding: 10px;
     font-size: 2em;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
     cursor: pointer;
 }
 

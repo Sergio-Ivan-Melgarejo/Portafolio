@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 4em;
   row-gap: clamp(0%, 1vw, 1em);
   width: 100%;
@@ -10,6 +10,7 @@
   padding: clamp(0%, 1vmin , 1em);
   background-color: transparent;
   min-height: calc( 600px - 5.2em - 10px);
+  overflow: hidden;
 }
 
 .main__item-flex {
@@ -19,6 +20,8 @@
   flex-direction: column;
   height: 3.2em;
   width: 3.3em;
+  max-height: 65px;
+  max-width: 65px;
   overflow: hidden;
   border: .0 solid var(--color-1);
   box-shadow: 0 0 0 var(--color-1);
@@ -111,7 +114,8 @@
   grid-area: 1/1/2/6;
   box-sizing: border-box;
   transition: height 1s, width 1s, trasform 350ms;
-
+  max-height: none;
+  max-width: none;
 }
 
 .main__item-flex-selecionado .item-flex__box-1 {
@@ -284,6 +288,8 @@ input:checked + label {
 .main__abrir-footer {
   background-color: var(--color-1);
   font-size: 3em;
+  max-height: 65px;
+  max-width: 65px;
   padding: 0.1em;
   border-radius: 5px;
   margin: auto;
@@ -477,19 +483,19 @@ input:checked + label {
 
 /* mensaje 404 / mensaje sin archivos subidos */
 
-.mensajes404-text {
-  width: 100%;
-  text-align: center;
-  color: var(--color-4);
-  align-self: center;
-}
+  .mensajes404-text {
+    width: 100%;
+    text-align: center;
+    color: var(--color-4);
+    align-self: center;
+  }
 
-.mensajes404-img {
-  width: 50%;
-  align-self: flex-start;
-}
+  .mensajes404-img {
+    width: 50%;
+    align-self: flex-start;
+  }
 
-.mensajes404-span {
-  font-weight: bold;
-  color: var(--color-3);
+  .mensajes404-span {
+    font-weight: bold;
+    color: var(--color-3);
 }
