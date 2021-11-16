@@ -469,16 +469,41 @@ input:checked + label {
   }
 }
 
-@media screen and (max-height: 450px){
+@media screen and (max-height: 600px) and (max-width: 900px){
 
-  .main{
+/* acomodar para version movil de costado */
+
+.main{
+    grid-template-rows: 4em 1fr;
     min-height: calc(100vh - 5.2em - 10px);
-    height: auto;
+    min-height: 600px;
+    padding-right: 4em;
   }
 
-  .main__item-flex-selecionado {
-    width: 95%;
+  .main__front-mentor {
+    grid-area: 1/1/2/2;
   }
+
+  .main__projectos {
+    grid-area: 1/2/2/3;
+  }
+
+  .main__juegos {
+    grid-area: 1/4/2/5;
+  }
+
+  .main__proximamente {
+    grid-area: 1/5/2/6;
+  }
+
+  .main__abrir-footer {
+    grid-area: 1/3/2/4;
+  }
+
+  .main__item-flex-selecionado{
+    grid-area: 2/1/3/6;
+}
+
 }
 
 /* mensaje 404 / mensaje sin archivos subidos */

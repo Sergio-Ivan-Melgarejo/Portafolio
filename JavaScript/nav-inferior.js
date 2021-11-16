@@ -16,6 +16,8 @@ const mainProjectos = document.querySelector(".main__projectos");
 const mainJuegos = document.querySelector(".main__juegos");
 const mainProximamente = document.querySelector(".main__proximamente");
 let evitarClickConpulsivos = true;
+// abrir nav-inferior en modo movil de costado
+const fletaAbrirNanInf = document.getElementById("abrir-nav-inferior");
 //Funciones
 
 //Eventos
@@ -68,4 +70,8 @@ navInferior.addEventListener("click", (e) => {
             evitarClickConpulsivos = true
         } ,5000);
     }
+})
+
+fletaAbrirNanInf.addEventListener("click", () => {
+    navInferior.classList.toggle("nav-inferior-abierto");
 })
