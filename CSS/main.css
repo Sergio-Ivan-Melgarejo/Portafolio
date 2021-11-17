@@ -323,7 +323,7 @@ input:checked + label {
 }
 
 .main__pagina {
-  width: clamp(20em, 40vw, 26em);
+  width: clamp(17em, 39vmax, 26em);
   overflow: hidden;
   border-top: 0.2em solid var(--color-3);
   border-radius: 5px;
@@ -331,10 +331,27 @@ input:checked + label {
   text-align: center;
 }
 
-.main__pagina-img {
-  width: 100%;
+.main__pagina:hover >.main__pagina-container-img .main__pagina-img{
+  filter: none;
+}
+
+.main__pagina-container-img{
+  display: block;
   height: 12em;
   background-color: var(--color-3);
+  text-align: center;
+  overflow: hidden;
+}
+
+.main__pagina-img {
+  width: 100%;
+  height: 100%;
+  filter: blur(1px) grayscale(100%);
+  transition: filter .5s, transform .5s;
+}
+
+.main__pagina-img:hover {
+  transform: scale(1.2);
 }
 
 .main__pagina-titulo {
@@ -368,7 +385,6 @@ input:checked + label {
 }
 
 .main__pagina-dificultad {
-  background-color: var(--color-3);
   color: var(--color-2);
   font-weight: bold;
   padding: 1em;
@@ -402,7 +418,7 @@ input:checked + label {
 
 .main__pagina-anterior,
 .main__pagina-siguiente {
-  padding: 1em;
+  padding: 1em 3%;
   bottom: 50%;
   transform: translateY(50%);
   background-color: var(--color-1);
@@ -425,6 +441,28 @@ input:checked + label {
   color: var(--color-1);
 }
 
+/* colores de dificultad */
+
+.newbie{
+  background-color: rgb(82, 205, 226);
+}
+
+.junior{
+  background-color: rgb(139, 236, 101);
+}
+
+.intermediate{
+  background-color: rgb(219, 190, 94);
+}
+
+.advanced{
+  background-color: rgb(231, 131, 91);
+}
+
+.guru{
+  background-color: rgb(219, 91, 82);
+}
+
 /* ______ */
 
 @media screen and (min-width: 900px) {
@@ -435,6 +473,10 @@ input:checked + label {
     height: calc(100vh - 4.8em - 10px);
   }
 
+  .main__item-flex, .main__abrir-footer {
+    max-height: none;
+    max-width: none;
+  }
   /* posicionar los iconos en modo scritorio */
 
   .main__front-mentor {
@@ -464,7 +506,7 @@ input:checked + label {
   /* main / paginas / footer */
 
   .main__footer p {
-    width: clamp(300px, 20vw, 400px);
+    width: clamp(18.75em, 20vw, 25em);
     margin: 1em auto;
   }
 }

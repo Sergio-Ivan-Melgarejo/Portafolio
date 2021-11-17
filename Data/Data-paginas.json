@@ -208,5 +208,15 @@
             "lenguaje": "HTML & CSS JS",
             "dificultad": "Junior"
         }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Efecto Cristal",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Only-CSS-Glass-Effect/raw/main/img/1.png",
+            "url": "https://sergio-ivan-melgarejo.github.io/Only-CSS-Glass-Effect/",
+            "lenguaje": "HTML & CSS",
+            "extra": "- solo CCS - "
+        }
     }
 ]

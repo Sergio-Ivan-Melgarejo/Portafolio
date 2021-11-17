@@ -1,7 +1,9 @@
 "use strict"
 
-// Declaraciones
+// Importaciones
+import { contraerHeader } from "./code-inicio.js";
 
+// Declaraciones
 export const main = document.getElementById("main");
 // para cerrar el ultimo abierto
 let memorizacion;
@@ -255,25 +257,27 @@ const mostrarPaginas = ( eventoPadre, resBuscador = false) => {
 // recipe los datos de una pagina para armarlos antes de mostrar
 const crearPagina = (pagina) => {
 
-    //lo creo
+    // lo creo
     const divPagina = document.createElement("div");
     const img = document.createElement("img");
+    const link = document.createElement("a");
     const h3 = document.createElement("h3");
     const divFooter = document.createElement("div");
     const pLenguaje = document.createElement("p");
     const spanLenguaje = document.createElement("span");
     const a = document.createElement("a");
 
-    //doy clase
+    // doy clase
     divPagina.classList.add("main__pagina");
     img.classList.add("main__pagina-img");
+    link.classList.add("main__pagina-container-img");
     h3.classList.add("main__pagina-titulo");
     divFooter.classList.add("main__pagina-footer");
     pLenguaje.classList.add("main__pagina-lenguaje");
     spanLenguaje.classList.add("main__pagina-lenguaje-span");
     a.classList.add("main__pagina-link");
 
-    //le doy el contenido y atributos
+    // le doy el contenido y atributos
     img.setAttribute("src", pagina.datos.imagen);
     img.setAttribute("alt", `imagen de ${pagina.datos.titulo}`)
     h3.textContent = pagina.datos.titulo;
@@ -283,16 +287,17 @@ const crearPagina = (pagina) => {
     a.setAttribute("href", pagina.datos.url)
     a.setAttribute("target", "_blank");
 
-    //los uno
-    divPagina.appendChild(img);
+    // los uno
+    link.appendChild(img);
+    divPagina.appendChild(link);
     divPagina.appendChild(h3);
     pLenguaje.appendChild(spanLenguaje);
     divFooter.appendChild(pLenguaje);
     divFooter.appendChild(a);
 
-    //cambio el diseño para las 4 clases
+    // cambio el diseño para las 4 clases
     if( pagina.tipo.startsWith("Front Mentor") ) {     
-        //version front mentor
+        // version front mentor
 
         const pDificultad = document.createElement("p");
         const spanDificultad = document.createElement("span");
@@ -303,12 +308,34 @@ const crearPagina = (pagina) => {
         pDificultad.textContent = "Dificultad: ";
         spanDificultad.textContent = pagina.datos.dificultad;
 
+        // doy color por dificultad
+        switch (pagina.datos.dificultad) {
+            case "Newbie":
+                pDificultad.classList.add("newbie");
+                break
+          
+            case "Junior":
+                pDificultad.classList.add("junior");
+                break
+          
+            case "Intermediate":
+                pDificultad.classList.add("intermediate");
+                break
+          
+            case "Advanced":
+                pDificultad.classList.add("advanced");
+                break
+          
+            case "Guru":
+                pDificultad.classList.add("guru");
+        }
+
         divPagina.appendChild(divFooter);
         pDificultad.appendChild(spanDificultad);
         divPagina.appendChild(pDificultad);
     }
     else if ( pagina.tipo.includes("Projectos") ||  pagina.tipo.includes("Juegos") || pagina.tipo.includes("Proximamente") ){
-        //version del resto
+        // version del resto
         let extra = document.createElement("p");
         extra.classList.add("main__pagina-extra");
         extra.textContent = pagina.datos.extra;
@@ -387,6 +414,9 @@ main.addEventListener("click", (e) => {
         /* contraccion de secciones de main  */
 
         if (evento.classList.contains("main__abrir-i")) {
+            contraerHeader();
+            console.log("hola")
+
             let secionElejida = evento.parentNode.parentNode;
             secionElejida.classList.toggle("main__item-flex-selecionado");
 
@@ -467,6 +497,7 @@ main.addEventListener("click", (e) => {
     /* cambiar paginas */
 
     if ( evento.classList.contains("main__pagina-anterior") ){
+
         let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
         if( cambio >= 1 ){     
             evento.parentNode.children[1].textContent = cambio;

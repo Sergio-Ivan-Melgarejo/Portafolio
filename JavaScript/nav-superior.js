@@ -64,7 +64,7 @@ const comfirmarNombreAvatar = () => {
 }
 
 const cambiarImagenDeFondo = (src) => {
-    body.style.backgroundImage = `url(${src})`
+    main.style.backgroundImage = `url(${src})`
 }
 
 const guardarImagenDeFondo = (src) => {
