@@ -1,187 +1,222 @@
 "use strict"
 
-import { nombreUsuario } from "./nav-inferior.js";
 import { navSuperior } from "./nav-superior.js"
 
 // Declaraciones
 const header = document.getElementById("header");
-const headerImg = document.getElementById("header-img");
-const headerNombreUsuario = document.getElementById("header-nombre-usuario");
-// para obtener nombre
-const avatarDeNavInf = document.querySelector(".nav-inferior-imagen");
 
 // Funciones
 
 const efectoCambiarColor = ( nombreSetInt, id, colorUno, colorDos, colorCambio ) => {
+    // toma el elmento 
     const elementoHTML = document.getElementById(`${id}`);
-    const texto = elementoHTML.textContent;
-    const array = texto.split("");
 
-    let i = 0;
-    let fragmento = document.createDocumentFragment();
+    if ( elementoHTML.getAttribute("data-efecto-cambiar-color") == null ) {
+        // para evitar duplicado
+        elementoHTML.setAttribute("data-efecto-cambiar-color", "activo");
 
-    for( i; i < array.length; i++ ){
-        let span = document.createElement("span");
-        span.textContent = array[i];
-        fragmento.appendChild(span)
+        // tomo su texto
+        const texto = elementoHTML.textContent;
+
+        // tomo el texto y creo un array de span que estaran en el div
+        const array = texto.split("");
+        let i = 0;
+        let fragmento = document.createDocumentFragment();
+
+        for( i; i < array.length; i++ ){
+            let span = document.createElement("span");
+            span.textContent = array[i];
+            fragmento.appendChild(span)
+        }
+
+        elementoHTML.textContent = "";
+        elementoHTML.appendChild(fragmento);
+
+        i--
+        elementoHTML.children[i].style.color = colorCambio;
+        i--
+
+        let vuelta = "1";
+
+        nombreSetInt = setInterval( () => {
+            // comprueba si termino o empieza
+            if ( i == -1 ) {
+                i = 1;
+                elementoHTML.children[0].style.color = colorCambio;
+                vuelta = "2";
+            }
+
+            if ( i == array.length ) {
+                i = array.length - 2;
+                elementoHTML.children[ (array.length - 1) ].style.color = colorCambio;
+                vuelta = "1";
+            }
+
+            // imprime / borra
+            if( vuelta === "1" ) {
+                if( elementoHTML.textContent[i] == " " ){
+                    elementoHTML.children[(i - 1)].style.color = colorCambio;
+                    elementoHTML.children[(i + 1)].style.color = colorDos;
+                    i -= 2;
+                }
+                else{
+                    elementoHTML.children[i].style.color = colorCambio;
+                    elementoHTML.children[(i + 1)].style.color = colorDos;
+                    i--;
+                }
+            }
+            else {
+                if( elementoHTML.textContent[i] == " " ){
+                    elementoHTML.children[(i + 1)].style.color = colorCambio;
+                    elementoHTML.children[(i - 1)].style.color = colorUno;
+                    i += 2;
+                }
+                else{
+                    elementoHTML.children[i].style.color = colorCambio;
+                    elementoHTML.children[(i - 1)].style.color = colorUno;
+                    i++;
+                }
+            }
+
+            // frena al darle x del header
+            if ( elementoHTML.getAttribute("data-parar") ){
+                clearInterval( nombreSetInt )
+            }
+        }, 300);      
     }
-
-    elementoHTML.textContent = "";
-    elementoHTML.appendChild(fragmento);
-
-    i--
-    elementoHTML.children[i].style.color = colorCambio;
-    i--
-
-    let vuelta = "1";
-
-    nombreSetInt = setInterval( () => {
-// comprueba si termino o empieza
-        if ( i == -1 ) {
-            i = 1;
-            elementoHTML.children[0].style.color = colorCambio;
-            vuelta = "2";
-        }
-
-        if ( i == array.length ) {
-            i = array.length - 2;
-            elementoHTML.children[ (array.length - 1) ].style.color = colorCambio;
-            vuelta = "1";
-        }
-
-// imprime / borra
-        if( vuelta === "1" ) {
-            if( elementoHTML.textContent[i] == " " ){
-                elementoHTML.children[(i - 1)].style.color = colorCambio;
-                elementoHTML.children[(i + 1)].style.color = colorDos;
-                i -= 2;
-            }
-            else{
-                elementoHTML.children[i].style.color = colorCambio;
-                elementoHTML.children[(i + 1)].style.color = colorDos;
-                i--;
-            }
-        }
-        else {
-            if( elementoHTML.textContent[i] == " " ){
-                elementoHTML.children[(i + 1)].style.color = colorCambio;
-                elementoHTML.children[(i - 1)].style.color = colorUno;
-                i += 2;
-            }
-            else{
-                elementoHTML.children[i].style.color = colorCambio;
-                elementoHTML.children[(i - 1)].style.color = colorUno;
-                i++;
-            }
-        }
-
-//frena al darle x del header
-        if ( elementoHTML.getAttribute("data-parar") ){
-            clearInterval( nombreSetInt )
-        }
-    }, 300);
 }
 
 const efectoEscribir = ( nombreSetInt, id, ...textos ) => {
     const elementoHTML = document.getElementById(`${id}`);
-    if ( elementoHTML.textContent != "" ) textos.unshift( elementoHTML.textContent );
-    elementoHTML.textContent = "";
 
-    let i = 0;
-    const texto = textos[i];
-    let array = texto.split("");
-
-    let fragmento = document.createDocumentFragment();
-    for( i; i <= array.length; i++ ){
-        let span = document.createElement("span");
-        span.textContent = array[i] || "_";
-        fragmento.appendChild(span)
-    }
-    elementoHTML.appendChild(fragmento);
-    i -= 2
-
-    let imprimido = "si";
-    let palabraActual = 0;
-
-    nombreSetInt = setInterval(() => {
-//frena al darle x del header
-        if ( elementoHTML.getAttribute("data-parar") ){
-            clearInterval( nombreSetInt )
-        }
-
-// comprueba si esta impresa
-        if ( i <= -1 ) {
-            elementoHTML.children[0].textContent = array[i];
-
-            imprimido = "no";
-            palabraActual++
-            i = 0;
-        }
-
-        if ( i >= array.length ) {
-            i = array.length - 1;
-            imprimido = "si";
-        }
-
-// comprueba para pasar a la otra palabra
-        if ( palabraActual >= textos.length ) palabraActual = 0;
-        if ( array !== textos[palabraActual] ) array = textos[palabraActual];
-
-// imprime / borra
-        if( imprimido == "si" ) {
-            elementoHTML.removeChild( elementoHTML.children[i] )
-            i--;
-            
-        }
-        else {
+    if ( elementoHTML.children.length < 1 ){
+        let i = 0;
+        const texto = textos[i];
+        let array = texto.split("");
+    
+        let div = document.createElement("div");
+        div.classList.add("efecto-escribir");
+    
+        for( i; i <= array.length; i++ ){
             let span = document.createElement("span");
-            span.textContent = "_";
-            elementoHTML.appendChild( span );
-            elementoHTML.children[i].textContent = array[i];
-            i++ 
+            span.textContent = array[i] || "_";
+            div.appendChild(span)
         }
-    console.log("no paro")
-    }, 300);
+    
+        elementoHTML.appendChild(div);
+        i -= 2
+    
+        let imprimido = "si";
+        let palabraActual = 0;
+    
+        nombreSetInt = setInterval(() => {
+            //frena al darle x del header
+            if ( elementoHTML.getAttribute("data-parar") ){
+                clearInterval( nombreSetInt )
+            }
+    
+            // comprueba si esta impresa
+            if ( i <= -1 ) {
+                div.children[0].textContent = array[i];
+    
+                imprimido = "no";
+                palabraActual++
+                i = 0;
+            }
+    
+            if ( i >= array.length ) {
+                i = array.length - 1;
+                imprimido = "si";
+            }
+    
+            // comprueba para pasar a la otra palabra
+            if ( palabraActual >= textos.length ) palabraActual = 0;
+            if ( array !== textos[palabraActual] ) array = textos[palabraActual];
+    
+            // imprime / borra
+            if( imprimido == "si" ) {
+                div.removeChild( div.children[i] )
+                i--;
+                
+            }
+            else {
+                let span = document.createElement("span");
+                span.textContent = "_";
+                div.appendChild( span );
+                div.children[i].textContent = array[i];
+                i++ 
+            }
+        }, 300);
+    }
 }
 
 // para poder frenarlo y reiniciarlo
 
-const IniciarEfectos = () => {
+const IniciarEfectos = ( nombre ) => {
+    // obtengo los elementos necesario para reininiar efectos
+    const headerTitulo = document.getElementById("header-h1");
+    const headerImg = document.getElementById("header-img");
+    const headerNombreUsuario = document.getElementById("header-nombre-usuario");
+    const headerBotonconf = document.getElementById("header-boton-conf");
+
+    // para obtener nombre y img del nav-inferior
+    const avatarDeNavInf = document.querySelector(".nav-inferior-imagen");
+    const nombreUsuario = document.getElementById("nombreDeUsuario");
+
+    // añado la img y nombre del nav-inferior
+    headerImg.setAttribute( "src" , avatarDeNavInf.getAttribute( "src") );
+    if ( headerNombreUsuario.getAttribute("data-efecto-cambiar-color") == null ) headerNombreUsuario.textContent = nombreUsuario.textContent;
+
+    headerTitulo.removeAttribute("data-parar");
+    headerNombreUsuario.removeAttribute("data-parar");
+    headerBotonconf.removeAttribute("data-parar");
+
     efectoCambiarColor( "efectoH1", "header-h1" , "var(--color-4)" , "var(--color-2)" , "var(--color-3)" );
     efectoCambiarColor( "efectoNombreUsuario" , "header-nombre-usuario" , "var(--color-4)" , "var(--color-2)", "var(--color-3)" );
-    efectoEscribir( "efectoBotonConf" , "header-boton-conf" , "Avatar" , "Nombre" , "Imagen de Fondo" , "Temas", "Fuentes" );
+    efectoEscribir( "efectoBotonConf" , "header-boton-conf" , "Configuraciones" , "Avatar" , "Nombre" , "Imagen de Fondo" , "Temas", "Fuentes" );
 }
 
 const frenarEfectos = () => {
-    const headerBotonconf = document.getElementById("header-boton-conf");
     const headerTitulo = document.getElementById("header-h1");
+    const headerBotonconf = document.getElementById("header-boton-conf");
+    const headerNombreUsuario = document.getElementById("header-nombre-usuario");
+
+    headerBotonconf.removeChild( headerBotonconf.children[0] );
+    headerNombreUsuario.removeAttribute("data-efecto-cambiar-color");
+    headerTitulo.removeAttribute("data-efecto-cambiar-color");
+
     setTimeout( () => {
         headerTitulo.setAttribute("data-parar", "true");
         headerBotonconf.setAttribute("data-parar", "true");
-    }, 1100);
-
+        headerNombreUsuario.setAttribute("data-parar", "true");
+    }, 100);
 }
 
-export const contraerHeader = () => {
-    frenarEfectos()
-    setTimeout(() => {
-        
-    }, 1100);
+const contraerHeader = () => {
+    const header = document.getElementById("header");
+    header.classList.add("header-contraido");
+
+    if (header) {
+        frenarEfectos();
+        setTimeout( () => {
+        }, 100);
+    }
 }
 
-export const abrirHeader = () => {
+const abrirHeader = () => {
+    const header = document.getElementById("header");
+    header.classList.remove("header-contraido");
     IniciarEfectos()
 }
 
-const cerrarHeader = () => {
+const eliminarHeader = () => {
     const header = document.getElementById("header");
-    console.log(header)
     if (header) {
         header.style.animation = "eliminarHeader 1s forwards";
         frenarEfectos();
         setTimeout( () => {
             header.parentNode.removeChild(header);
-        }, 1100);
+        }, 100);
     }
 }
 
@@ -193,7 +228,9 @@ addEventListener("DOMContentLoaded", () => {
         let evento = e.target;
 
         if ( evento.classList.contains("header__boton-x") ) {
-            cerrarHeader()
+            eliminarHeader()
+            // contraerHeader()
+            // contraerHeader()
         }
 
         // Abrir nav-superior
@@ -204,8 +241,16 @@ addEventListener("DOMContentLoaded", () => {
 
     })
 
-    headerImg.setAttribute( "src" , avatarDeNavInf.getAttribute( "src") );
-    headerNombreUsuario.textContent = nombreUsuario.textContent;
-
-    IniciarEfectos();
+    setTimeout(() => {
+        IniciarEfectos();
+    }, 1000);
 });
+
+addEventListener("keyup", (e)=>{
+    if(e.key == "a"){
+        abrirHeader()
+    }
+    if(e.key == "c"){
+        contraerHeader()
+    }
+})

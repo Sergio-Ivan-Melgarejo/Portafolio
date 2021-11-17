@@ -17,7 +17,7 @@ const mainJuegos = document.querySelector(".main__juegos");
 const mainProximamente = document.querySelector(".main__proximamente");
 let evitarClickConpulsivos = true;
 // abrir nav-inferior en modo movil de costado
-const fletaAbrirNanInf = document.getElementById("abrir-nav-inferior");
+const flechaAbrirNanInf = document.getElementById("abrir-nav-inferior");
 //Funciones
 
 //Eventos
@@ -67,11 +67,11 @@ navInferior.addEventListener("click", (e) => {
             mainProximamente.removeAttribute("data-animacion-trabajos");
             main.classList.remove("nav-i__animacion-main");
 
-            evitarClickConpulsivos = true
+            evitarClickConpulsivos = true;
         } ,5000);
     }
 })
 
-fletaAbrirNanInf.addEventListener("click", () => {
+flechaAbrirNanInf.addEventListener("click", () => {
     navInferior.classList.toggle("nav-inferior-abierto");
 })

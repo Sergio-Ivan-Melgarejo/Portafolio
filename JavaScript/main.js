@@ -1,8 +1,5 @@
 "use strict"
 
-// Importaciones
-import { contraerHeader } from "./code-inicio.js";
-
 // Declaraciones
 export const main = document.getElementById("main");
 // para cerrar el ultimo abierto
@@ -414,9 +411,6 @@ main.addEventListener("click", (e) => {
         /* contraccion de secciones de main  */
 
         if (evento.classList.contains("main__abrir-i")) {
-            contraerHeader();
-            console.log("hola")
-
             let secionElejida = evento.parentNode.parentNode;
             secionElejida.classList.toggle("main__item-flex-selecionado");
 

@@ -15,7 +15,6 @@ body{
     color: var(--color-4);
     box-sizing: border-box;
     height: 100%;
-    margin: auto;
     border-radius: 5px;
     width: 100%;
     box-shadow: 0 0 10em var(--color-1) inset;
@@ -28,7 +27,8 @@ body{
     top: 0;
     left: 0;
     align-items: center;
-    transition: border 350ms, box-shadow 350ms;
+    transition: border 350ms, box-shadow 350ms, opacity 500ms, height 500ms;
+    margin: auto;
 }
 
 .header__boton-x{
@@ -178,17 +178,22 @@ body{
     0%{
         width: 100%;
         height: 100%;
-        opacity: 1;
         background-color: rgba(51, 50, 50, 0.247);
+        backdrop-filter: none;
         box-shadow: 0 0 10em var(--color-1) inset;
     }    
     100%{
-        width: 0%;
-        height: 0%;
-        opacity: 0;
-        background-color: rgba(51, 50, 50, 0.247);
+        width: 5%;
+        height: 5%;
+        background-color: rgb(255, 4, 4);
+        backdrop-filter: none;
         box-shadow: 0 0 10em var(--color-3) inset;
     }
+}
+
+.body .header-contraido{
+    backdrop-filter: none;
+    height: 0;
 }
 
 @keyframes headerBotonX {

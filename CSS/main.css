@@ -130,11 +130,12 @@
 }
 
 .main__item-flex-selecionado .main__abrir-i {
-  color: var(--color-3);
+  color: var(--color-2);
+  order: 1;
 }
 
 .main__item-flex-selecionado .main__abrir-i:hover {
-  color: var(--color-2);
+  color: rgb(214, 39, 39);
 }
 
 /* barra de scroll  ________________ */
@@ -323,7 +324,7 @@ input:checked + label {
 }
 
 .main__pagina {
-  width: clamp(17em, 39vmax, 26em);
+  width: clamp(17em, 40vmax, 26em);
   overflow: hidden;
   border-top: 0.2em solid var(--color-3);
   border-radius: 5px;
