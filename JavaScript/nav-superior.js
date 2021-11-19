@@ -1,8 +1,11 @@
 "use stric"
 
-import { main } from "./main.js";
+// Importaciones
+import { main, comprobarAbiertosMain } from "./main.js";
+import { contraerHeader } from "./code-inicio.js";
 
-// General
+// Declaraciones
+
 export const body = document.getElementById("body");
 // Abrir / cerrar configuracion
 const abrirCof = document.getElementById("abrir-cof");
@@ -226,11 +229,15 @@ const cambiarFuente = (evento) => {
 //Event
 
 abrirCof.addEventListener("click", () => {
-    navSuperior.classList.toggle("cerrados")
+    navSuperior.classList.remove("cerrados");
+
+    contraerHeader();
 });
 
 cerrarCof.addEventListener("click", () => {
-    navSuperior.classList.toggle("cerrados")
+    navSuperior.classList.add("cerrados");
+
+    comprobarAbiertosMain()
 });
 
 //opciones

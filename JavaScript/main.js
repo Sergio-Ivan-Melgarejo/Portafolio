@@ -1,9 +1,14 @@
 "use strict"
 
+// Imporaciones
+
+import { contraerHeader, abrirHeader } from "./code-inicio.js";
+// import { footer } from "./footer.js";
+
 // Declaraciones
 export const main = document.getElementById("main");
 // para cerrar el ultimo abierto
-let memorizacion;
+export let memorizacion;
 // donde pondre los Datos de las paginas a mostrar
 let datos = "nada";
 // const divPaginas = document.querySelector(".main__paginas");
@@ -401,144 +406,160 @@ const mensajeSinArchivosSubidos = ( evento ) => {
     }
 }
 
+export const comprobarAbiertosMain = () => {
+    let elementos = main.children;
+    if( !elementos[0].classList.contains("header") ) return
+    for ( let i = 1; i < 6; i++ ) {
+        if ( elementos[i].classList.contains("main__item-flex-selecionado") ) return
+    }
+    abrirHeader();
+}
+
 //Eventos
 
-main.addEventListener("click", (e) => {
-    let evento = e.target;
-    /* se cansela si el evento de nav-inferior (trabajos) esta activo */
-    if ( evento.parentNode.parentNode.getAttribute("data-animacion-trabajos") == undefined ) {
+addEventListener("DOMContentLoaded", () => {
 
-        /* contraccion de secciones de main  */
+    main.addEventListener("click", (e) => {
+        let evento = e.target;
+        /* se cansela si el evento de nav-inferior (trabajos) esta activo */
+        if ( evento.parentNode.parentNode.getAttribute("data-animacion-trabajos") == undefined ||
+            e.srcE ) {
 
-        if (evento.classList.contains("main__abrir-i")) {
-            let secionElejida = evento.parentNode.parentNode;
-            secionElejida.classList.toggle("main__item-flex-selecionado");
+            /* contraccion de secciones de main  */
 
-            if (memorizacion != undefined && memorizacion != secionElejida) {
-                memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
+            if ( evento.classList.contains("main__abrir-i") ) {
+                let secionElejida = evento.parentNode.parentNode;
+                secionElejida.classList.toggle("main__item-flex-selecionado");
+
+                if ( memorizacion != undefined && memorizacion != secionElejida ) {
+                    memorizacion.classList.remove("main__item-flex-selecionado");
+                }
+                memorizacion = secionElejida;
+        
+                ( secionElejida.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : abrirHeader();
             }
-            memorizacion = secionElejida;
-        }
 
-        /* obtener las paginas */
+            /* obtener las paginas */
 
-        if (evento.classList.contains("main__abrir-i")) {
-            if (datos === "nada") {
-                fetch("./Data/Data-paginas.json").then(res => {
-                    return res.json()
-                }).then(res => {
-                    datos = res;
+            if ( evento.classList.contains("main__abrir-i") && !evento.classList.contains("fa-address-card") ) {
+                if (datos === "nada") {
+                    fetch("./Data/Data-paginas.json").then(res => {
+                        return res.json()
+                    }).then(res => {
+                        datos = res;
+                        mostrarPaginas(evento.parentNode.parentNode);
+                    })
+                } //para que no borre y vuelva a cargar si lo minimiza y lo vuelve abrir
+                else if ( evento.parentNode.parentNode.children[1].children[2].children.length == 0 ){
                     mostrarPaginas(evento.parentNode.parentNode);
-                })
-            } //para que no borre y vuelva a cargar si lo minimiza y lo vuelve abrir
-            else if ( evento.parentNode.parentNode.children[1].children[2].children.length == 0 ){
-                mostrarPaginas(evento.parentNode.parentNode);
-            }
-        }
-            
-        /* abrir footer */
-
-        if (evento.classList.contains("main__abrir-footer")) {
-            evento.classList.toggle("main__footer-selecionado");
-
-            if (memorizacion != undefined && memorizacion != evento) {
-                memorizacion.classList.remove("main__item-flex-selecionado", "main__footer-selecionado");
-            }
-
-            memorizacion = evento;
-        }
-    }
-
-    /* abrir y cerrar filtro de paginas */
-
-    if (evento.classList.contains("main__filtro-boton")) {
-        let menufiltro = evento.parentNode.parentNode.children[1];
-        menufiltro.classList.toggle("filtro-abierto");
-    }   
-
-    /* click en opciones de filtro */
-    
-    if ( evento.classList.contains("main__lista-opcion") ) {
-        // obtengo de quien de los 4 es el filtro, cambio el valor y aplico cambios
-        let deQuienESElFiltro = evento.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
-        let queClaseDeFiltroEs = evento.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
-        let value = evento.value;
-        let almacenar = datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs];
-
-        if ( queClaseDeFiltroEs !== "Mostrar" ) {
-            // añadimos o quitamos en funcion si esta o no . Y si no es Mostrar
-            if ( almacenar.includes(value) ) {
-                let indice = almacenar.indexOf(value); // obtenemos el indice
-                almacenar.splice(indice, 1); // 1 es la cantidad de elemento a eliminar 
-            }
-            else almacenar.push(value)
-        }
-        else {
-            // marcamos y desenmarca los demas (solo para Mostrar)
-            evento.checked = true;
-            let aDesenmarcar = evento.parentNode.parentNode.parentNode.children;
-            for( let i of aDesenmarcar ) {
-                if ( i.children[0].children[0] !== evento ) {
-                    i.children[0].children[0].checked = false;
                 }
             }
-            // almacenar = value; --- no me acepta el almacenar --- raro
-            datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs] = value;
+                
+            /* abrir footer */
+
+            // if (evento.classList.contains("main__abrir-footer")) {            
+            //     footer.classList.toggle("main__item-flex-selecionado");
+
+            //     if ( memorizacion != undefined && memorizacion != evento ) {
+            //         memorizacion.classList.remove("main__item-flex-selecionado");
+            //     }
+            //     memorizacion = evento;
+            
+            //     ( footer.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : abrirHeader();
+            // }
         }
-        mostrarPaginas( evento.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode );
-    }
 
-    /* cambiar paginas */
+        /* abrir y cerrar filtro de paginas */
 
-    if ( evento.classList.contains("main__pagina-anterior") ){
+        if (evento.classList.contains("main__filtro-boton")) {
+            let menufiltro = evento.parentNode.parentNode.children[1];
+            menufiltro.classList.toggle("filtro-abierto");
+        }   
 
-        let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
-        if( cambio >= 1 ){     
-            evento.parentNode.children[1].textContent = cambio;
-            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        /* click en opciones de filtro */
+        
+        if ( evento.classList.contains("main__lista-opcion") ) {
+            // obtengo de quien de los 4 es el filtro, cambio el valor y aplico cambios
+            let deQuienESElFiltro = evento.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
+            let queClaseDeFiltroEs = evento.parentNode.parentNode.parentNode.parentNode.getAttribute("data-tipo");
+            let value = evento.value;
+            let almacenar = datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs];
+
+            if ( queClaseDeFiltroEs !== "Mostrar" ) {
+                // añadimos o quitamos en funcion si esta o no . Y si no es Mostrar
+                if ( almacenar.includes(value) ) {
+                    let indice = almacenar.indexOf(value); // obtenemos el indice
+                    almacenar.splice(indice, 1); // 1 es la cantidad de elemento a eliminar 
+                }
+                else almacenar.push(value)
+            }
+            else {
+                // marcamos y desenmarca los demas (solo para Mostrar)
+                evento.checked = true;
+                let aDesenmarcar = evento.parentNode.parentNode.parentNode.children;
+                for( let i of aDesenmarcar ) {
+                    if ( i.children[0].children[0] !== evento ) {
+                        i.children[0].children[0].checked = false;
+                    }
+                }
+                // almacenar = value; --- no me acepta el almacenar --- raro
+                datosfiltro[deQuienESElFiltro][queClaseDeFiltroEs] = value;
+            }
+            mostrarPaginas( evento.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode );
         }
-    }
 
-    else if ( evento.classList.contains("main__pagina-actual") ){}
+        /* cambiar paginas */
 
-    else if ( evento.classList.contains("main__pagina-siguiente") ){
-        let cambio = parseInt(evento.parentNode.children[1].textContent) + 1;
-        if( cambio <= evento.parentNode.children[3].textContent ){     
-            evento.parentNode.children[1].textContent = cambio ;
-            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        if ( evento.classList.contains("main__pagina-anterior") ){
+
+            let cambio = parseInt(evento.parentNode.children[1].textContent) - 1;
+            if( cambio >= 1 ){     
+                evento.parentNode.children[1].textContent = cambio;
+                mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+            }
         }
-    }
 
-    else if ( evento.classList.contains("main__paginas-totales") ){
-        let cambio = parseInt(evento.parentNode.children[3].textContent);
-        if( cambio <= evento.parentNode.children[3].textContent ){     
-            evento.parentNode.children[1].textContent = cambio ;
-            mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+        else if ( evento.classList.contains("main__pagina-actual") ){}
+
+        else if ( evento.classList.contains("main__pagina-siguiente") ){
+            let cambio = parseInt(evento.parentNode.children[1].textContent) + 1;
+            if( cambio <= evento.parentNode.children[3].textContent ){     
+                evento.parentNode.children[1].textContent = cambio ;
+                mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+            }
         }
-    }
-});
 
-//eventos de cada buscador(agregar los otros)
-buscadorFrontMentor.addEventListener("keyup", (e) => {
-    //establece la pagina a 1 para evitar errores
-    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
-    mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
-})
+        else if ( evento.classList.contains("main__paginas-totales") ){
+            let cambio = parseInt(evento.parentNode.children[3].textContent);
+            if( cambio <= evento.parentNode.children[3].textContent ){     
+                evento.parentNode.children[1].textContent = cambio ;
+                mostrarPaginas(evento.parentNode.parentNode.parentNode.parentNode);
+            }
+        }
+    });
 
-buscadorProjectos.addEventListener("keyup", (e) => {
-    //establece la pagina a 1 para evitar errores
-    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
-    mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
-})
+    //eventos de cada buscador(agregar los otros)
+    buscadorFrontMentor.addEventListener("keyup", (e) => {
+        //establece la pagina a 1 para evitar errores
+        e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
+        mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
+    })
 
-buscadorJuegos.addEventListener("keyup", (e) => {
-    //establece la pagina a 1 para evitar errores
-    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
-    mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
-})
+    buscadorProjectos.addEventListener("keyup", (e) => {
+        //establece la pagina a 1 para evitar errores
+        e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
+        mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
+    })
 
-buscadorProximamente.addEventListener("keyup", (e) => {
-    //establece la pagina a 1 para evitar errores
-    e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
-    mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
+    buscadorJuegos.addEventListener("keyup", (e) => {
+        //establece la pagina a 1 para evitar errores
+        e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
+        mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
+    })
+
+    buscadorProximamente.addEventListener("keyup", (e) => {
+        //establece la pagina a 1 para evitar errores
+        e.target.parentNode.parentNode.children[3].children[0].children[1].textContent = 1;
+        mostrarPaginas(e.target.parentNode.parentNode.parentNode, e.target.value)
+    })
 })

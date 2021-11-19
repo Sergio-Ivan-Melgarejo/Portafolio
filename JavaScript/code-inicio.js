@@ -146,13 +146,14 @@ const efectoEscribir = ( nombreSetInt, id, ...textos ) => {
                 div.children[i].textContent = array[i];
                 i++ 
             }
+        console.log("escribir")
         }, 300);
     }
 }
 
 // para poder frenarlo y reiniciarlo
 
-const IniciarEfectos = ( nombre ) => {
+const IniciarEfectos = () => {
     // obtengo los elementos necesario para reininiar efectos
     const headerTitulo = document.getElementById("header-h1");
     const headerImg = document.getElementById("header-img");
@@ -189,24 +190,29 @@ const frenarEfectos = () => {
         headerTitulo.setAttribute("data-parar", "true");
         headerBotonconf.setAttribute("data-parar", "true");
         headerNombreUsuario.setAttribute("data-parar", "true");
-    }, 100);
+    }, 0);
 }
 
-const contraerHeader = () => {
+export const contraerHeader = () => {
     const header = document.getElementById("header");
-    header.classList.add("header-contraido");
-
-    if (header) {
-        frenarEfectos();
-        setTimeout( () => {
-        }, 100);
+    // evitar ejecutar si esta eliminado o ya contraido
+    if ( header !== null && !header.classList.contains("header-contraido") ) {
+        header.classList.add("header-contraido");
+        if (header) {
+            frenarEfectos();
+            setTimeout( () => {
+            }, 0);
+        }
     }
 }
 
-const abrirHeader = () => {
+export const abrirHeader = () => {
     const header = document.getElementById("header");
-    header.classList.remove("header-contraido");
-    IniciarEfectos()
+    // evitar ejecutar si esta eliminado y no contraido
+    if ( header !== null && header.classList.contains("header-contraido") ) {
+        header.classList.remove("header-contraido");
+        IniciarEfectos()
+    }
 }
 
 const eliminarHeader = () => {
@@ -216,7 +222,7 @@ const eliminarHeader = () => {
         frenarEfectos();
         setTimeout( () => {
             header.parentNode.removeChild(header);
-        }, 100);
+        }, 10);
     }
 }
 
@@ -229,28 +235,15 @@ addEventListener("DOMContentLoaded", () => {
 
         if ( evento.classList.contains("header__boton-x") ) {
             eliminarHeader()
-            // contraerHeader()
-            // contraerHeader()
         }
 
         // Abrir nav-superior
 
-        if ( evento.classList.contains("header__boton-conf") ){
+        if ( evento.classList.contains("header__flecha2") || evento.parentNode.classList.contains("efecto-escribir") ){
             navSuperior.classList.toggle("cerrados");
+            contraerHeader();
         }
 
     })
-
-    setTimeout(() => {
-        IniciarEfectos();
-    }, 1000);
+    IniciarEfectos();
 });
-
-addEventListener("keyup", (e)=>{
-    if(e.key == "a"){
-        abrirHeader()
-    }
-    if(e.key == "c"){
-        contraerHeader()
-    }
-})

@@ -7,9 +7,9 @@
   margin: auto;
   box-sizing: border-box !important;
   height: calc(100vh - 5.2em - 10px);
-  padding: clamp(0%, 1vmin , 1em);
+  padding: clamp(0%, 1vmin, 1em);
   background-color: transparent;
-  min-height: calc( 600px - 5.2em - 10px);
+  min-height: calc(600px - 5.2em - 10px);
   overflow: hidden;
 }
 
@@ -23,9 +23,8 @@
   max-height: 65px;
   max-width: 65px;
   overflow: hidden;
-  border: .0 solid var(--color-1);
   box-shadow: 0 0 0 var(--color-1);
-  transition: border 350ms , box-shadow 350ms;
+  transition: border 350ms, box-shadow 350ms;
 }
 
 .main__item-flex:hover {
@@ -50,7 +49,7 @@
   grid-area: 2/5/3/6;
 }
 
-.main__abrir-footer {
+.footer {
   grid-area: 2/3/3/4;
 }
 
@@ -101,9 +100,12 @@
   color: var(--color-3);
 }
 
-.fa-code,
-.fa-gamepad {
-  padding: 0.3em 0.21em;
+.fa-code, .fa-gamepad, .fa-address-card{
+  padding: 0.33em 0.21em;
+}
+
+.fa-address-card {
+  padding: 0.32em 0.25em;
 }
 
 /* javascript _____________ */
@@ -284,29 +286,6 @@ input:checked + label {
   background-color: var(--color-3);
 }
 
-/* footer */
-
-.main__abrir-footer {
-  background-color: var(--color-1);
-  font-size: 3em;
-  max-height: 65px;
-  max-width: 65px;
-  padding: 0.1em;
-  border-radius: 5px;
-  margin: auto;
-  color: var(--color-2);
-  transition: color 350ms, opacity 350ms;
-  cursor: pointer;
-}
-
-.main__abrir-footer:hover {
-  color: var(--color-3);
-}
-
-.main__footer-selecionado {
-  color: var(--color-3);
-}
-
 /* data recibida / paginas a mostrar -------------------------- */
 
 .main__paginas {
@@ -332,11 +311,11 @@ input:checked + label {
   text-align: center;
 }
 
-.main__pagina:hover >.main__pagina-container-img .main__pagina-img{
+.main__pagina:hover > .main__pagina-container-img .main__pagina-img {
   filter: none;
 }
 
-.main__pagina-container-img{
+.main__pagina-container-img {
   display: block;
   height: 12em;
   background-color: var(--color-3);
@@ -348,7 +327,7 @@ input:checked + label {
   width: 100%;
   height: 100%;
   filter: blur(1px) grayscale(100%);
-  transition: filter .5s, transform .5s;
+  transition: filter 0.5s, transform 0.5s;
 }
 
 .main__pagina-img:hover {
@@ -444,37 +423,36 @@ input:checked + label {
 
 /* colores de dificultad */
 
-.newbie{
+.newbie {
   background-color: rgb(82, 205, 226);
 }
 
-.junior{
+.junior {
   background-color: rgb(139, 236, 101);
 }
 
-.intermediate{
+.intermediate {
   background-color: rgb(219, 190, 94);
 }
 
-.advanced{
+.advanced {
   background-color: rgb(231, 131, 91);
 }
 
-.guru{
+.guru {
   background-color: rgb(219, 91, 82);
 }
 
 /* ______ */
 
 @media screen and (min-width: 900px) {
-  
   .main {
-    grid-template-columns: 4em 1fr;
+    grid-template-columns: 5em 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     height: calc(100vh - 4.8em - 10px);
   }
 
-  .main__item-flex, .main__abrir-footer {
+  .main__item-flex {
     max-height: none;
     max-width: none;
   }
@@ -496,7 +474,7 @@ input:checked + label {
     grid-area: 5/1/6/2;
   }
 
-  .main__abrir-footer {
+  .footer {
     grid-area: 3/1/4/2;
   }
 
@@ -512,11 +490,18 @@ input:checked + label {
   }
 }
 
-@media screen and (max-height: 600px) and (max-width: 900px){
+@media screen and (max-height: 27em) and (max-width: 900px) {
+  /* acomodar para version movil de costado */
 
-/* acomodar para version movil de costado */
+  .nav-superior {
+    height: calc(600px + 5.2em + 20px);
+  }
 
-.main{
+  .cerrados {
+    height: 0;
+  }
+
+  .main {
     grid-template-rows: 4em 1fr;
     min-height: calc(100vh - 5.2em - 10px);
     min-height: 600px;
@@ -539,31 +524,30 @@ input:checked + label {
     grid-area: 1/5/2/6;
   }
 
-  .main__abrir-footer {
+  .footer {
     grid-area: 1/3/2/4;
   }
 
-  .main__item-flex-selecionado{
+  .main__item-flex-selecionado {
     grid-area: 2/1/3/6;
-}
-
+  }
 }
 
 /* mensaje 404 / mensaje sin archivos subidos */
 
-  .mensajes404-text {
-    width: 100%;
-    text-align: center;
-    color: var(--color-4);
-    align-self: center;
-  }
+.mensajes404-text {
+  width: 100%;
+  text-align: center;
+  color: var(--color-4);
+  align-self: center;
+}
 
-  .mensajes404-img {
-    width: 50%;
-    align-self: flex-start;
-  }
+.mensajes404-img {
+  width: 50%;
+  align-self: flex-start;
+}
 
-  .mensajes404-span {
-    font-weight: bold;
-    color: var(--color-3);
+.mensajes404-span {
+  font-weight: bold;
+  color: var(--color-3);
 }

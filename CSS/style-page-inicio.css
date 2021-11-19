@@ -39,15 +39,15 @@ body{
     color: var(--color-2);
     margin: 10px 10px 10px auto;
     color: var(--color-1);
-    cursor: pointer;
     transition: color 350ms, box-shadow 350ms;
     border: none;
     animation: headerBotonX 3s infinite;
+    cursor: pointer;
 }
 
 .header__boton-x:hover{
-    color: var(--color-3);
-    box-shadow: 0 0 1em var(--color-3) inset;
+    color: rgb(226, 79, 79);
+    box-shadow: 0 0 1em rgb(226, 79, 79) inset;
     animation: none;
 }
 
@@ -81,7 +81,6 @@ body{
     background-color: var(--color-3);
     border: .3em solid var(--color-3);
     border-radius: 50%;
-    opacity: .8;
     transition: width 350ms, max-width 350ms, margin-left 350ms;
 }
 
@@ -89,11 +88,38 @@ body{
     max-width: 50%;
 }
 
-.header__nombreUsuario{
+.header-container-botones{
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.header__flecha{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: right;
+    padding: .55em;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    color: var(--color-2);
+}
+
+.header__nombreUsuario, .header__boton-conf{
     color: var(--color-4);
     text-align: center;
     background-color: var(--color-1);
     width: 15em;
+    text-align: left;
+    transition: color 400ms, background-color 400ms;
+}
+
+.header__nombreUsuario{
+    text-align: center;
     margin-bottom: .5em;
 }
 
@@ -102,31 +128,29 @@ body{
 }
 
 .header__boton-conf{
-    border: none;
-    color: var(--color-1);
+    color: var(--color-2);
     background-color: var(--color-3);
-    cursor: pointer;
-    transition: color 400ms, background-color 400ms;
-    width: 15em;
-    text-align: left;
-
 }
 
-.header__boton-conf:hover{
+.header-container-botones:hover > .header__boton-conf{
     color: var(--color-1);
     background-color: var(--color-2);
+}
+
+.header-container-botones:hover > .header__flecha{
+    color: var(--color-1);
 }
 
 /* compartidos */
 
 .header__boton-conf, .header__nombreUsuario, .header__boton-x{
-    border-radius: 5px;
     display: block;
     font-weight: bolder;
     font-size: 1em;
     padding: .8em;
-    max-width: 99%;
     box-sizing: border-box;
+    border-radius: 5px;
+    max-width: 100%;
 }
 
 @media screen and (min-width: 900px) {
@@ -157,21 +181,10 @@ body{
         justify-content: center;
     }
 
-    .header__div2{
-        margin-top: 3em;
-        padding-bottom: 2em;
+    .header-container-botones, .header__nombreUsuario{
+        font-size: 1.5em;
     }
 
-    .header__nombreUsuario{
-        font-size: 1.5em;
-        text-align: left;
-    }
-
-    .header__boton-conf{
-        margin: 0;
-        font-size: 1.5em;
-        margin-bottom: auto;
-    }
 }
 
 @keyframes eliminarHeader {

@@ -10,13 +10,17 @@
     align-items: center;
     margin: 0;
     padding: .6em 2vw;
-    gap: .7em;
+    gap: .5em;
 }
 
 .nav-inferior__linea{
     flex: 1 1;
     background-color: var(--color-3);
     height: .1em;
+}
+
+.nav-inferior__li .fa-address-card{
+    display: none;
 }
 
 /* avatar ---------------------- */
@@ -48,6 +52,10 @@
     color: var(--color-2);
 }
 
+.nav-inferior .fa-address-card{
+    font-size: 1em;
+}
+
 /* sub-menu modo movil ___________________________________ */
 
 .nav-inferior__sub-menu{
@@ -59,7 +67,6 @@
     font-size: 2em;
     padding: .5em;
 }
-
 
 /* javascript ----------------- */
 
@@ -123,19 +130,16 @@
 @keyframes mostrarTrabajos {
     0%{
         box-shadow: 0 0 0em var(--color-1);
-        border: 0 solid var(--color-1);
         transform: scale(1) translateY(0%);
     }
 
     50%{
         box-shadow: 0 0 1.5em var(--color-3);
-        border: .1em solid var(--color-3);
         transform: scale(1.3) translateY(-40vh);
     }
 
     100%{
         box-shadow: 0 0 0em var(--color-1);
-        border: 0 solid var(--color-1);
         transform: scale(1) translateY(0%);
     }
     
@@ -165,10 +169,13 @@
     color: var(--color-3);
     padding: .6em 1em;
     font-size: 1.56em;
-    border-radius: 0;
     border-radius: 5px;
     cursor: pointer;
     transition: box-shadow 1s;
+}
+
+.boton-abrir__texto{
+    display: none;
 }
 
 .abrir-menu-sup{
@@ -228,7 +235,7 @@
 
 /* animacion celular de costado y abrir y cerrar nav inferior en modo costado*/
 
-@media screen and (max-height: 600px) and (max-width: 900px){
+@media screen and (max-height: 27em) and (max-width: 900px){
     
     .body .main .nav-i__animacion-main .main__item-flex-selecionado{
         animation: none;
@@ -240,19 +247,16 @@
     @keyframes mostrarTrabajos {
         0%{
             box-shadow: 0 0 0em var(--color-1);
-            border: 0 solid var(--color-1);
             transform: scale(1);
         }
     
         70%{
             box-shadow: 0 0 1.5em var(--color-3);
-            border: .1em solid var(--color-3);
             transform: scale(1.3);
         }
     
         100%{
             box-shadow: 0 0 0em var(--color-1);
-            border: 0 solid var(--color-1);
             transform: scale(1);
         }
         
@@ -317,6 +321,27 @@
 
 @media screen and (min-width: 900px) {
 
+    
+    .nav-superior__boton-abrir{
+        padding: 0;
+        transition: color 350ms;
+        font-size: 1em;
+    }
+    
+    .boton-abrir__texto{
+        display: inline-block;
+    }
+
+    .abrir-menu-sup{
+        position: none;
+        opacity: 1;
+    }
+    
+    .nav-superior__boton-abrir:hover{
+       color: var(--color-2);
+       box-shadow: none;
+    }
+    
     .nav-inferior__usuario{
         display: block;
     }
@@ -325,9 +350,16 @@
         display: inline-block;
     }
 
+    .nav-inferior__linea2{
+        display: none;
+    }
+
+    .nav-inferior__li .fas{
+        display: inline-block;
+    }
     /* sub-menu modo movil ___________________________________ */
     
-    .nav-inferior__li-movil, .nav-inferior__li .nav-inferior__bars{
+    .nav-inferior__li-movil, .nav-inferior__li .nav-inferior__bars, .nav-inferior__li-bars{
         display: none;
     }
 
@@ -388,19 +420,16 @@
     @keyframes mostrarTrabajos {
         0%{
             box-shadow: 0 0 0em var(--color-1);
-            border: 0 solid var(--color-1);
             transform: scale(1) translateX(0vw);
         }
 
         50%{
             box-shadow: 0 0 1.5em var(--color-3);
-            border: .1em solid var(--color-3);
             transform: scale(1.5) translateX(25vw);
         }
 
         100%{
             box-shadow: 0 0 0em var(--color-1);
-            border: 0 solid var(--color-1);
             transform: scale(1) translateX(0vw);
         }
         

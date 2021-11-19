@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="CSS/nav-inferior.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/temas.css">
+    <link rel="stylesheet" href="CSS/footer.css">
 </head>
 <body class="body tema-predeterminado" id="body">
 
-    <!-- <header class="header" id="header">
-        <h1 class="titulo" id="titulo">Console.log("Bienvenidos")</h1>
-    </header> -->
+    <!-- barra de carga inicial -->
+    <div class="barra-de-carga-iniciar" id="barraDeCargaInicial"></div>
 
     <!-- nav de configuraciones || barra supeior -->
     <nav class="nav-superior cerrados" id="nav-superior">
@@ -111,15 +111,18 @@
             <li class="nav-inferior__linea"></li>
             <li class="nav-superior__boton-abrir" id="abrir-cof">
                 <i class="abrir-menu-sup fas fa-cog"></i>
+                <span class="boton-abrir__texto">Configuraciones</span>
             </li>
-            <li class="nav-inferior__linea"></li>
-            <li class="nav-inferior__li">
+            <li class="nav-inferior__linea nav-inferior__linea2"></li>
+            <li class="nav-inferior__li nav-inferior__li-bars">
                 <i class="nav-inferior__bars fas fa-bars"></i>
             </li>
             <ul class="nav-inferior__ul nav-inferior__sub-menu">
+                <li class="nav-inferior__li nav-inferior__sobre-mi">
+                    <i class="fas fa-address-card nav-inferior__sobre-mi"></i>
+                    <span class="nav-inferior__li-texto nav-inferior__sobre-mi">Sobre mi</span>
+                </li>
                 <li class="nav-inferior__li nav-inferior__trabajos">Trabajos</li>
-                <li class="nav-inferior__li">Contacto</li>
-                <li class="nav-inferior__li">Sobre mi</li>
             </ul>
         </ul>
     </nav>
@@ -135,7 +138,10 @@
                 <img id="header-img" class="header__img" src="" alt="">
                 <div class="header__div2">
                     <div id="header-nombre-usuario" class="header__nombreUsuario"></div>
-                    <button id="header-boton-conf" class="header__boton-conf"></button>
+                    <div class="header-container-botones">
+                        <div id="header-boton-conf" class="header__boton-conf"></div>
+                        <i class="header__flecha fas fa-arrow-right"></i>
+                    </div>
                 </div>
             </div>
 
@@ -288,7 +294,7 @@
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
                                     <input class="main__lista-opcion" id="projectos__mostrar-node" type="checkbox" value="node">
-                                    <label for="projectos__mostrar-node" class="main__lista-label">Node</label>
+                                    <label for="projectos__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
                         </ul>
@@ -371,7 +377,7 @@
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
                                     <input class="main__lista-opcion" id="juegos__mostrar-node" type="checkbox" value="node">
-                                    <label for="juegos__mostrar-node" class="main__lista-label">Node</label>
+                                    <label for="juegos__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
                         </ul>
@@ -454,7 +460,7 @@
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
                                     <input class="main__lista-opcion" id="proximamente__mostrar-node" type="checkbox" value="node">
-                                    <label for="proximamente__mostrar-node" class="main__lista-label">Node</label>
+                                    <label for="proximamente__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
                         </ul>
@@ -495,12 +501,16 @@
                 </footer>
             </div>
         </div>
-    
-        <i class="main__abrir-footer fas fa-th"></i>
+
+        <footer class="main__item-flex footer" id="footer">
+            <div class="item-flex__box">
+                <i class="main__abrir-i fas fa-address-card"></i>
+                <h2 class="main__sub-titulo">Sergio Ivan Melgarejo</h2>
+            </div>
+            
+        </footer>
     </main>
     
-    <footer class="footer">
-    </footer>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/757be4cedc.js" crossorigin="anonymous"></script>
@@ -511,4 +521,5 @@
     <script src="./JavaScript/nav-inferior.js" type="module"></script>
     <script src="./JavaScript/main.js" type="module"></script>
     <script src="./JavaScript/code-inicio.js" type="module"></script>
+    <script src="./JavaScript/footer.js" type="module"></script>
 </body>

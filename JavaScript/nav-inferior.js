@@ -2,6 +2,7 @@
 
 import { navSuperior, cambiarNombreAvatar} from "./nav-superior.js"
 import { main } from "./main.js";
+import { contraerHeader, abrirHeader } from "./code-inicio.js";
 
 //Declaraciones
 
@@ -27,22 +28,34 @@ navInferior.addEventListener("click", (e) => {
 
     if ( evento.classList.contains("nav-inferior-imagen" )){
         navSuperior.classList.toggle("cerrados");
+        contraerHeader();
     }
 
     if ( evento.getAttribute("id") == "nombreDeUsuario" ){
         navSuperior.classList.toggle("cerrados");
         cambiarNombreAvatar();
-    }
+        contraerHeader();
+    } 
 
     if ( evento.classList.contains("nav-inferior__bars") ) {
         subMenu.classList.toggle("abiertos");
-        menuMovil.parentNode.classList.toggle("bars-selecionado");
+        menuMovil.parentNode.classList.toggle("bars-selecionado"); 
+        ( menuMovil.parentNode.classList.contains("bars-selecionado") ) ? contraerHeader() : abrirHeader();
     }
 
-    /* mostrar animacion de donde esta main  */
+    if ( evento.classList.contains("nav-inferior__sobre-mi") ) {
+        subMenu.classList.toggle("abiertos");
+        menuMovil.parentNode.classList.toggle("bars-selecionado");
+        ( menuMovil.parentNode.classList.contains("bars-selecionado") ) ? contraerHeader() : abrirHeader();
+    }
+    
+    /* mostrar animacion de donde esta trabajos  */
 
     if (evento.classList.contains("nav-inferior__trabajos") && evitarClickConpulsivos) {
         evitarClickConpulsivos = false
+        subMenu.classList.toggle("abiertos");
+        menuMovil.parentNode.classList.toggle("bars-selecionado");
+        ( menuMovil.parentNode.classList.contains("bars-selecionado") ) ? contraerHeader() : abrirHeader();
 
         evento.classList.add("nav-i__trabajos-click");
         mainFrontMentor.classList.add("nav-i__animacion-trabajos-1");

@@ -218,5 +218,15 @@
             "lenguaje": "HTML & CSS",
             "extra": "- solo CCS - "
         }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Texto Animado",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Texto-Animado-Javascript/blob/main/img/thumb.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/Texto-Animado-Javascript/",
+            "lenguaje": "HTML & CSS JS",
+            "extra": "- solo JavaScript -"
+        }
     }
 ]
