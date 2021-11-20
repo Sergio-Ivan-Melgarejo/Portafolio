@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,89 +17,101 @@
     <link rel="stylesheet" href="CSS/temas.css">
     <link rel="stylesheet" href="CSS/footer.css">
 </head>
+
 <body class="body tema-predeterminado" id="body">
 
-    <!-- barra de carga inicial -->
-    <div class="barra-de-carga-iniciar" id="barraDeCargaInicial"></div>
+    <!-- barra de carga -->
+    <div class="container-loader activo-loader" id="container-loader">
+        <div class="container__loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
     <!-- nav de configuraciones || barra supeior -->
     <nav class="nav-superior cerrados" id="nav-superior">
-            <h2 class="nav-superior__titulo">
-                <i class="fas fa-cogs"></i>
-                Configuraciones
-                <i id="cerrar-cof" class="cerrar-menu-cof fas fa-times"></i>
-            </h2>
-            <div class="nav-superior__contenedor">
-                <div class="nav-superior__avatar-contenedor">
-                    <img class="nav-superior__avatar-imagen" alt="avatar">
-                    <h3 class="nav-superior__avatar-nombre">@<span class="avatar-nombre__span">Usuario000</span></h3>
-                    <i class="far fa-check-circle"></i>
-                </div>
-                <ul class="nav-superior__opciones" id="nav-superior__opciones">
-                    <h3 class="opciones__titulo">Opciones</h3>
-                    <li class="opciones__li ">
-                        <i class="fas-configuracion fas fa-user" title="Editar Usuario"></i>
-                        <i class="fas-configuracion fas fa-images" title="Imagen de Fondo"></i>
-                        <i class="fas-configuracion fas fa-moon " title="Modo Noche"></i>
-                        <i class="fas-configuracion fas fa-book-open" title="Modo Lectura"></i>
-                        <i class="fas-configuracion fas fa-text-height" title="Tamaño de Fuente"></i>
-                        <i class="fas-configuracion fas fa-palette" title="Temas"></i>
-                    </li>
-                    <li class="nav-superior__li">
-                        <div class="nav-superior__div li__usuario cerrados">
-                            <i class="fas-configuracion-user fas fa-user-edit" title="Editar Nombre"></i>
-                            <i class="fas-configuracion-user fas fa-venus" title="Mujer"></i>
-                            <i class="fas-configuracion-user fas fa-mars" title="Hombre"></i>
-                        </div>
-                    </li>
-                    <li class="nav-superior__li">
-                        <div class="nav-superior__div li__imagen-de-fondo cerrados">
-                            <i class="imagenes-de-fondo__flecha-der fas fa-chevron-up"></i>
-                            <i class="imagenes-de-fondo__flecha-izq fas fa-chevron-down"></i>
-                            <img id="IDF1" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
-                            <img id="IDF2" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
-                            <img id="IDF3" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
-                        </div>
-                    </li>
-                    <li class="nav-superior__li">
-                        <div class="nav-superior__div li__fuente cerrados">
-                            <button class="fuente__fuentes fuente__muy-pequeño">Muy Pequeño</button>
-                            <button class="fuente__fuentes fuente__pequeño">Pequeño</button>
-                            <button class="fuente__fuentes fuente__mediano">Mediano</button>
-                            <button class="fuente__fuentes fuente__grande">Grande</button>
-                            <button class="fuente__fuentes fuente__muy-grande">Muy Grande</button>
-                    </li>
-                    <li class="nav-superior__li">
-                        <div class="nav-superior__div li__temas cerrados">
-                            <div class="temas__boton tema-0"></div>
-                            <div class="temas__boton tema-1"></div>
-                            <div class="temas__boton tema-2"></div>
-                            <div class="temas__boton tema-3"></div>
-                            <div class="temas__boton tema-4"></div>
-                            <div class="temas__boton tema-5"></div>
-                            <div class="temas__boton tema-6"></div>
-                            <div class="temas__boton tema-7"></div>
-                            <div class="temas__boton tema-8"></div>
-                            <div class="temas__boton tema-9"></div>
-                            <div class="temas__boton tema-10"></div>
-                            <div class="temas__boton tema-11"></div>
-                            <div class="temas__boton tema-12"></div>
-                            <div class="temas__boton tema-13"></div>
-                            <div class="temas__boton tema-14"></div>
-                            <div class="temas__boton tema-15"></div>
-                            <div class="temas__boton tema-16"></div>
-                            <div class="temas__boton tema-17"></div>
-                            <div class="temas__boton tema-18"></div>
-                            <div class="temas__boton tema-19"></div>
-                            <div class="temas__boton tema-20"></div>
-                            <div class="temas__boton tema-21"></div>
-                            <div class="temas__boton tema-22"></div>
-                            <div class="temas__boton tema-23"></div>
-                            <div class="temas__boton tema-24"></div>
-                        </div>
-                    </li>
-                </ul>
+        <h2 class="nav-superior__titulo">
+            <i class="fas fa-cogs"></i>
+            Configuraciones
+            <i id="cerrar-cof" class="cerrar-menu-cof fas fa-times"></i>
+        </h2>
+        <div class="nav-superior__contenedor">
+            <div class="nav-superior__avatar-contenedor">
+                <img class="nav-superior__avatar-imagen" alt="avatar">
+                <h3 class="nav-superior__avatar-nombre">@<span class="avatar-nombre__span">Usuario000</span></h3>
+                <i class="far fa-check-circle"></i>
             </div>
+            <ul class="nav-superior__opciones" id="nav-superior__opciones">
+                <h3 class="opciones__titulo">Opciones</h3>
+                <li class="opciones__li ">
+                    <i class="fas-configuracion fas fa-user" title="Editar Usuario"></i>
+                    <i class="fas-configuracion fas fa-images" title="Imagen de Fondo"></i>
+                    <i class="fas-configuracion fas fa-moon " title="Modo Noche"></i>
+                    <i class="fas-configuracion fas fa-book-open" title="Modo Lectura"></i>
+                    <i class="fas-configuracion fas fa-text-height" title="Tamaño de Fuente"></i>
+                    <i class="fas-configuracion fas fa-palette" title="Temas"></i>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="nav-superior__div li__usuario cerrados">
+                        <i class="fas-configuracion-user fas fa-user-edit" title="Editar Nombre"></i>
+                        <i class="fas-configuracion-user fas fa-venus" title="Mujer"></i>
+                        <i class="fas-configuracion-user fas fa-mars" title="Hombre"></i>
+                    </div>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="nav-superior__div li__imagen-de-fondo cerrados">
+                        <i class="imagenes-de-fondo__flecha-der fas fa-chevron-up"></i>
+                        <i class="imagenes-de-fondo__flecha-izq fas fa-chevron-down"></i>
+                        <img id="IDF1" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
+                        <img id="IDF2" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
+                        <img id="IDF3" class="nav-superior__imagen-de-fondo" src="" alt="pre imagen defondo">
+                    </div>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="nav-superior__div li__fuente cerrados">
+                        <button class="fuente__fuentes fuente__muy-pequeño">Muy Pequeño</button>
+                        <button class="fuente__fuentes fuente__pequeño">Pequeño</button>
+                        <button class="fuente__fuentes fuente__mediano">Mediano</button>
+                        <button class="fuente__fuentes fuente__grande">Grande</button>
+                        <button class="fuente__fuentes fuente__muy-grande">Muy Grande</button>
+                </li>
+                <li class="nav-superior__li">
+                    <div class="nav-superior__div li__temas cerrados">
+                        <div class="temas__boton tema-0"></div>
+                        <div class="temas__boton tema-1"></div>
+                        <div class="temas__boton tema-2"></div>
+                        <div class="temas__boton tema-3"></div>
+                        <div class="temas__boton tema-4"></div>
+                        <div class="temas__boton tema-5"></div>
+                        <div class="temas__boton tema-6"></div>
+                        <div class="temas__boton tema-7"></div>
+                        <div class="temas__boton tema-8"></div>
+                        <div class="temas__boton tema-9"></div>
+                        <div class="temas__boton tema-10"></div>
+                        <div class="temas__boton tema-11"></div>
+                        <div class="temas__boton tema-12"></div>
+                        <div class="temas__boton tema-13"></div>
+                        <div class="temas__boton tema-14"></div>
+                        <div class="temas__boton tema-15"></div>
+                        <div class="temas__boton tema-16"></div>
+                        <div class="temas__boton tema-17"></div>
+                        <div class="temas__boton tema-18"></div>
+                        <div class="temas__boton tema-19"></div>
+                        <div class="temas__boton tema-20"></div>
+                        <div class="temas__boton tema-21"></div>
+                        <div class="temas__boton tema-22"></div>
+                        <div class="temas__boton tema-23"></div>
+                        <div class="temas__boton tema-24"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- nav de configuraciones || barra inferior -->
@@ -155,7 +168,8 @@
                 <div class="main__barra-de-busqueda">
                     <button class="main__filtro-boton">filtro</button>
                     <input id="buscador__front-mentor" class="main__buscador" type="text" placeholder="Buscardor">
-                    <label for="buscador__front-mentor" class="main__logo-buscador"><i class="fas fa-search"></i></label>
+                    <label for="buscador__front-mentor" class="main__logo-buscador"><i
+                            class="fas fa-search"></i></label>
                 </div>
                 <ul class="main___filtro-lista" data-tipo="Front Mentor">
                     <li class="main__lista-opciones" data-tipo="Dificultad">
@@ -163,31 +177,38 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-novato" type="checkbox" value="newbie">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-novato" type="checkbox"
+                                        value="newbie">
                                     <label for="front-mentor__mostrar-novato" class="main__lista-label">Novato</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-junior" type="checkbox" value="junior">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-junior" type="checkbox"
+                                        value="junior">
                                     <label for="front-mentor__mostrar-junior" class="main__lista-label">Junior</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-intermediate" type="checkbox" value="intermediate">
-                                    <label for="front-mentor__mostrar-intermediate" class="main__lista-label">Intermedio</label>
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-intermediate"
+                                        type="checkbox" value="intermediate">
+                                    <label for="front-mentor__mostrar-intermediate"
+                                        class="main__lista-label">Intermedio</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-avanced" type="checkbox" value="advanced">
-                                    <label for="front-mentor__mostrar-avanced" class="main__lista-label">Avanzado</label>
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-avanced" type="checkbox"
+                                        value="advanced">
+                                    <label for="front-mentor__mostrar-avanced"
+                                        class="main__lista-label">Avanzado</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-guru" type="checkbox" value="guru">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-guru" type="checkbox"
+                                        value="guru">
                                     <label for="front-mentor__mostrar-guru" class="main__lista-label">Gurú</label>
                                 </div>
                             </li>
@@ -198,19 +219,23 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-html&css" type="checkbox" value="html & css">
-                                    <label for="front-mentor__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-html&css"
+                                        type="checkbox" value="html & css">
+                                    <label for="front-mentor__mostrar-html&css" class="main__lista-label">HTML &amp;
+                                        CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-js" type="checkbox" value="js">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-js" type="checkbox"
+                                        value="js">
                                     <label for="front-mentor__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-api" type="checkbox" value="api">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-api" type="checkbox"
+                                        value="api">
                                     <label for="front-mentor__mostrar-api" class="main__lista-label">API</label>
                                 </div>
                             </li>
@@ -221,19 +246,22 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-5" type="checkbox" value="5">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-5" type="checkbox"
+                                        value="5">
                                     <label for="front-mentor__mostrar-de-5" class="main__lista-label">5</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-10" type="checkbox" value="10" checked="true">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-10" type="checkbox"
+                                        value="10" checked="true">
                                     <label for="front-mentor__mostrar-de-10" class="main__lista-label">10</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-20" type="checkbox" value="20">
+                                    <input class="main__lista-opcion" id="front-mentor__mostrar-de-20" type="checkbox"
+                                        value="20">
                                     <label for="front-mentor__mostrar-de-20" class="main__lista-label">20</label>
                                 </div>
                             </li>
@@ -242,12 +270,12 @@
                 </ul>
                 <div class="main__paginas"></div>
                 <footer class="main__footer">
-                    <p>Pagina 
+                    <p>Pagina
                         <span class="main__pagina-anterior">Anterior</span>
                         <span class="main__pagina-actual">0</span>
                         <span class="main__pagina-siguiente">Siguiente</span>
-                         de 
-                         <span class="main__paginas-totales">0</span>
+                        de
+                        <span class="main__paginas-totales">0</span>
                     </p>
                 </footer>
             </div>
@@ -269,31 +297,37 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-html&css" type="checkbox" value="html & css">
-                                    <label for="projectos__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="projectos__mostrar-html&css" type="checkbox"
+                                        value="html & css">
+                                    <label for="projectos__mostrar-html&css" class="main__lista-label">HTML &amp;
+                                        CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-js" type="checkbox" value="js">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-js" type="checkbox"
+                                        value="js">
                                     <label for="projectos__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-api" type="checkbox" value="api">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-api" type="checkbox"
+                                        value="api">
                                     <label for="projectos__mostrar-api" class="main__lista-label">API</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-react" type="checkbox" value="react">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-react" type="checkbox"
+                                        value="react">
                                     <label for="projectos__mostrar-react" class="main__lista-label">REACT</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-node" type="checkbox" value="node">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-node" type="checkbox"
+                                        value="node">
                                     <label for="projectos__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
@@ -304,19 +338,22 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-de-5" type="checkbox" value="5">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-de-5" type="checkbox"
+                                        value="5">
                                     <label for="projectos__mostrar-de-5" class="main__lista-label">5</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-de-10" type="checkbox" value="10" checked>
+                                    <input class="main__lista-opcion" id="projectos__mostrar-de-10" type="checkbox"
+                                        value="10" checked>
                                     <label for="projectos__mostrar-de-10" class="main__lista-label">10</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="projectos__mostrar-de-20" type="checkbox" value="20">
+                                    <input class="main__lista-opcion" id="projectos__mostrar-de-20" type="checkbox"
+                                        value="20">
                                     <label for="projectos__mostrar-de-20" class="main__lista-label">20</label>
                                 </div>
                             </li>
@@ -325,12 +362,12 @@
                 </ul>
                 <div class="main__paginas"></div>
                 <footer class="main__footer">
-                    <p>Pagina 
+                    <p>Pagina
                         <span class="main__pagina-anterior">Anterior</span>
                         <span class="main__pagina-actual">0</span>
                         <span class="main__pagina-siguiente">Siguiente</span>
-                         de 
-                         <span class="main__paginas-totales">0</span>
+                        de
+                        <span class="main__paginas-totales">0</span>
                     </p>
                 </footer>
             </div>
@@ -352,31 +389,37 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-html&css" type="checkbox" value="html & css">
-                                    <label for="juegos__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="juegos__mostrar-html&css" type="checkbox"
+                                        value="html & css">
+                                    <label for="juegos__mostrar-html&css" class="main__lista-label">HTML &amp;
+                                        CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-js" type="checkbox" value="js">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-js" type="checkbox"
+                                        value="js">
                                     <label for="juegos__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-api" type="checkbox" value="api">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-api" type="checkbox"
+                                        value="api">
                                     <label for="juegos__mostrar-api" class="main__lista-label">API</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-react" type="checkbox" value="react">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-react" type="checkbox"
+                                        value="react">
                                     <label for="juegos__mostrar-react" class="main__lista-label">REACT</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-node" type="checkbox" value="node">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-node" type="checkbox"
+                                        value="node">
                                     <label for="juegos__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
@@ -387,19 +430,22 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-de-5" type="checkbox" value="5">
+                                    <input class="main__lista-opcion" id="juegos__mostrar-de-5" type="checkbox"
+                                        value="5">
                                     <label for="juegos__mostrar-de-5" class="main__lista-label">5</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="juegos__mostrar-de-10" type="checkbox" value="10" checked>
+                                    <input class="main__lista-opcion" id="juegos__mostrar-de-10" type="checkbox"
+                                        value="10" checked>
                                     <label for="juegos__mostrar-de-10" class="main__lista-label">10</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="front-menjuegos-de-20" type="checkbox" value="20">
+                                    <input class="main__lista-opcion" id="front-menjuegos-de-20" type="checkbox"
+                                        value="20">
                                     <label for="juegos__mostrar-de-20" class="main__lista-label">20</label>
                                 </div>
                             </li>
@@ -408,12 +454,12 @@
                 </ul>
                 <div class="main__paginas"></div>
                 <footer class="main__footer">
-                    <p>Pagina 
+                    <p>Pagina
                         <span class="main__pagina-anterior">Anterior</span>
                         <span class="main__pagina-actual">0</span>
                         <span class="main__pagina-siguiente">Siguiente</span>
-                         de 
-                         <span class="main__paginas-totales">0</span>
+                        de
+                        <span class="main__paginas-totales">0</span>
                     </p>
                 </footer>
             </div>
@@ -427,7 +473,8 @@
                 <div class="main__barra-de-busqueda">
                     <button class="main__filtro-boton">filtro</button>
                     <input id="buscador__proximamente" class="main__buscador" type="text" placeholder="Buscardor">
-                    <label for="buscador__proximamente" class="main__logo-buscador"><i class="fas fa-search"></i></label>
+                    <label for="buscador__proximamente" class="main__logo-buscador"><i
+                            class="fas fa-search"></i></label>
                 </div>
                 <ul class="main___filtro-lista" data-tipo="Proximamente">
                     <li data-tipo="Lenguaje">
@@ -435,31 +482,37 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-html&css" type="checkbox" value="html & css">
-                                    <label for="proximamente__mostrar-html&css" class="main__lista-label">HTML &amp; CSS</label>
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-html&css"
+                                        type="checkbox" value="html & css">
+                                    <label for="proximamente__mostrar-html&css" class="main__lista-label">HTML &amp;
+                                        CSS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-js" type="checkbox" value="js">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-js" type="checkbox"
+                                        value="js">
                                     <label for="proximamente__mostrar-js" class="main__lista-label">JS</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-api" type="checkbox" value="api">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-api" type="checkbox"
+                                        value="api">
                                     <label for="proximamente__mostrar-api" class="main__lista-label">API</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-react" type="checkbox" value="react">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-react" type="checkbox"
+                                        value="react">
                                     <label for="proximamente__mostrar-react" class="main__lista-label">REACT</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-node" type="checkbox" value="node">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-node" type="checkbox"
+                                        value="node">
                                     <label for="proximamente__mostrar-node" class="main__lista-label">NODE</label>
                                 </div>
                             </li>
@@ -470,19 +523,22 @@
                         <ul class="main__lista-ul">
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-5" type="checkbox" value="5">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-5" type="checkbox"
+                                        value="5">
                                     <label for="proximamente__mostrar-de-5" class="main__lista-label">5</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-10" type="checkbox" value="10" checked>
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-10" type="checkbox"
+                                        value="10" checked>
                                     <label for="proximamente__mostrar-de-10" class="main__lista-label">10</label>
                                 </div>
                             </li>
                             <li class="main__lista-li">
                                 <div class="main__lista-contenedor">
-                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-20" type="checkbox" value="20">
+                                    <input class="main__lista-opcion" id="proximamente__mostrar-de-20" type="checkbox"
+                                        value="20">
                                     <label for="proximamente__mostrar-de-20" class="main__lista-label">20</label>
                                 </div>
                             </li>
@@ -491,12 +547,12 @@
                 </ul>
                 <div class="main__paginas"></div>
                 <footer class="main__footer">
-                    <p>Pagina 
+                    <p>Pagina
                         <span class="main__pagina-anterior">Anterior</span>
                         <span class="main__pagina-actual">0</span>
                         <span class="main__pagina-siguiente">Siguiente</span>
-                         de 
-                         <span class="main__paginas-totales">0</span>
+                        de
+                        <span class="main__paginas-totales">0</span>
                     </p>
                 </footer>
             </div>
@@ -507,10 +563,9 @@
                 <i class="main__abrir-i fas fa-address-card"></i>
                 <h2 class="main__sub-titulo">Sergio Ivan Melgarejo</h2>
             </div>
-            
+
         </footer>
     </main>
-    
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/757be4cedc.js" crossorigin="anonymous"></script>

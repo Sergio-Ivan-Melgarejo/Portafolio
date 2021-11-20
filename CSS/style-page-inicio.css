@@ -9,14 +9,143 @@ body{
     overflow-x: hidden;
 }
 
+/* loader de inicio ____________________________*/
+
+
+.container-loader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--color-1),var(--color-2),var(--color-3),var(--color-4));
+    z-index: 100;
+    display: none;
+}
+
+.activo-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activo-loader > .container__loader {
+    display: inline-block;
+    position: relative;
+    width: 10em;
+    height: 10em;
+}
+
+.activo-loader > .container__loader div {
+    animation: container__loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 5em 5em;
+}
+
+.container__loader > div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: .875em;
+    height: .875em;
+    border-radius: 50%;
+    margin: -.5em 0 0 -.5em;
+}
+
+.activo-loader > .container__loader div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.activo-loader > .container__loader div:nth-child(1):after {
+    top: 7.875em;
+    left: 7.875em;
+    background-color: var(--color-1);
+}
+
+.activo-loader > .container__loader div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.activo-loader > .container__loader div:nth-child(2):after {
+    top: 8.5em;
+    left: 7em;
+    background-color: var(--color-1);
+}
+
+.activo-loader > .container__loader div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.activo-loader > .container__loader div:nth-child(3):after {
+    top: 8.875em;
+    left: 6em;
+    background-color: var(--color-2);
+}
+
+.activo-loader > .container__loader div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.activo-loader > .container__loader div:nth-child(4):after {
+    top: 9em;
+    left: 5em;
+    background-color: var(--color-2);
+}
+
+.activo-loader > .container__loader div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.activo-loader > .container__loader div:nth-child(5):after {
+    top: 8.875em;
+    left: 4em;
+    background-color: var(--color-3);
+}
+
+.activo-loader > .container__loader div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.activo-loader > .container__loader div:nth-child(6):after {
+    top: 8.5em;
+    left: 3em;
+    background-color: var(--color-3);
+}
+
+.activo-loader > .container__loader div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.activo-loader > .container__loader div:nth-child(7):after {
+    top: 7.875em;
+    left: 2.125em;
+    background-color: var(--color-4);
+}
+
+.activo-loader > .container__loader div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.activo-loader > .container__loader div:nth-child(8):after {
+    top: 7em;
+    left: 1.5em;
+    background-color: var(--color-4);
+}
+
+  @keyframes container__loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 /* pagina de inicio ____________________________*/
 
 .header{
     color: var(--color-4);
     box-sizing: border-box;
-    height: 100%;
+    height: 5%;
     border-radius: 5px;
-    width: 100%;
+    width: 5%;
     box-shadow: 0 0 10em var(--color-1) inset;
     overflow: hidden;
     display: grid;
@@ -24,10 +153,8 @@ body{
     background: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100% );
     box-shadow: 0 0 2em var(--color-1) inset;
     backdrop-filter: blur(5px);
-    top: 0;
-    left: 0;
     align-items: center;
-    transition: border 350ms, box-shadow 350ms, opacity 500ms, height 500ms;
+    transition: border 350ms, box-shadow 350ms, opacity 500ms, height 500ms, width 500ms;
     margin: auto;
 }
 
@@ -196,8 +323,8 @@ body{
         box-shadow: 0 0 10em var(--color-1) inset;
     }    
     100%{
-        width: 5%;
-        height: 5%;
+        width: 0%;
+        height: 0%;
         background-color: rgb(255, 4, 4);
         backdrop-filter: none;
         box-shadow: 0 0 10em var(--color-3) inset;
@@ -207,6 +334,7 @@ body{
 .body .header-contraido{
     backdrop-filter: none;
     height: 0;
+    width: 0;
 }
 
 @keyframes headerBotonX {

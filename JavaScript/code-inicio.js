@@ -217,12 +217,12 @@ export const abrirHeader = () => {
 
 const eliminarHeader = () => {
     const header = document.getElementById("header");
+        header.style.animation = "eliminarHeader 500ms forwards";
     if (header) {
-        header.style.animation = "eliminarHeader 1s forwards";
         frenarEfectos();
         setTimeout( () => {
             header.parentNode.removeChild(header);
-        }, 10);
+        }, 500);
     }
 }
 

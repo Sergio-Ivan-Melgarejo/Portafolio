@@ -8,11 +8,12 @@
     flex-direction: row;
     box-sizing: border-box;
     word-break: normal;
+    background-color: var(--color-1);
 }
 
 .main__sub-titulo{
     box-sizing: border-box;
-    background-color: var(--color-1);
+    box-sizing: border-box;
 } 
 
 .footer .fa-address-card{

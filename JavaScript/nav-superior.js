@@ -227,97 +227,99 @@ const cambiarFuente = (evento) => {
 }
 
 //Event
+addEventListener("DOMContentLoaded", () => {
 
-abrirCof.addEventListener("click", () => {
-    navSuperior.classList.remove("cerrados");
+    abrirCof.addEventListener("click", () => {
+        navSuperior.classList.remove("cerrados");
 
-    contraerHeader();
-});
+        contraerHeader();
+    });
 
-cerrarCof.addEventListener("click", () => {
-    navSuperior.classList.add("cerrados");
+    cerrarCof.addEventListener("click", () => {
+        navSuperior.classList.add("cerrados");
 
-    comprobarAbiertosMain()
-});
-
-//opciones
-opciones.addEventListener("click", (e) => {
-    let evento = e.target;
+        comprobarAbiertosMain()
+    });
 
     //opciones
-    if ( evento.classList.contains("fa-user") ) {
-        opcionesUsuario.classList.toggle("cerrados");
-        opcionesImagenDeFondo.classList.add("cerrados");
-        opcionesTemas.classList.add("cerrados");
-        opcionesFuente.classList.add("cerrados");
-    }
-    if ( evento.classList.contains("fa-images") ) {
-        opcionesImagenDeFondo.classList.toggle("cerrados");
-        opcionesUsuario.classList.add("cerrados");
-        opcionesTemas.classList.add("cerrados");
-        opcionesFuente.classList.add("cerrados");
-    }
-    if ( evento.classList.contains("fa-text-height") ) {
-        opcionesFuente.classList.toggle("cerrados"); 
-        opcionesUsuario.classList.add("cerrados");
-        opcionesTemas.classList.add("cerrados");
-        opcionesImagenDeFondo.classList.add("cerrados"); 
-    }
-    if ( evento.classList.contains("fa-palette") ) {
-        opcionesTemas.classList.toggle("cerrados"); 
-        opcionesImagenDeFondo.classList.add("cerrados");
-        opcionesUsuario.classList.add("cerrados");
-        opcionesFuente.classList.add("cerrados");
-    }
+    opciones.addEventListener("click", (e) => {
+        let evento = e.target;
 
-    //sub opcion usuario
-    if ( evento.classList.contains("fa-user-edit")) {
-        cambiarNombreAvatar();
-    }
-    else if ( evento.classList.contains("fa-venus") ) {
-        guardarDatoLocalStora("avatarGenero","mujer");
-        cambiarAvatar("mujer");
-    }
-    else if ( evento.classList.contains("fa-mars") ) {
-        guardarDatoLocalStora("avatarGenero","hombre");
-        cambiarAvatar("hombre");  
-    } 
+        //opciones
+        if ( evento.classList.contains("fa-user") ) {
+            opcionesUsuario.classList.toggle("cerrados");
+            opcionesImagenDeFondo.classList.add("cerrados");
+            opcionesTemas.classList.add("cerrados");
+            opcionesFuente.classList.add("cerrados");
+        }
+        if ( evento.classList.contains("fa-images") ) {
+            opcionesImagenDeFondo.classList.toggle("cerrados");
+            opcionesUsuario.classList.add("cerrados");
+            opcionesTemas.classList.add("cerrados");
+            opcionesFuente.classList.add("cerrados");
+        }
+        if ( evento.classList.contains("fa-text-height") ) {
+            opcionesFuente.classList.toggle("cerrados"); 
+            opcionesUsuario.classList.add("cerrados");
+            opcionesTemas.classList.add("cerrados");
+            opcionesImagenDeFondo.classList.add("cerrados"); 
+        }
+        if ( evento.classList.contains("fa-palette") ) {
+            opcionesTemas.classList.toggle("cerrados"); 
+            opcionesImagenDeFondo.classList.add("cerrados");
+            opcionesUsuario.classList.add("cerrados");
+            opcionesFuente.classList.add("cerrados");
+        }
 
-    //sub opcion imagen de fondo
-    if ( evento.classList.contains("nav-superior__imagen-de-fondo") ) {
-        if ( evento.getAttribute("id") === "IDF1" ) configuracionCambiarMiniImagenes("izq")
-        if ( evento.getAttribute("id") === "IDF2" ) configuracionCambiarMiniImagenes()
-        if ( evento.getAttribute("id") === "IDF3" ) configuracionCambiarMiniImagenes("der")
-    }
-    else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
-        configuracionCambiarMiniImagenes("der");
-    }
-    else if ( evento.classList.contains("imagenes-de-fondo__flecha-der") ) {
-        configuracionCambiarMiniImagenes("izq");
-    }
+        //sub opcion usuario
+        if ( evento.classList.contains("fa-user-edit")) {
+            cambiarNombreAvatar();
+        }
+        else if ( evento.classList.contains("fa-venus") ) {
+            guardarDatoLocalStora("avatarGenero","mujer");
+            cambiarAvatar("mujer");
+        }
+        else if ( evento.classList.contains("fa-mars") ) {
+            guardarDatoLocalStora("avatarGenero","hombre");
+            cambiarAvatar("hombre");  
+        } 
 
-    //tema noche
-    if ( evento.classList.contains("fa-moon") ) {
-        cambiarTema("tema-noche");
-    }
+        //sub opcion imagen de fondo
+        if ( evento.classList.contains("nav-superior__imagen-de-fondo") ) {
+            if ( evento.getAttribute("id") === "IDF1" ) configuracionCambiarMiniImagenes("izq")
+            if ( evento.getAttribute("id") === "IDF2" ) configuracionCambiarMiniImagenes()
+            if ( evento.getAttribute("id") === "IDF3" ) configuracionCambiarMiniImagenes("der")
+        }
+        else if ( evento.classList.contains("imagenes-de-fondo__flecha-izq") ) {
+            configuracionCambiarMiniImagenes("der");
+        }
+        else if ( evento.classList.contains("imagenes-de-fondo__flecha-der") ) {
+            configuracionCambiarMiniImagenes("izq");
+        }
 
-    //tema lectura
-    if ( evento.classList.contains("fa-book-open") ) {
-        cambiarTema("tema-lectura");
-    }
+        //tema noche
+        if ( evento.classList.contains("fa-moon") ) {
+            cambiarTema("tema-noche");
+        }
 
-    //sub opcion fuentes
-    if ( evento.classList.contains("fuente__fuentes") ) {
-        cambiarFuente(evento);
-    }
+        //tema lectura
+        if ( evento.classList.contains("fa-book-open") ) {
+            cambiarTema("tema-lectura");
+        }
 
-    //sub opcion temas
-    if ( evento.classList.contains("temas__boton") ) {
-        let color = evento.getAttribute("class").split(" ")[1];
-        cambiarTema(color);
-    }
-});
+        //sub opcion fuentes
+        if ( evento.classList.contains("fuente__fuentes") ) {
+            cambiarFuente(evento);
+        }
 
-avatarConfirmar.addEventListener("click", () => {
-    comfirmarNombreAvatar()
-});
+        //sub opcion temas
+        if ( evento.classList.contains("temas__boton") ) {
+            let color = evento.getAttribute("class").split(" ")[1];
+            cambiarTema(color);
+        }
+    });
+
+    avatarConfirmar.addEventListener("click", () => {
+        comfirmarNombreAvatar()
+    });  
+})

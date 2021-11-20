@@ -6,6 +6,8 @@ import { main } from "./main.js";
 
 // Declaraciones
 
+const loader = document.getElementById("container-loader");
+
 // funciones
 export const generaNumeroAlAzar = (numero) => {
     let numeroAzar = Math.round(Math.random() * numero) || numero;
@@ -95,4 +97,8 @@ body.style.fontSize = localStorage.getItem("fuente");
 
 addEventListener("DOMContentLoaded" ,() => {
     cartgarPreFondo();
+    setTimeout(() => {
+        loader.classList.remove("activo-loader");
+    }, 500);
 })
+

@@ -109,26 +109,26 @@
 
 /* nombre de avatar / confirmar cambio nav-superior.js */
 
-.fa-check-circle{
+.nav-superior .fa-check-circle{
     position: absolute;
-    right: 5px;
-    bottom: 5px;
+    right: .3em;
+    bottom: .3em;
     color: var(--color-1);
-    font-size: 1.5em;
+    font-size: 2.5em;
     display: none;
     transition: color 350ms;
 }
 
 /* javascript ----------- */
 
-.boton-confirmar-editar{
+.nav-superior .boton-confirmar-editar{
     cursor: pointer;
     color: var(--color-3);
     display: block;
 }
 
-.boton-confirmar-editar:hover{
-    transform: scale(1.5);
+.nav-superior .boton-confirmar-editar:hover{
+    transform: scale(1.2);
     opacity: 1;
 }
 

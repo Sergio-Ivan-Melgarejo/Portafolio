@@ -3,7 +3,6 @@
 // Imporaciones
 
 import { contraerHeader, abrirHeader } from "./code-inicio.js";
-// import { footer } from "./footer.js";
 
 // Declaraciones
 export const main = document.getElementById("main");
@@ -11,14 +10,12 @@ export const main = document.getElementById("main");
 export let memorizacion;
 // donde pondre los Datos de las paginas a mostrar
 let datos = "nada";
-// const divPaginas = document.querySelector(".main__paginas");
 // buscador
 const buscadorFrontMentor = document.getElementById("buscador__front-mentor");
 const buscadorProjectos = document.getElementById("buscador__projectos");
 const buscadorJuegos = document.getElementById("buscador__juegos");
 const buscadorProximamente = document.getElementById("buscador__proximamente");
 // filtro
-// const filtro = document.querySelectorAll("main___filtro-lista")
 const datosfiltro = {
     "Front Mentor": {
         "Dificultad": [],
@@ -262,7 +259,7 @@ const crearPagina = (pagina) => {
     // lo creo
     const divPagina = document.createElement("div");
     const img = document.createElement("img");
-    const link = document.createElement("a");
+    const imgContainer = document.createElement("div");
     const h3 = document.createElement("h3");
     const divFooter = document.createElement("div");
     const pLenguaje = document.createElement("p");
@@ -272,7 +269,7 @@ const crearPagina = (pagina) => {
     // doy clase
     divPagina.classList.add("main__pagina");
     img.classList.add("main__pagina-img");
-    link.classList.add("main__pagina-container-img");
+    imgContainer.classList.add("main__pagina-container-img");
     h3.classList.add("main__pagina-titulo");
     divFooter.classList.add("main__pagina-footer");
     pLenguaje.classList.add("main__pagina-lenguaje");
@@ -290,8 +287,8 @@ const crearPagina = (pagina) => {
     a.setAttribute("target", "_blank");
 
     // los uno
-    link.appendChild(img);
-    divPagina.appendChild(link);
+    imgContainer.appendChild(img);
+    divPagina.appendChild(imgContainer);
     divPagina.appendChild(h3);
     pLenguaje.appendChild(spanLenguaje);
     divFooter.appendChild(pLenguaje);
@@ -443,30 +440,23 @@ addEventListener("DOMContentLoaded", () => {
 
             if ( evento.classList.contains("main__abrir-i") && !evento.classList.contains("fa-address-card") ) {
                 if (datos === "nada") {
-                    fetch("./Data/Data-paginas.json").then(res => {
-                        return res.json()
+                    fetch( "./Data/Data-paginas.json", {
+                        headers : { 
+                          'Content-Type': 'application/json',
+                          'Accept': 'application/json'
+                        }
                     }).then(res => {
-                        datos = res;
-                        mostrarPaginas(evento.parentNode.parentNode);
-                    })
+                            return res.json()
+                        }).then(res => {
+                            datos = res.reverse();
+                            mostrarPaginas(evento.parentNode.parentNode);
+                        })
                 } //para que no borre y vuelva a cargar si lo minimiza y lo vuelve abrir
                 else if ( evento.parentNode.parentNode.children[1].children[2].children.length == 0 ){
                     mostrarPaginas(evento.parentNode.parentNode);
                 }
             }
                 
-            /* abrir footer */
-
-            // if (evento.classList.contains("main__abrir-footer")) {            
-            //     footer.classList.toggle("main__item-flex-selecionado");
-
-            //     if ( memorizacion != undefined && memorizacion != evento ) {
-            //         memorizacion.classList.remove("main__item-flex-selecionado");
-            //     }
-            //     memorizacion = evento;
-            
-            //     ( footer.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : abrirHeader();
-            // }
         }
 
         /* abrir y cerrar filtro de paginas */

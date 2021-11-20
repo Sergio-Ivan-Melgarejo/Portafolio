@@ -59,20 +59,19 @@
   background-color: var(--color-2);
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  background-color: var(--color-1);
 }
 
 .main__sub-titulo {
+  align-self: center;
   color: var(--color-3);
-  background-color: var(--color-1);
   text-align: center;
   margin: 0;
   flex: 1 0 0px;
   min-width: 150px;
   word-break: break-all;
   transition: width 5s, max-width 5s, min-width 5s;
-  font-size: 2em;
-  padding: 0.278em;
+  font-size: clamp(1em, 7vw, 2em);
 }
 
 .item-flex__box-2 {
@@ -94,6 +93,7 @@
   transition: color 350ms;
   cursor: pointer;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .main__abrir-i:hover {
@@ -177,7 +177,7 @@
   background-color: var(--color-1);
   height: 0em;
   overflow: hidden;
-  transition: flex-grow 1s, padding 2s;
+  transition: flex-grow 1s, padding 1s;
 }
 
 .main__filtro-boton {
@@ -313,21 +313,22 @@ input:checked + label {
 
 .main__pagina:hover > .main__pagina-container-img .main__pagina-img {
   filter: none;
+  mix-blend-mode: none;
 }
 
 .main__pagina-container-img {
   display: block;
-  height: 12em;
+  height: clamp(12em, 20vmax, 18em);
   background-color: var(--color-3);
   text-align: center;
   overflow: hidden;
 }
 
 .main__pagina-img {
-  width: 100%;
-  height: 100%;
-  filter: blur(1px) grayscale(100%);
+  width: 100%; 
+  filter: blur(2px);
   transition: filter 0.5s, transform 0.5s;
+  height: 100%;
 }
 
 .main__pagina-img:hover {

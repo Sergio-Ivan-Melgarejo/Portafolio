@@ -1,8 +1,8 @@
 .tema-predeterminado{
-    --color-1: #343434;
-    --color-2: #8E8B82;
-    --color-3: #E9DCBE;
-    --color-4: #F3F3F3;
+    --color-1: #EEEEEE;
+    --color-2: #686D76;
+    --color-3: #373A40;
+    --color-4: #19D3DA;
 }
 
 .tema-noche{
@@ -13,10 +13,10 @@
 }
 
 .tema-lectura{
-    --color-1: #d1be6f;
-    --color-2: #1a1818;
-    --color-3: rgb(189, 135, 18);
-    --color-4: #8b0f73;
+    --color-1: #F2D974;
+    --color-2: #C7956D;
+    --color-3: #965D62;
+    --color-4: #534E52;
 }
 
 .tema-0{
