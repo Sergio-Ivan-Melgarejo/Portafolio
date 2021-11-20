@@ -259,40 +259,44 @@ const crearPagina = (pagina) => {
     // lo creo
     const divPagina = document.createElement("div");
     const img = document.createElement("img");
-    const imgContainer = document.createElement("div");
+    const imgContainer = document.createElement("a");
+    const icono = document.createElement("img");
+    const div = document.createElement("div");
     const h3 = document.createElement("h3");
     const divFooter = document.createElement("div");
     const pLenguaje = document.createElement("p");
     const spanLenguaje = document.createElement("span");
-    const a = document.createElement("a");
 
     // doy clase
     divPagina.classList.add("main__pagina");
     img.classList.add("main__pagina-img");
+    icono.classList.add("main__pagina-icono");
+    div.classList.add("main__pagina-div");
     imgContainer.classList.add("main__pagina-container-img");
     h3.classList.add("main__pagina-titulo");
     divFooter.classList.add("main__pagina-footer");
     pLenguaje.classList.add("main__pagina-lenguaje");
     spanLenguaje.classList.add("main__pagina-lenguaje-span");
-    a.classList.add("main__pagina-link");
 
     // le doy el contenido y atributos
     img.setAttribute("src", pagina.datos.imagen);
-    img.setAttribute("alt", `imagen de ${pagina.datos.titulo}`)
+    img.setAttribute("alt", `imagen de ${pagina.datos.titulo}`);
+    icono.setAttribute("src", "./imagenes/icon-view.svg");
+    icono.setAttribute("alt", `icono de view`);
     h3.textContent = pagina.datos.titulo;
     pLenguaje.textContent = "Lenguaje: ";
     spanLenguaje.textContent = pagina.datos.lenguaje;
-    a.textContent = "Link";
-    a.setAttribute("href", pagina.datos.url)
-    a.setAttribute("target", "_blank");
+    imgContainer.setAttribute("href", pagina.datos.url);
+    imgContainer.setAttribute("target", "_blank");
 
     // los uno
+    div.appendChild(icono);
     imgContainer.appendChild(img);
+    imgContainer.appendChild(div);
     divPagina.appendChild(imgContainer);
     divPagina.appendChild(h3);
     pLenguaje.appendChild(spanLenguaje);
     divFooter.appendChild(pLenguaje);
-    divFooter.appendChild(a);
 
     // cambio el diseño para las 4 clases
     if( pagina.tipo.startsWith("Front Mentor") ) {     

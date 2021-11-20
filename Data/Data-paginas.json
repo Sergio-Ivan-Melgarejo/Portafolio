@@ -228,5 +228,15 @@
             "lenguaje": "HTML & CSS JS",
             "extra": "- solo JavaScript -"
         }
+    },
+    {
+        "tipo": "Front Mentor",
+        "datos": {
+            "titulo": "NFT preview card component",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-22/raw/main/images/1.png",
+            "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-22/",
+            "lenguaje": "HTML & CSS",
+            "dificultad": "Newbie"
+        }
     }
 ]

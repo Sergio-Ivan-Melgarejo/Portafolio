@@ -1,42 +1,73 @@
- .footer{
+.footer{
     color: var(--color-4);
     background-color: var(--color-2);
+    text-align: center;
 }
 
-.item-flex__box{
+.footer .item-flex__box-1{
+    border-bottom: .2em solid var(--color-3);
+}
+
+.box-2__item-flex-presentacion, .box-2__item-flex{
     display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    word-break: normal;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    color: var(--color-4);
     background-color: var(--color-1);
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 3em;
 }
 
-.main__sub-titulo{
-    box-sizing: border-box;
-    box-sizing: border-box;
-} 
-
-.footer .fa-address-card{
-    box-sizing: border-box;
-    /* font-size: 2.3em; */
-    /* padding: .16em .11em; */
+.box-2__item-flex-presentacion{
+    flex-direction: column;
+    background-color: var(--color-1);
+    gap: .5em;
 }
 
-/* .main__item-flex-selecionado {
-    width: 100%;
-    height: 100%;
-    transition: height 1s, width 1s, trasform 350ms;
-    max-height: none;
-    max-width: none;
+.footer .item-flex__box-2{
+    padding-left: 20px;
+    overflow-y: scroll;
+}
+
+.footer__imagen{
+    width: clamp(8em, 20vw, 30em);
+    height: clamp(8em, 20vw, 30em);
+}
+
+.box-2__item-flex-presentacion > div{
+    display: inline-block;
+    max-width: 90%;
+}
+
+.footer__nombre{
+    color: var(--color-3);
+}
+
+.footer__profecion{
+    color: var(--color-2);
+}
+
+.footer__texto{
+    display: inline-block;
+    margin: 0;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.footer .box-2__item-flex .fas, .footer .box-2__item-flex .fab {
+    font-size: 3em;
 }
 
 @media screen and (min-width: 900px) {
 
-    .main__item-flex-selecionado {
+    /* .main__item-flex-selecionado {
         width: 100%;
         height: 100%;
         transition: height 1s, width 1s, trasform 350ms;
         max-height: none;
         max-width: none;
-    }
-}  */
+    } */
+}  
