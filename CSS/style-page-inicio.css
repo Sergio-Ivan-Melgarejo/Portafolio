@@ -3,7 +3,6 @@ body{
     background-position-x: center;
     background-repeat: no-repeat;
     font-family: sans-serif;
-    transition: background-image 500ms, background-color 500ms;
     height: auto;
     background: linear-gradient(var(--color-1),var(--color-2),var(--color-3),var(--color-4));
     overflow-x: hidden;
@@ -333,8 +332,7 @@ body{
 
 .body .header-contraido{
     backdrop-filter: none;
-    height: 0;
-    width: 0;
+    display: none;
 }
 
 @keyframes headerBotonX {

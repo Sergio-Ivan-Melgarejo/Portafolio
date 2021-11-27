@@ -20,19 +20,19 @@ const datosfiltro = {
     "Front Mentor": {
         "Dificultad": [],
         "Lenguaje": [],
-        "Mostrar": "10"
+        "Mostrar": "8"
     },
     "Projectos": {
         "Lenguaje": [],
-        "Mostrar": "10"
+        "Mostrar": "8"
     },
     "Juegos": {
         "Lenguaje": [],
-        "Mostrar": "10"
+        "Mostrar": "8"
     },
     "Proximamente": {
         "Lenguaje": [],
-        "Mostrar": "10"
+        "Mostrar": "8"
     }
 };
 

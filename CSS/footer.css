@@ -18,6 +18,8 @@
     border-radius: 5px;
     padding: 1em;
     margin-bottom: 3em;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .box-2__item-flex-presentacion{
@@ -32,13 +34,21 @@
 }
 
 .footer__imagen{
-    width: clamp(8em, 20vw, 30em);
-    height: clamp(8em, 20vw, 30em);
+    width: clamp(100px, 20vw, 300px);
+    clip-path: circle(0 at 0 0);
+    transition: clip-path 3s;
+    border-radius: 5px;
+    border: var(--color-3) solid .2em;
+}
+
+.main__item-flex-selecionado .footer__imagen{
+    clip-path: circle(50% at 50% 50%);
 }
 
 .box-2__item-flex-presentacion > div{
     display: inline-block;
     max-width: 90%;
+    max-width: 500px;
 }
 
 .footer__nombre{
@@ -47,6 +57,7 @@
 
 .footer__profecion{
     color: var(--color-2);
+    margin: 0;
 }
 
 .footer__texto{
@@ -57,8 +68,57 @@
     padding: 1em;
 }
 
+.footer .item-flex__box-2 .box-2__div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: margin 500ms;
+}
+
+.box-2__span{
+    background-color: var(--color-2);
+    font-size: 1.5em;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 0;
+    color: var(--color-4);
+    transition: width 500ms, padding 500ms, color 500ms;
+}
+
 .footer .box-2__item-flex .fas, .footer .box-2__item-flex .fab {
     font-size: 3em;
+    transition: color 500ms, opacity 500ms;
+    opacity: .5;
+}
+
+.box-2__div:hover > span {
+    width: 5em;
+    padding: 0 1em;
+}
+
+.footer .box-2__item-flex .box-2__div:hover > i {
+    color: var(--color-3);
+    opacity: 1;
+    text-decoration: none;
+}
+
+.box-2__div.contacto {
+    color: var(--color-4);
+    text-decoration: none;
+}
+
+.box-2__div.contacto:hover > .box-2__span {
+    color: var(--color-3);
+}
+
+.box-2__div:hover > .email {
+    width: 15em;
+    padding: 0 2em;
+}
+
+.box-2__span.email::after{
+    content: "sergio.ivan.melgarejo@gmail.com";
+    user-select: all;
 }
 
 @media screen and (min-width: 900px) {
@@ -70,4 +130,8 @@
         max-height: none;
         max-width: none;
     } */
+
+    .box-2__item-flex-presentacion{
+        flex-direction: row;
+    }
 }  

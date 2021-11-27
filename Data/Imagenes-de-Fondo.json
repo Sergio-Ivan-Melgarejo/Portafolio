@@ -1,62 +1,56 @@
 [
     {
-        "src": "./imagenes/imagenes-de-fondo/1.jpg",
-        "tema": "ambos"
+        "src": "./imagenes/imagenes-de-fondo/1.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/2.jpg",
-        "tema": "ambos"
+        "src": "./imagenes/imagenes-de-fondo/2.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/3.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/3.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/4.jpg",
-        "tema": "ambos"
+        "src": "./imagenes/imagenes-de-fondo/4.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/5.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/5.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/6.jpg",
-        "tema": "ambos"
+        "src": "./imagenes/imagenes-de-fondo/6.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/7.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/7.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/8.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/8.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/9.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/9.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/10.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/10.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/11.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/11.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/12.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/12.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/13.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/13.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/14.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/14.jpg"
     },
     {
-        "src": "./imagenes/imagenes-de-fondo/15.jpg",
-        "tema": "claro"
+        "src": "./imagenes/imagenes-de-fondo/15.jpg"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/16.jpg"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/17.jpg"
+    },
+    {
+        "src": "./imagenes/imagenes-de-fondo/18.jpg"
     }
 ]

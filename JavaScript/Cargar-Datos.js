@@ -46,7 +46,7 @@ const cargarNombreUsuario = () => {
 const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
-        let numeroAzar = generaNumeroAlAzar(15);
+        let numeroAzar = generaNumeroAlAzar(18);
         main.style = 
         `background-image: url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg);
         background-size: cover;
@@ -63,23 +63,29 @@ const cargarDeFondo = () =>{
 
 // Elige el pre fondo del menu de configuracion que eligio el usuario o los pone los por defecto
 const cartgarPreFondo = async () => {
-    let imagenElegida = localStorage.getItem("imagenDeFondo");
+    // // obtiene el numero de la imagend de fondo para centrar las pre imagenes segun esa imagen
+    // let imagenElegida = localStorage.getItem("imagenDeFondo");
+    
+    // if ( imagenElegida ) imagenElegida = imagenElegida.slice(-6,-4);
+    // else imagenElegida = main.style.backgroundImage.slice(-8,-6);
 
-    // obtiene el numero de la imagend de fondo para centrar las pre imagenes segun esa imagen
-    imagenElegida = main.style.backgroundImage.slice(-8,-6);
-    if ( imagenElegida[0] == "/" ) imagenElegida = imagenElegida[1];
-    imagenElegida =  parseInt(imagenElegida);
-    let preI1 = imagenElegida - 1 ;
-    let preI2 = imagenElegida + 1 ;
+    // if ( imagenElegida[0] == "/" ) imagenElegida = imagenElegida[1];
+    // imagenElegida =  parseInt(imagenElegida);
+    // let preI1 = imagenElegida - 1 ;
+    // let preI2 = imagenElegida + 1 ;
 
-    let dataJsonIDF = await obtenerJsonIDF();      
+    // let dataJsonIDF = await obtenerJsonIDF();      
 
-    if ( preI1 < 1 ) preI1 = dataJsonIDF.length ;
-    if ( preI2 > dataJsonIDF.length ) preI2 = 1;
+    // if ( preI1 < 1 ) preI1 = dataJsonIDF.length ;
+    // if ( preI2 > dataJsonIDF.length ) preI2 = 1;
 
-    preImagen2.setAttribute("src", `./imagenes/imagenes-de-fondo/${imagenElegida}.jpg`);
-    preImagen1.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI1}.jpg`);
-    preImagen3.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI2}.jpg`);
+    // preImagen2.setAttribute("src", `./imagenes/imagenes-de-fondo/${imagenElegida}.jpg`);
+    // preImagen1.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI1}.jpg`);
+    // preImagen3.setAttribute("src", `./imagenes/imagenes-de-fondo/${preI2}.jpg`);
+
+    preImagen1.setAttribute("src", `./imagenes/imagenes-de-fondo/1.jpg`);
+    preImagen2.setAttribute("src", `./imagenes/imagenes-de-fondo/2.jpg`);
+    preImagen3.setAttribute("src", `./imagenes/imagenes-de-fondo/3.jpg`);
 }
 
 const cargarTema = () => {
@@ -87,18 +93,18 @@ const cargarTema = () => {
     body.classList.add(tema);
 }
 
-cargarDeAvatar();
-cargarNombreUsuario();
 cargarDeFondo();
+cargarDeAvatar();
 cargarTema();
+cargarNombreUsuario();
 body.style.fontSize = localStorage.getItem("fuente");
 
 // Evento
 
 addEventListener("DOMContentLoaded" ,() => {
-    cartgarPreFondo();
     setTimeout(() => {
         loader.classList.remove("activo-loader");
     }, 500);
+    cartgarPreFondo();
 })
 

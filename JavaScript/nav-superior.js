@@ -93,7 +93,6 @@ export const obtenerJsonIDF = async () => {
 // Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
 
-
     // obtiene el numero actual cargado del local stora directo del html una vez sola
     if ( !dataJsonIDF ) {
         // si hay almacenado en localStorage 
@@ -232,7 +231,7 @@ addEventListener("DOMContentLoaded", () => {
     abrirCof.addEventListener("click", () => {
         navSuperior.classList.remove("cerrados");
 
-        contraerHeader();
+        contraerHeader()
     });
 
     cerrarCof.addEventListener("click", () => {

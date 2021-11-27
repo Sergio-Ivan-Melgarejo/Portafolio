@@ -233,17 +233,37 @@
 /* cerrar menu superior ______________________________________*/
 
 .cerrar-menu-cof{
-    color: var(--color-1);
     position: absolute;
     right: 10px;
     padding: 10px;
     font-size: 2em;
     top: 0;
     cursor: pointer;
+    animation: cerrarCof 3s infinite;
+    color: var(--color-2);
+    transition: color 350ms, transform 350ms;
 }
 
 .cerrar-menu-cof:hover{
     opacity: 1;
+    animation: none;
+    color: rgb(214, 55, 55);
+    transform: scale(1.1);
+}
+
+@keyframes cerrarCof {
+    0%{
+        color: var(--color-2);
+        opacity: .5;
+    }
+    50%{
+        color: rgb(214, 55, 55);
+        opacity: 1;
+    }
+    100%{
+        color: var(--color-2);
+        opacity: .5;
+    }
 }
 
 /* General ---------------------------- */
@@ -316,3 +336,14 @@
         padding: 0px 5px 10px 5px;
     }
 }
+
+@media screen and (max-height: 27em) {
+    .nav-superior {
+      height: calc(600px + 5.2em + 20px);
+    }
+
+    .cerrados{
+        height: 0em;
+        padding: 0;
+    }
+}  

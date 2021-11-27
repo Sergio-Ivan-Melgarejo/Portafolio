@@ -83,6 +83,7 @@
     right: 10%;
     border-radius: 5px;
     border: .2em solid var(--color-3);
+    z-index: 1;
     
 }
 
@@ -98,27 +99,27 @@
 }
 
 .nav-i__animacion-trabajos-1{
-    animation: mostrarTrabajos 4.5s forwards;
+    animation: mostrarTrabajos 3s forwards;
 }
 
 .nav-i__animacion-trabajos-2{
-    animation: mostrarTrabajos 4.5s forwards;
+    animation: mostrarTrabajos 3s forwards;
 }
 
 .nav-i__animacion-trabajos-3{
-    animation: mostrarTrabajos 4.5s forwards;
+    animation: mostrarTrabajos 3s forwards;
 }
 
 .nav-i__animacion-trabajos-4{
-    animation: mostrarTrabajos 4.5s forwards;
+    animation: mostrarTrabajos 3s forwards;
 }
 
 .body .nav-i__animacion-main{
-    animation: mostrarTrabajosBody 4.5s linear;
+    animation: mostrarTrabajosBody 3s linear;
 }
 
 .nav-i__animacion-main .main__item-flex-selecionado{
-    animation: mostrarTrabajosSelecionado 4.5s forwards;
+    animation: mostrarTrabajosSelecionado 3s forwards;
     margin: 0 0 auto;
 }
 
