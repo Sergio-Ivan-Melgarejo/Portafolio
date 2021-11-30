@@ -14,6 +14,7 @@
 }
 
 .main__item-flex {
+  position: relative;
   margin: auto;
   border-radius: 10px;
   display: flex;
@@ -115,9 +116,12 @@
   height: 100%;
   grid-area: 1/1/2/6;
   box-sizing: border-box;
-  transition: height 1s, width 1s, trasform 350ms;
+  transition: height 1s, trasform 350ms;
   max-height: none;
   max-width: none;
+  margin: 0 0 auto;
+  transform: scale(.4) translateX(200vw);
+  animation: aparecerSelecionado 1s forwards;
 }
 
 .main__item-flex-selecionado .item-flex__box-1 {
@@ -138,6 +142,18 @@
 
 .main__item-flex-selecionado .main__abrir-i:hover {
   color: var(--color-2);
+}
+
+@keyframes aparecerSelecionado {
+  0%{
+    transform: scale(.4) translateX(200vw);
+  }
+  50%{
+    transform: scale(.4) translateX(0vw);
+  }
+  100%{
+    transform: scale(1) translateX(0vw);
+  }
 }
 
 /* barra de scroll  ________________ */
@@ -340,7 +356,7 @@ input:checked + label {
 }
 
 .main__pagina-container-img:hover > .main__pagina-img{
-  transform: scale(1.35) rotate(10deg);
+  transform: scale(1.35);
 }
 
 .main__pagina-div {

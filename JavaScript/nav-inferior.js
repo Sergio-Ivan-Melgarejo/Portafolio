@@ -2,7 +2,7 @@
 
 import { navSuperior, cambiarNombreAvatar} from "./nav-superior.js"
 import { main, comprobarAbiertosMain } from "./main.js";
-import { contraerHeader } from "./code-inicio.js";
+import { contraerHeader, abrirHeader } from "./code-inicio.js";
 import { footer } from "./footer.js";
 
 //Declaraciones
@@ -48,9 +48,16 @@ addEventListener("DOMContentLoaded", () => {
 
         if ( evento.classList.contains("nav-inferior__sobre-mi") ) {
             subMenu.classList.toggle("abiertos");
-            menuMovil.parentNode.classList.toggle("bars-selecionado");
-            footer.classList.toggle("main__item-flex-selecionado");
-            ( footer.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : comprobarAbiertosMain();
+
+            for ( let i = 0; i < main.children.length; i++){
+                if ( main.children[i] !== footer && !main.children[i].classList.contains("header") ){
+                    main.children[i].classList.remove("main__item-flex-selecionado");
+                }
+            }
+            footer.classList.contains("main__item-flex-selecionado") ? footer.classList.remove("main__item-flex-selecionado") : footer.classList.add("main__item-flex-selecionado");
+        
+            ( footer.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : abrirHeader();
+            
         }
         
         /* mostrar animacion de donde estan los trabajos  */

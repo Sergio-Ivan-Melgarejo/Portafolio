@@ -429,13 +429,14 @@ addEventListener("DOMContentLoaded", () => {
             /* contraccion de secciones de main  */
 
             if ( evento.classList.contains("main__abrir-i") ) {
-                let secionElejida = evento.parentNode.parentNode;
-                secionElejida.classList.toggle("main__item-flex-selecionado");
 
-                if ( memorizacion != undefined && memorizacion != secionElejida ) {
-                    memorizacion.classList.remove("main__item-flex-selecionado");
+                let secionElejida = evento.parentNode.parentNode;
+                for ( let i = 0; i < main.children.length; i++){
+                    if ( main.children[i] !== secionElejida && !main.children[i].classList.contains("header") ){
+                        main.children[i].classList.remove("main__item-flex-selecionado");
+                    }
                 }
-                memorizacion = secionElejida;
+                secionElejida.classList.contains("main__item-flex-selecionado") ? secionElejida.classList.remove("main__item-flex-selecionado") : secionElejida.classList.add("main__item-flex-selecionado");
         
                 ( secionElejida.classList.contains("main__item-flex-selecionado") ) ? contraerHeader() : abrirHeader();
             }
@@ -460,7 +461,7 @@ addEventListener("DOMContentLoaded", () => {
                     mostrarPaginas(evento.parentNode.parentNode);
                 }
             }
-                
+            
         }
 
         /* abrir y cerrar filtro de paginas */
