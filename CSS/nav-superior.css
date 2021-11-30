@@ -171,11 +171,15 @@
     flex-direction: column;
 }
 
-.nav-superior__imagen-de-fondo{
+.nav-superior__imagen-de-fondo, .nav-superior__imagen-de-fondo-2{
     height: 3.5em;
     width: 6em;
     border-radius: 10px;
     overflow: hidden;
+}
+
+.nav-superior__imagen-de-fondo-2{
+    border: .2em solid var(--color-3);
 }
 
 .li__imagen-de-fondo .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq{

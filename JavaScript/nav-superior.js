@@ -27,10 +27,11 @@ export const nombreUsuario = document.getElementById("nombreDeUsuario");
 export const preImagen1 = document.getElementById("IDF1");
 export const preImagen2 = document.getElementById("IDF2");
 export const preImagen3 = document.getElementById("IDF3");
-// -- Data/Imagenes-de-fondo.json --
-let dataJsonIDF = false;
 // src = numero del data que mostrara en los predondos del menu configuracion
-let src1 , src2, src3;
+let src1 = 0,
+    src2 = 1,
+    src3 = 2,
+    cantidadDeImg = 14;
 
 // Temas
 let memorizacion = "";
@@ -73,68 +74,11 @@ const guardarImagenDeFondo = (src) => {
     localStorage.setItem("imagenDeFondo", src)
 }
 
-/* obeter src de ./Data/Imagenes-de-fondo */
-// export const obtenerJsonIDF = async () => {
-//     return fetch("./Data/Imagenes-de-fondo.json", {
-//         headers : { 
-//           'Content-Type': 'application/json',
-//           'Accept': 'application/json'
-//          }
-//     })
-//     .then( res  => {
-//         return res.json()
-//     })
-//     .then( res => {
-//         return res;  
-//     })
-// }
 
 // Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
 
-    // obtiene el numero actual cargado del local stora directo del html una vez sola
-    if ( !dataJsonIDF ) {
-        // si hay almacenado en localStorage 
-        if ( localStorage.getItem("imagenDeFondo") == undefined ) {
-            src2 = ( main.style.backgroundImage.slice(-8,-6) ) ;
-            if ( src2[0] == "/" ) src2 = src2[1];
-            src2 = parseInt( src2 ) -1;
-            src1 = src2 - 1 ;
-            src3 = src2 + 1 ;
-        } // si no hay
-        else{ 
-            src2 = ( preImagen2.getAttribute("src").slice(-6,-4) ) ;
-            if ( src2[0] == "/" ) src2 = src2[1];
-            src2 = parseInt( src2 ) -1;
-            src1 = src2 - 1 ;
-            src3 = src2 + 1 ;
-        }
-    }
-
-    //obtiene obtiene las src una vez sola
-    if ( !dataJsonIDF ) {
-        await fetch("./Data/Imagenes-de-fondo.json"
-        // , {
-        //     headers : { 
-        //       'Content-Type': 'application/json',
-        //       'Accept': 'application/json'
-        //      }
-        // }
-        )
-        .then( res  => {
-            return res.json()
-        })
-        .then( res => {
-            console.log(res)
-            dataJsonIDF = res;  
-        });
-        console.log(dataJsonIDF)
-    }       
-
-    // si pasa la cantidad de imagenes vuelve al principio y viseversa
-    if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
-    if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
-
+console.log(src1,src2,src3)
     if (direcion === "der")  {
         src1 = src2;
         src2 = src3;
@@ -145,14 +89,14 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
         src2 = src1; 
         src1--
     }
-    
-    // hay dos por que si empieza con el ultimo y da a cambiar para adelante ocurre un error
-    if ( src1 < 0 )  src1 = dataJsonIDF.length - 1 ;
-    if ( src3 > dataJsonIDF.length - 1)  src3 = 0 ;
+console.log(src1,src2,src3)
+    // si pasa la cantidad de imagenes vuelve al principio y viseversa
+    if ( src1 < 0 )  src1 = cantidadDeImg -1 ;
+    if ( src3 > cantidadDeImg -1 )  src3 = 0 ;
 
-    let preSRC1= dataJsonIDF[ src1 ].src;
-    let preSRC2 = dataJsonIDF[ src2 ].src;
-    let preSRC3= dataJsonIDF[ src3 ].src;
+    let preSRC1= `./imagenes/imagenes-de-fondo/${src1}.jpg`;
+    let preSRC2 = `./imagenes/imagenes-de-fondo/${src2}.jpg`;
+    let preSRC3=  `./imagenes/imagenes-de-fondo/${src3}.jpg`;
 
     preImagen1.setAttribute("src", preSRC1 )
     preImagen2.setAttribute("src", preSRC2 )
