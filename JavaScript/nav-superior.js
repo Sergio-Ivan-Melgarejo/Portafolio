@@ -74,20 +74,20 @@ const guardarImagenDeFondo = (src) => {
 }
 
 /* obeter src de ./Data/Imagenes-de-fondo */
-export const obtenerJsonIDF = async () => {
-    return fetch("./Data/Imagenes-de-fondo.json", {
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         }
-    })
-    .then( res  => {
-        return res.json()
-    })
-    .then( res => {
-        return res;  
-    })
-}
+// export const obtenerJsonIDF = async () => {
+//     return fetch("./Data/Imagenes-de-fondo.json", {
+//         headers : { 
+//           'Content-Type': 'application/json',
+//           'Accept': 'application/json'
+//          }
+//     })
+//     .then( res  => {
+//         return res.json()
+//     })
+//     .then( res => {
+//         return res;  
+//     })
+// }
 
 // Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
@@ -113,7 +113,20 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
 
     //obtiene obtiene las src una vez sola
     if ( !dataJsonIDF ) {
-        dataJsonIDF = await obtenerJsonIDF();
+        dataJsonIDF = await fetch("./Data/Imagenes-de-fondo.json"
+        // , {
+        //     headers : { 
+        //       'Content-Type': 'application/json',
+        //       'Accept': 'application/json'
+        //      }
+        // }
+        )
+        .then( res  => {
+            return res.json()
+        })
+        .then( res => {
+            return res;  
+        });
     }       
 
     // si pasa la cantidad de imagenes vuelve al principio y viseversa

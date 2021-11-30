@@ -1,8 +1,8 @@
 .tema-predeterminado{
-    --color-1: #eeeeee;
-    --color-2: #686D76;
-    --color-3: #19D3DA;
-    --color-4: #232323;
+    --color-1: #ffffff;
+    --color-2: #d0cde1;
+    --color-3: #1983da;
+    --color-4: #2f2e41;
 }
 
 .tema-noche{
@@ -13,10 +13,10 @@
 }
 
 .tema-lectura{
-    --color-1: #ecd575;
-    --color-2: #e49b5f;
-    --color-3: #251600;
-    --color-4: #534E52;
+    --color-1: #2f2e41;
+    --color-2: #8a7442;
+    --color-3: #ffd369;
+    --color-4: #d0cde1;
 }
 
 .tema-0{
@@ -181,13 +181,6 @@
 }
 
 .tema-23{
-    --color-1: #FAF3E0;
-    --color-2: #EABF9F;
-    --color-3: #B68973;
-    --color-4: #1E212D;
-}
-
-.tema-24{
     --color-1: #232931;
     --color-2: #393E46;
     --color-3: #4ECCA3;
@@ -289,9 +282,5 @@
 }
 
 .tema-23{
-    background: linear-gradient(#FAF3E0 20%, #EABF9F 40%, #B68973 60%, #1E212D 80%);
-}
-
-.tema-24{
     background: linear-gradient(#232931 20%, #393E46 40%, #4ECCA3 60%, #EEEEEE 80%);
 }
