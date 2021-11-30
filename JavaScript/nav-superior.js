@@ -74,11 +74,9 @@ const guardarImagenDeFondo = (src) => {
     localStorage.setItem("imagenDeFondo", src)
 }
 
-
 // Comprueba que no pase el carrucel el numero de imagen que hay y añade las src
 const configuracionCambiarMiniImagenes = async (direcion) => {
 
-console.log(src1,src2,src3)
     if (direcion === "der")  {
         src1 = src2;
         src2 = src3;
@@ -89,7 +87,7 @@ console.log(src1,src2,src3)
         src2 = src1; 
         src1--
     }
-console.log(src1,src2,src3)
+
     // si pasa la cantidad de imagenes vuelve al principio y viseversa
     if ( src1 < 0 )  src1 = cantidadDeImg -1 ;
     if ( src3 > cantidadDeImg -1 )  src3 = 0 ;

@@ -61,13 +61,6 @@ const cargarDeFondo = () =>{
     }
 }
 
-// Elige el pre fondo del menu de configuracion que eligio el usuario o los pone los por defecto
-const cartgarPreFondo = async () => {
-    preImagen1.setAttribute("src", `./imagenes/imagenes-de-fondo/1.jpg`);
-    preImagen2.setAttribute("src", `./imagenes/imagenes-de-fondo/2.jpg`);
-    preImagen3.setAttribute("src", `./imagenes/imagenes-de-fondo/3.jpg`);
-}
-
 const cargarTema = () => {
     let tema = localStorage.getItem("tema") || "tema-predeterminado";
     body.classList.add(tema);
@@ -85,6 +78,5 @@ addEventListener("DOMContentLoaded" ,() => {
     setTimeout(() => {
         loader.classList.remove("activo-loader");
     }, 500);
-    cartgarPreFondo();
 })
 
