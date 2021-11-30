@@ -113,7 +113,7 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
 
     //obtiene obtiene las src una vez sola
     if ( !dataJsonIDF ) {
-        dataJsonIDF = await fetch("./Data/Imagenes-de-fondo.json"
+        await fetch("./Data/Imagenes-de-fondo.json"
         // , {
         //     headers : { 
         //       'Content-Type': 'application/json',
@@ -125,8 +125,10 @@ const configuracionCambiarMiniImagenes = async (direcion) => {
             return res.json()
         })
         .then( res => {
-            return res;  
+            console.log(res)
+            dataJsonIDF = res;  
         });
+        console.log(dataJsonIDF)
     }       
 
     // si pasa la cantidad de imagenes vuelve al principio y viseversa
