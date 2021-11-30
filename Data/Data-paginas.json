@@ -35,7 +35,7 @@
             "titulo": "FAQ accordion card solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-04/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-04/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Newbie"
         }
     },
@@ -45,7 +45,7 @@
             "titulo": "Tip calculator app solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-05/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-05/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Junior"
         }
     },
@@ -75,7 +75,7 @@
             "titulo": "Time tracking dashboard solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-06/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-06/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Junior"
         }
     },
@@ -85,7 +85,7 @@
             "titulo": "Ping coming soon page solution",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-07/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-07/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Newbie"
         }
     },
@@ -135,7 +135,7 @@
             "titulo": "Base Apparel coming soon page",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-13/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-13/",
-            "lenguaje": "HTML CSS JS",
+            "lenguaje": "HTML CSS JAVASCRIPT",
             "dificultad": "Newbie"
         }
     },
@@ -145,7 +145,7 @@
             "titulo": "Article preview component",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-14/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-14/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Newbie"
         }
     },
@@ -175,7 +175,7 @@
             "titulo": "Fylo data storage component",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-18/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-18/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Junior"
         }
     },
@@ -185,7 +185,7 @@
             "titulo": "Intro component with sign up form",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-19/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-19/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Newbie"
         }
     },
@@ -205,7 +205,7 @@
             "titulo": "Sunnyside agency landing page",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-21/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-21/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "dificultad": "Junior"
         }
     },
@@ -225,7 +225,7 @@
             "titulo": "Texto Animado",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Texto-Animado-Javascript/blob/main/img/thumb.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Texto-Animado-Javascript/",
-            "lenguaje": "HTML & CSS JS",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
             "extra": "- solo JavaScript -"
         }
     },
@@ -245,7 +245,7 @@
             "titulo": "REST Countries API with color theme switcher",
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Front-Mentor-23/raw/main/design/desktop-preview.jpg",
             "url": "https://sergio-ivan-melgarejo.github.io/Front-Mentor-23/",
-            "lenguaje": "HTML & CSS JS API",
+            "lenguaje": "HTML & CSS JAVASCRIPT API",
             "dificultad": "Advanced"
         }
     }

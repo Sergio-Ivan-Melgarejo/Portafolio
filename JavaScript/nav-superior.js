@@ -35,7 +35,6 @@ let src1 , src2, src3;
 // Temas
 let memorizacion = "";
 
-
 // Funciones
 
 const guardarDatoLocalStora = (nombreDeDato, dato) => {
@@ -76,7 +75,7 @@ const guardarImagenDeFondo = (src) => {
 
 /* obeter src de ./Data/Imagenes-de-fondo */
 export const obtenerJsonIDF = async () => {
-    return await fetch("./Data/Imagenes-de-fondo.json", {
+    return fetch("./Data/Imagenes-de-fondo.json", {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'

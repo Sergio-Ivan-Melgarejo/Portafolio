@@ -20,19 +20,19 @@ const datosfiltro = {
     "Front Mentor": {
         "Dificultad": [],
         "Lenguaje": [],
-        "Mostrar": "8"
+        "Mostrar": "16"
     },
     "Projectos": {
         "Lenguaje": [],
-        "Mostrar": "8"
+        "Mostrar": "16"
     },
     "Juegos": {
         "Lenguaje": [],
-        "Mostrar": "8"
+        "Mostrar": "16"
     },
     "Proximamente": {
         "Lenguaje": [],
-        "Mostrar": "8"
+        "Mostrar": "16"
     }
 };
 
@@ -285,7 +285,7 @@ const crearPagina = (pagina) => {
     icono.setAttribute("alt", `icono de view`);
     h3.textContent = pagina.datos.titulo;
     pLenguaje.textContent = "Lenguaje: ";
-    spanLenguaje.textContent = pagina.datos.lenguaje;
+    spanLenguaje.textContent = pagina.datos.lenguaje.replace("JAVASCRIPT", "JS");
     imgContainer.setAttribute("href", pagina.datos.url);
     imgContainer.setAttribute("target", "_blank");
 

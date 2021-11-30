@@ -146,7 +146,6 @@ const efectoEscribir = ( nombreSetInt, id, ...textos ) => {
                 div.children[i].textContent = array[i];
                 i++ 
             }
-        console.log("escribir")
         }, 300);
     }
 }
