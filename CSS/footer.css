@@ -86,7 +86,7 @@
 }
 
 .footer .box-2__item-flex .fas, .footer .box-2__item-flex .fab {
-    font-size: 2em;
+    font-size: 2.5em;
     transition: color 500ms, opacity 500ms;
     opacity: .5;
 }
@@ -105,11 +105,112 @@
 .box-2__div.contacto {
     color: var(--color-4);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .box-2__div.contacto:hover > .box-2__span {
     color: var(--color-3);
 }
+
+
+/* * formulario email ------------------------ */
+
+.footer__container{
+    max-width: 40em;
+    margin: auto;
+    width: 100%;
+}
+
+.footer__form{
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    background-color: var(--color-1);
+    border-radius: 5px;
+    height: 0;
+    text-align: left;
+    overflow: hidden;
+    transition: padding 500ms, height 500ms, margin 500ms;
+    box-sizing: content-box;
+}
+
+.footer__form.open{
+    padding: 1em 0;
+    height: 19em;
+    margin-bottom: 4em;
+}
+
+.form__div{
+    border: none;
+}
+
+.form__label{
+    color: var(--color-3);
+    cursor: pointer;
+}
+
+.form__input, .form__textarea{
+    width: 100%;
+    padding: .6em;
+    box-sizing: border-box;
+    outline-color: var(--color-3);
+    background-color: var(--color-4);
+    border: none;
+    border-radius: 5px;
+}
+
+.form__textarea{
+    resize: none;
+    min-height: 5em;
+}
+
+.form__boton{
+    padding: 1em;
+    font-weight: bold;
+    color: var(--color-1);
+    background-color: var(--color-4);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 350ms;
+    cursor: pointer;
+    width: calc(100% - 2em);
+    margin: 1em 0;
+    margin: auto;
+}
+
+.form__boton:hover{
+    background-color: var(--color-3);
+}
+
+/* * mensaje ------------------------------ */
+
+.form__mensaje{
+    background-color: var(--color-1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: -3em;
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden;
+    color: rgb(221, 75, 75);
+}
+
+.form__mensaje.open{
+    border: .5em var(--color-1) solid;
+}
+
+.form__li{
+    height: 0;
+    overflow: hidden;
+    transition: height 350ms;
+}
+
+.form__li.open{
+    padding: .5em;
+    height: 1em;
+
+}
+
 
 @media screen and (min-width: 900px) {
 

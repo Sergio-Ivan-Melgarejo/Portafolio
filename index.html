@@ -596,18 +596,40 @@
 
                     <h3>Contacto</h3>
                     <div class="box-2__item-flex">
-                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqbQnThSfNKjWgjnccgKSTXvJlkMGRtHvsbzjvcNlVhMZBpbRchTLjGwgmQVjnzzCWGmzL" class="box-2__div contacto">
+                        <div id="footerEmail" class="box-2__div contacto">
                             <i class="fas fa-envelope"></i>
                             <span class="box-2__span email">Gmail</span>
-                        </a>
-                        <a href="https://github.com/Sergio-Ivan-Melgarejo" class="box-2__div contacto">
+                        </div>
+                        <a href="https://github.com/Sergio-Ivan-Melgarejo" class="box-2__div contacto" target="__blank">
                             <i class="fab fa-github"></i>
                             <span class="box-2__span">GitHub</span>
                         </a>
-                        <a href="https://ar.linkedin.com/in/sergio-ivan-melgarejo-ba6412215" class="box-2__div contacto">
+                        <a href="https://ar.linkedin.com/in/sergio-ivan-melgarejo-ba6412215" class="box-2__div contacto" target="__blank">
                             <i class="fab fa-linkedin"></i>
                             <span class="box-2__span">Linkedin</span>
                         </a>
+                    </div>
+
+                    <div class="footer__container">
+                        <form id="form" class="footer__form" action="https://formsubmit.co/sergio.ivan.melgarejo@gmail.com" method="POST">
+                            <fieldset class="form__div">
+                                <label class="form__label" for="formNombre">Nombre:</label>
+                                <input class="form__input" id="formNombre" type="text" name="name" placeholder="Harry Potter">
+                            </fieldset>
+                            <fieldset class="form__div">
+                                <label class="form__label" for="formEmail">Email:</label>
+                                <input class="form__input" id="formEmail" type="email" name="email" placeholder="ejemplo@gmail.com">
+                            </fieldset>
+                            <fieldset class="form__div">
+                                    <textarea name="mensaje" class="form__textarea" id="formMensaje" placeholder="Deja aquí tu comentario..."></textarea>
+                            </fieldset>
+                            <button class="form__boton" type="submit">Enviar</button>
+                        </form>
+                        <ul class="form__mensaje" id="formMensajeError">
+                            <li class="form__li">* El nombre debe tener mas de 5 caracteres</li>
+                            <li class="form__li">* El email debe ser un correo valido</li>
+                            <li class="form__li">* El Mensaje debe tener mas de 10 caracteres</li>
+                        </ul>
                     </div>
 
                     <h3>Estudiando</h3>
