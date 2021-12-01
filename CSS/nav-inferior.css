@@ -98,29 +98,9 @@
     color: var(--color-2);
 }
 
-.nav-i__animacion-trabajos-1{
-    animation: mostrarTrabajos 3s forwards;
-}
-
-.nav-i__animacion-trabajos-2{
-    animation: mostrarTrabajos 3s forwards;
-}
-
-.nav-i__animacion-trabajos-3{
-    animation: mostrarTrabajos 3s forwards;
-}
-
-.nav-i__animacion-trabajos-4{
-    animation: mostrarTrabajos 3s forwards;
-}
-
-.body .nav-i__animacion-main{
-    animation: mostrarTrabajosBody 3s linear;
-}
-
-.nav-i__animacion-main .main__item-flex-selecionado{
-    animation: mostrarTrabajosSelecionado 3s forwards;
-    margin: 0 0 auto;
+.nav-i__animacion-trabajos{
+    animation: mostrarTrabajos 2s forwards;
+    z-index: 1;
 }
 
 @keyframes mostrarTrabajos {
@@ -131,28 +111,13 @@
 
     50%{
         box-shadow: 0 0 1.5em var(--color-3);
-        transform: scale(1.3) translateY(-40vh);
+        transform: scale(1.1) translateY(-10vh);
     }
 
     100%{
         box-shadow: 0 0 0em var(--color-1);
         transform: scale(1) translateY(0%);
     }
-}
-
-@keyframes mostrarTrabajosSelecionado {
-    0%{
-        height: 100%;
-    }
-
-    50%{
-        height: 30%;
-    }
-
-    100%{
-        height: 100%;
-    }
-    
 }
 
 /* Abrir menu superior ______________________________________*/
@@ -229,9 +194,7 @@
 
 @media screen and (max-height: 27em) and (max-width: 900px){
     
-    .body .main .nav-i__animacion-main .main__item-flex-selecionado{
-        animation: none;
-        height: 0;
+    .body .main .main__item-flex-selecionado{
         margin: 0;
         transition: margin 1s, height 1.5s;
     }
@@ -249,21 +212,6 @@
     
         100%{
             box-shadow: 0 0 0em var(--color-1);
-            transform: scale(1);
-        }
-        
-    }
-
-    @keyframes mostrarTrabajosSelecionado {
-        0%{
-            transform: scale(1);
-        }
-    
-        50%{
-            transform: scale(.8);
-        }
-    
-        100%{
             transform: scale(1);
         }
         
@@ -401,7 +349,7 @@
 
     /* animacion version escritorio */
     
-    .nav-i__animacion-main .main__item-flex-selecionado{
+    .main__item-flex-selecionado{
         margin: 0 0 0 auto;
         transition: margin 1s;
     }
@@ -414,7 +362,7 @@
 
         50%{
             box-shadow: 0 0 1.5em var(--color-3);
-            transform: scale(1.5) translateX(25vw);
+            transform: scale(1.3) translateX(10vw);
         }
 
         100%{
@@ -423,20 +371,4 @@
         }
         
     }
-
-    @keyframes mostrarTrabajosSelecionado {
-        0%{
-            width: 100%;
-        }
-
-        50%{
-            width: 50%;
-        }
-
-        100%{
-            width: 100%;
-        }
-        
-    }
-
 }

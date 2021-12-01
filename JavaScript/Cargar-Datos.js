@@ -46,7 +46,7 @@ const cargarNombreUsuario = () => {
 const cargarDeFondo = () =>{
     let src = localStorage.getItem("imagenDeFondo");
     if ( !src ) {   
-        let numeroAzar = generaNumeroAlAzar(14);
+        let numeroAzar = generaNumeroAlAzar(13);
         main.style = 
         `background-image: url(./imagenes/imagenes-de-fondo/${(numeroAzar)}.jpg);
         background-size: cover;

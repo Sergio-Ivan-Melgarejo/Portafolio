@@ -50,7 +50,6 @@
     border-bottom-left-radius: 20px;
     padding: 2em 1% 1em;
     font-weight: bold;
-    position: relative;
     font-size: 1.5em;
 }
 
@@ -237,36 +236,43 @@
 /* cerrar menu superior ______________________________________*/
 
 .cerrar-menu-cof{
-    position: absolute;
-    right: 10px;
-    padding: 10px;
+    position: fixed;
+    right: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
     font-size: 2em;
-    top: 0;
+    top: 10px;
     cursor: pointer;
     animation: cerrarCof 3s infinite;
     color: var(--color-2);
-    transition: color 350ms, transform 350ms;
+    transition: color 350ms, transform 350ms, top 500ms;
+    background-color: var(--color-2);
+    box-shadow: 0 0 .3em var(--color-1) inset;
+    z-index: 1;
 }
 
 .cerrar-menu-cof:hover{
-    opacity: 1;
     animation: none;
     color: rgb(214, 55, 55);
     transform: scale(1.1);
 }
 
+.cerrados .cerrar-menu-cof{
+    top: -100px;
+}
+
 @keyframes cerrarCof {
     0%{
+        box-shadow: 0 0 .3em var(--color-3) inset;
         color: var(--color-2);
-        opacity: .5;
     }
     50%{
+        box-shadow: 0 0 .3em rgb(214, 55, 55) inset;
         color: rgb(214, 55, 55);
-        opacity: 1;
     }
     100%{
+        box-shadow: 0 0 .3em var(--color-3) inset;
         color: var(--color-2);
-        opacity: .5;
     }
 }
 
@@ -287,7 +293,7 @@
     
 }
 
-.cerrar-menu-cof, .imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .nav-superior__imagen-de-fondo, .boton-confirmar-editar, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
+.imagenes-de-fondo__flecha-der, .imagenes-de-fondo__flecha-izq, .nav-superior__imagen-de-fondo, .boton-confirmar-editar, .fuente__fuentes, .temas__boton, .fas-configuracion, .fas-configuracion-user{
     opacity: .2;
     transition: opacity 350ms, transform 350ms;
 }
