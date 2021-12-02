@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2em;
+    gap: 1em 2em;
     color: var(--color-4);
     background-color: var(--color-1);
     border-radius: 5px;
@@ -112,7 +112,6 @@
     color: var(--color-3);
 }
 
-
 /* * formulario email ------------------------ */
 
 .footer__container{
@@ -156,6 +155,7 @@
     background-color: var(--color-4);
     border: none;
     border-radius: 5px;
+    color: var(--color-1);
 }
 
 .form__textarea{
@@ -193,8 +193,9 @@
     border-radius: 5px;
     overflow: hidden;
     color: rgb(221, 75, 75);
+    position: relative;
+    overflow: hidden;
 }
-
 .form__mensaje.open{
     border: .5em var(--color-1) solid;
 }
@@ -202,15 +203,14 @@
 .form__li{
     height: 0;
     overflow: hidden;
-    transition: height 350ms;
+    transition: height 350ms, padding 350ms;
+    padding: 0 .5em;
 }
 
 .form__li.open{
     padding: .5em;
-    height: 1em;
-
+    height: 2em;
 }
-
 
 @media screen and (min-width: 900px) {
 
