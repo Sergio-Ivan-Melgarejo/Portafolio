@@ -56,7 +56,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/MiApp-Practica-01/blob/main/imagenes/1.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/MiApp-Practica-01/",
             "lenguaje": "HTML & CSS JS",
-            "extra": "- sin libreria -"
+            "extra": "- sin framework -"
         }
     },
     {
@@ -66,7 +66,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Javascript-Simple-Quiz/blob/main/screenshot.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Javascript-Simple-Quiz/index.html",
             "lenguaje": "HTML & CSS JS",
-            "extra": "- sin libreria -"
+            "extra": "- sin framework -"
         }
     },
     {
@@ -216,7 +216,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Only-CSS-Glass-Effect/raw/main/img/1.png",
             "url": "https://sergio-ivan-melgarejo.github.io/Only-CSS-Glass-Effect/",
             "lenguaje": "HTML & CSS",
-            "extra": "- sin libreria -"
+            "extra": "- sin framework -"
         }
     },
     {
@@ -226,7 +226,7 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Texto-Animado-Javascript/blob/main/img/thumb.png?raw=true",
             "url": "https://sergio-ivan-melgarejo.github.io/Texto-Animado-Javascript/",
             "lenguaje": "HTML & CSS JAVASCRIPT",
-            "extra": "- sin libreria -"
+            "extra": "- sin framework -"
         }
     },
     {
@@ -256,7 +256,37 @@
             "imagen": "https://github.com/Sergio-Ivan-Melgarejo/Formulario-Dinamico-Tarjeta-de-Credito/raw/main/img/screencapture.png",
             "url": "https://sergio-ivan-melgarejo.github.io/Formulario-Dinamico-Tarjeta-de-Credito/",
             "lenguaje": "HTML & CSS JAVASCRIPT",
-            "extra": "- sin libreria -"
+            "extra": "- sin framework -"
+        }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Testimonial cards || Bootstrap 5, Sass",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/mi-primer-proyecto-bootstrap5-sass/raw/main/images/screencapture.png",
+            "url": "https://mi-primer-proyecto-bootstrap5-sass.netlify.app/",
+            "lenguaje": "HTML & CSS",
+            "extra": "- Bootstrap 5, Sass, PurgeCSS -"
+        }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Login con Bootstrap 5",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/bootstrap5-login-responsivo/raw/main/img/screencapture.png",
+            "url": "https://sergio-ivan-melgarejo.github.io/bootstrap5-login-responsivo/",
+            "lenguaje": "HTML & CSS",
+            "extra": "- Bootstrap 5 -"
+        }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Sitio web con Bootstrap 5",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/bootstrap5-website-nintendo/blob/main/img/screencapture%20-%20copia.png?raw=true",
+            "url": "https://sergio-ivan-melgarejo.github.io/bootstrap5-website-nintendo/",
+            "lenguaje": "HTML & CSS",
+            "extra": "- Bootstrap 5 -"
         }
     }
 ]

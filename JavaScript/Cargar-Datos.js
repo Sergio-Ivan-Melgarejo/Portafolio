@@ -17,7 +17,7 @@ export const generaNumeroAlAzar = (numero) => {
 // Elige al azar un avatar si no hay guardados
 const cargarDeAvatar = () =>{
     let genero = localStorage.getItem("avatarGenero");
-    let color = localStorage.getItem("tema") || "tema-predeterminado";
+    let color = localStorage.getItem("tema") || "tema-noche";
 
     if ( !genero ) {
         let generoAlAzar = generaNumeroAlAzar( 2 );
