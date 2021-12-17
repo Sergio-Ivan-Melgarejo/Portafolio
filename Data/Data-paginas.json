@@ -282,11 +282,21 @@
     {
         "tipo": "Projectos",
         "datos": {
-            "titulo": "Sitio web con Bootstrap 5",
-            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/bootstrap5-website-nintendo/blob/main/img/screencapture%20-%20copia.png?raw=true",
-            "url": "https://sergio-ivan-melgarejo.github.io/bootstrap5-website-nintendo/",
+            "titulo": "Clon de Instafram con Bootstrap 5",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/bootstrap5-clon-instagram/raw/main/img/screencapture.png",
+            "url": "https://sergio-ivan-melgarejo.github.io/bootstrap5-clon-instagram/",
             "lenguaje": "HTML & CSS",
             "extra": "- Bootstrap 5 -"
+        }
+    },
+    {
+        "tipo": "Projectos",
+        "datos": {
+            "titulo": "Pagina web ExpertD.",
+            "imagen": "https://github.com/Sergio-Ivan-Melgarejo/bootstrap5-web-expertd/raw/main/img/screencapture.png",
+            "url": "https://sergio-ivan-melgarejo.github.io/bootstrap5-web-expertd/",
+            "lenguaje": "HTML & CSS JAVASCRIPT",
+            "extra": "- com Bootstrap 5 - Typewriter JS -"
         }
     }
 ]
